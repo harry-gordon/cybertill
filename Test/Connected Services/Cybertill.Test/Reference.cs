@@ -7,15 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.ServiceModel;
-
-namespace Cybertill.Soap
+namespace Cybertill.Test
 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/", ConfigurationName="Cybertill.Soap.CybertillApi_v1_6PortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/", ConfigurationName="Cybertill.Test.CybertillApi_v1_6PortType")]
     public interface CybertillApi_v1_6PortType
     {
         
@@ -27,419 +24,419 @@ namespace Cybertill.Soap
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/brand_get", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctProductBrand> brand_getAsync(int brand_id);
+        System.Threading.Tasks.Task<Cybertill.Test.ctProductBrand> brand_getAsync(int brand_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/brand_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.brand_listResponse> brand_listAsync(Cybertill.Soap.brand_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.brand_listResponse> brand_listAsync(Cybertill.Test.brand_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/brand_web_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.brand_web_listResponse> brand_web_listAsync(Cybertill.Soap.brand_web_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.brand_web_listResponse> brand_web_listAsync(Cybertill.Test.brand_web_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_get", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctSoapEposCategory> category_getAsync(int cat_id);
+        System.Threading.Tasks.Task<Cybertill.Test.ctSoapEposCategory> category_getAsync(int cat_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> category_list_countAsync(string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> category_list_countAsync(string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctSoapEposCategory> category_listAsync();
+        System.Threading.Tasks.Task<Cybertill.Test.ctSoapEposCategory> category_listAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_flat_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.category_flat_listResponse> category_flat_listAsync(Cybertill.Soap.category_flat_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.category_flat_listResponse> category_flat_listAsync(Cybertill.Test.category_flat_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_get_web", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctSoapWebCategory> category_get_webAsync(int cat_id);
+        System.Threading.Tasks.Task<Cybertill.Test.ctSoapWebCategory> category_get_webAsync(int cat_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_web_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> category_web_list_countAsync(int website_id, bool web_visible, string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> category_web_list_countAsync(int website_id, bool web_visible, string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_web_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctSoapWebCategory> category_web_listAsync(int website_id);
+        System.Threading.Tasks.Task<Cybertill.Test.ctSoapWebCategory> category_web_listAsync(int website_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_web_flat_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.category_web_flat_listResponse> category_web_flat_listAsync(Cybertill.Soap.category_web_flat_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.category_web_flat_listResponse> category_web_flat_listAsync(Cybertill.Test.category_web_flat_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/country_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.country_listResponse> country_listAsync(Cybertill.Soap.country_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.country_listResponse> country_listAsync(Cybertill.Test.country_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/country_get", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctCountry> country_getAsync(int country_id);
+        System.Threading.Tasks.Task<Cybertill.Test.ctCountry> country_getAsync(int country_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_listResponse> courier_listAsync(Cybertill.Soap.courier_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.courier_listResponse> courier_listAsync(Cybertill.Test.courier_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_web_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_web_listResponse> courier_web_listAsync(Cybertill.Soap.courier_web_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.courier_web_listResponse> courier_web_listAsync(Cybertill.Test.courier_web_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_service_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_service_listResponse> courier_service_listAsync(Cybertill.Soap.courier_service_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.courier_service_listResponse> courier_service_listAsync(Cybertill.Test.courier_service_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_service_web_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_service_web_listResponse> courier_service_web_listAsync(Cybertill.Soap.courier_service_web_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.courier_service_web_listResponse> courier_service_web_listAsync(Cybertill.Test.courier_service_web_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_service_by_zone_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_service_by_zone_listResponse> courier_service_by_zone_listAsync(Cybertill.Soap.courier_service_by_zone_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.courier_service_by_zone_listResponse> courier_service_by_zone_listAsync(Cybertill.Test.courier_service_by_zone_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_zone_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_zone_listResponse> courier_zone_listAsync(Cybertill.Soap.courier_zone_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.courier_zone_listResponse> courier_zone_listAsync(Cybertill.Test.courier_zone_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_zone_by_country_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_zone_by_country_listResponse> courier_zone_by_country_listAsync(Cybertill.Soap.courier_zone_by_country_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.courier_zone_by_country_listResponse> courier_zone_by_country_listAsync(Cybertill.Test.courier_zone_by_country_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_tariff", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctTariff> courier_tariffAsync(int country_id, double total, int zone_id, int website_id);
+        System.Threading.Tasks.Task<Cybertill.Test.ctTariff> courier_tariffAsync(int country_id, double total, int zone_id, int website_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/currency_get", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctCurrency> currency_getAsync(int id);
+        System.Threading.Tasks.Task<Cybertill.Test.ctCurrency> currency_getAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/currency_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.currency_listResponse> currency_listAsync(Cybertill.Soap.currency_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.currency_listResponse> currency_listAsync(Cybertill.Test.currency_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_get", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctCustomerDetails> customer_getAsync(int customer_id);
+        System.Threading.Tasks.Task<Cybertill.Test.ctCustomerDetails> customer_getAsync(int customer_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_get_web", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctCustomerDetails> customer_get_webAsync(string email, string password, bool do_not_validate_on_password);
+        System.Threading.Tasks.Task<Cybertill.Test.ctCustomerDetails> customer_get_webAsync(string email, string password, bool do_not_validate_on_password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> customer_list_countAsync(bool active, string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> customer_list_countAsync(bool active, string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.customer_listResponse> customer_listAsync(Cybertill.Soap.customer_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.customer_listResponse> customer_listAsync(Cybertill.Test.customer_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_web_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> customer_web_list_countAsync(bool active, string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> customer_web_list_countAsync(bool active, string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_web_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.customer_web_listResponse> customer_web_listAsync(Cybertill.Soap.customer_web_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.customer_web_listResponse> customer_web_listAsync(Cybertill.Test.customer_web_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_address_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> customer_address_list_countAsync(bool active, string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> customer_address_list_countAsync(bool active, string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_address_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.customer_address_listResponse> customer_address_listAsync(Cybertill.Soap.customer_address_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.customer_address_listResponse> customer_address_listAsync(Cybertill.Test.customer_address_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_order_history", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.customer_order_historyResponse> customer_order_historyAsync(Cybertill.Soap.customer_order_historyRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.customer_order_historyResponse> customer_order_historyAsync(Cybertill.Test.customer_order_historyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_add", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctCustomerAddResponse> customer_addAsync(Cybertill.Soap.ctCustomerAdd customer_details);
+        System.Threading.Tasks.Task<Cybertill.Test.ctCustomerAddResponse> customer_addAsync(Cybertill.Test.ctCustomerAdd customer_details);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_edit", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctUpdateResponse> customer_editAsync(Cybertill.Soap.ctCustomerEdit customer_details);
+        System.Threading.Tasks.Task<Cybertill.Test.ctUpdateResponse> customer_editAsync(Cybertill.Test.ctCustomerEdit customer_details);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_add_address", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctAddressAddResponse> customer_add_addressAsync(int customer_id, Cybertill.Soap.ctAddressAdd customer_address);
+        System.Threading.Tasks.Task<Cybertill.Test.ctAddressAddResponse> customer_add_addressAsync(int customer_id, Cybertill.Test.ctAddressAdd customer_address);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_edit_address", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.customer_edit_addressResponse> customer_edit_addressAsync(Cybertill.Soap.customer_edit_addressRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.customer_edit_addressResponse> customer_edit_addressAsync(Cybertill.Test.customer_edit_addressRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_get_password", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctUpdateResponse> customer_get_passwordAsync(int customer_id, string email, int website_id, string from_email);
+        System.Threading.Tasks.Task<Cybertill.Test.ctUpdateResponse> customer_get_passwordAsync(int customer_id, string email, int website_id, string from_email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/gift_card_check_balance", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctGiftcardCheckBalanceResponse> gift_card_check_balanceAsync(string cardNumber, int cardPin);
+        System.Threading.Tasks.Task<Cybertill.Test.ctGiftcardCheckBalanceResponse> gift_card_check_balanceAsync(string cardNumber, int cardPin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_get", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctProductOptionDetails> item_getAsync(int id, string @ref, int cntryId, bool includeProduct, bool includeUdfs);
+        System.Threading.Tasks.Task<Cybertill.Test.ctProductOptionDetails> item_getAsync(int id, string @ref, int cntryId, bool includeProduct, bool includeUdfs);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> item_list_countAsync(bool available, string date_updated, bool discontinued, bool web_visible, string date_created);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> item_list_countAsync(bool available, string date_updated, bool discontinued, bool web_visible, string date_created);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.item_listResponse> item_listAsync(Cybertill.Soap.item_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.item_listResponse> item_listAsync(Cybertill.Test.item_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_list_with_udf", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.item_list_with_udfResponse> item_list_with_udfAsync(Cybertill.Soap.item_list_with_udfRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.item_list_with_udfResponse> item_list_with_udfAsync(Cybertill.Test.item_list_with_udfRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_image_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> item_image_list_countAsync(int item_id, string date_updated, string date_created);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> item_image_list_countAsync(int item_id, string date_updated, string date_created);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_image_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.item_image_listResponse> item_image_listAsync(Cybertill.Soap.item_image_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.item_image_listResponse> item_image_listAsync(Cybertill.Test.item_image_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_barcode_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> item_barcode_list_countAsync(string date_updated, string date_created);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> item_barcode_list_countAsync(string date_updated, string date_created);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_barcode_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.item_barcode_listResponse> item_barcode_listAsync(Cybertill.Soap.item_barcode_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.item_barcode_listResponse> item_barcode_listAsync(Cybertill.Test.item_barcode_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/location_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.location_listResponse> location_listAsync(Cybertill.Soap.location_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.location_listResponse> location_listAsync(Cybertill.Test.location_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/location_web_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.location_web_listResponse> location_web_listAsync(Cybertill.Soap.location_web_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.location_web_listResponse> location_web_listAsync(Cybertill.Test.location_web_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_get", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctProduct> product_getAsync(int prod_id);
+        System.Threading.Tasks.Task<Cybertill.Test.ctProduct> product_getAsync(int prod_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_get_with_udf", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctProductComplex> product_get_with_udfAsync(int prod_id, bool include_udf);
+        System.Threading.Tasks.Task<Cybertill.Test.ctProductComplex> product_get_with_udfAsync(int prod_id, bool include_udf);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_list_countAsync(bool availability, string date_updated, string date_created);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_list_countAsync(bool availability, string date_updated, string date_created);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_listResponse> product_listAsync(Cybertill.Soap.product_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.product_listResponse> product_listAsync(Cybertill.Test.product_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_list_with_udf", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_list_with_udfResponse> product_list_with_udfAsync(Cybertill.Soap.product_list_with_udfRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.product_list_with_udfResponse> product_list_with_udfAsync(Cybertill.Test.product_list_with_udfRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_web_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_web_list_countAsync(int website_id, bool availability, string date_updated, string date_created);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_web_list_countAsync(int website_id, bool availability, string date_updated, string date_created);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_web_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_web_listResponse> product_web_listAsync(Cybertill.Soap.product_web_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.product_web_listResponse> product_web_listAsync(Cybertill.Test.product_web_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_search", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_searchResponse> product_searchAsync(Cybertill.Soap.product_searchRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.product_searchResponse> product_searchAsync(Cybertill.Test.product_searchRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_items", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_itemsResponse> product_itemsAsync(Cybertill.Soap.product_itemsRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.product_itemsResponse> product_itemsAsync(Cybertill.Test.product_itemsRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_brand_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_by_brand_list_countAsync(int brand_id, bool availability, string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_by_brand_list_countAsync(int brand_id, bool availability, string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_brand_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_by_brand_listResponse> product_by_brand_listAsync(Cybertill.Soap.product_by_brand_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.product_by_brand_listResponse> product_by_brand_listAsync(Cybertill.Test.product_by_brand_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_brand_web_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_by_brand_web_list_countAsync(int brand_id, int website_id, bool availability, string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_by_brand_web_list_countAsync(int brand_id, int website_id, bool availability, string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_brand_web_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_by_brand_web_listResponse> product_by_brand_web_listAsync(Cybertill.Soap.product_by_brand_web_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.product_by_brand_web_listResponse> product_by_brand_web_listAsync(Cybertill.Test.product_by_brand_web_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_category_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_by_category_list_countAsync(int cat_id, bool availability, string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_by_category_list_countAsync(int cat_id, bool availability, string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_category_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_by_category_listResponse> product_by_category_listAsync(Cybertill.Soap.product_by_category_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.product_by_category_listResponse> product_by_category_listAsync(Cybertill.Test.product_by_category_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_category_web_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_by_category_web_list_countAsync(int cat_id, bool availability, string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_by_category_web_list_countAsync(int cat_id, bool availability, string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_category_web_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_by_category_web_listResponse> product_by_category_web_listAsync(Cybertill.Soap.product_by_category_web_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.product_by_category_web_listResponse> product_by_category_web_listAsync(Cybertill.Test.product_by_category_web_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_image_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_image_list_countAsync(int item_id, string date_updated, string date_created);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_image_list_countAsync(int item_id, string date_updated, string date_created);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_image_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_image_listResponse> product_image_listAsync(Cybertill.Soap.product_image_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.product_image_listResponse> product_image_listAsync(Cybertill.Test.product_image_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> stock_list_countAsync(string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> stock_list_countAsync(string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_listResponse> stock_listAsync(Cybertill.Soap.stock_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.stock_listResponse> stock_listAsync(Cybertill.Test.stock_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_location_list_count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> stock_location_list_countAsync(int loc_id, string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> stock_location_list_countAsync(int loc_id, string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_location_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_location_listResponse> stock_location_listAsync(Cybertill.Soap.stock_location_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.stock_location_listResponse> stock_location_listAsync(Cybertill.Test.stock_location_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_product", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_productResponse> stock_productAsync(Cybertill.Soap.stock_productRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.stock_productResponse> stock_productAsync(Cybertill.Test.stock_productRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_item", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_itemResponse> stock_itemAsync(Cybertill.Soap.stock_itemRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.stock_itemResponse> stock_itemAsync(Cybertill.Test.stock_itemRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_update", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_updateResponse> stock_updateAsync(Cybertill.Soap.stock_updateRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.stock_updateResponse> stock_updateAsync(Cybertill.Test.stock_updateRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_reserve", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_reserveResponse> stock_reserveAsync(Cybertill.Soap.stock_reserveRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.stock_reserveResponse> stock_reserveAsync(Cybertill.Test.stock_reserveRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_despatch", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_despatchResponse> stock_despatchAsync(Cybertill.Soap.stock_despatchRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.stock_despatchResponse> stock_despatchAsync(Cybertill.Test.stock_despatchRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_reserve_collect", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctReserveCollectionConfirmation> stock_reserve_collectAsync(Cybertill.Soap.ctReserveCollectData reserve_collect_data);
+        System.Threading.Tasks.Task<Cybertill.Test.ctReserveCollectionConfirmation> stock_reserve_collectAsync(Cybertill.Test.ctReserveCollectData reserve_collect_data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_override_reserve_collect", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctReserveCollectionConfirmation> stock_override_reserve_collectAsync(Cybertill.Soap.ctReserveCollectData reserve_collect_data);
+        System.Threading.Tasks.Task<Cybertill.Test.ctReserveCollectionConfirmation> stock_override_reserve_collectAsync(Cybertill.Test.ctReserveCollectData reserve_collect_data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_reserve_collect_batch_status", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_reserve_collect_batch_statusResponse> stock_reserve_collect_batch_statusAsync(Cybertill.Soap.stock_reserve_collect_batch_statusRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.stock_reserve_collect_batch_statusResponse> stock_reserve_collect_batch_statusAsync(Cybertill.Test.stock_reserve_collect_batch_statusRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_add", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.ticket_addResponse> ticket_addAsync(Cybertill.Soap.ticket_addRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.ticket_addResponse> ticket_addAsync(Cybertill.Test.ticket_addRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_event_List_Count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> ticket_event_List_CountAsync(string date_created, string date_updated, int start_from, int limit);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> ticket_event_List_CountAsync(string date_created, string date_updated, int start_from, int limit);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_event_List", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.ticket_event_ListResponse> ticket_event_ListAsync(Cybertill.Soap.ticket_event_ListRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.ticket_event_ListResponse> ticket_event_ListAsync(Cybertill.Test.ticket_event_ListRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_times_List_Count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> ticket_times_List_CountAsync(int event_id, string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> ticket_times_List_CountAsync(int event_id, string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_times_List", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.ticket_times_ListResponse> ticket_times_ListAsync(Cybertill.Soap.ticket_times_ListRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.ticket_times_ListResponse> ticket_times_ListAsync(Cybertill.Test.ticket_times_ListRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_booking_Sold_List_Count", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> ticket_booking_Sold_List_CountAsync(int event_id, int event_date_id, string date_created, string date_updated);
+        System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> ticket_booking_Sold_List_CountAsync(int event_id, int event_date_id, string date_created, string date_updated);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_booking_Sold_List", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.ticket_booking_Sold_ListResponse> ticket_booking_Sold_ListAsync(Cybertill.Soap.ticket_booking_Sold_ListRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.ticket_booking_Sold_ListResponse> ticket_booking_Sold_ListAsync(Cybertill.Test.ticket_booking_Sold_ListRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_get", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="result")]
-        System.Threading.Tasks.Task<Cybertill.Soap.ctTransactionDetails> transaction_getAsync(int order_id);
+        System.Threading.Tasks.Task<Cybertill.Test.ctTransactionDetails> transaction_getAsync(int order_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_add", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.transaction_addResponse> transaction_addAsync(Cybertill.Soap.transaction_addRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.transaction_addResponse> transaction_addAsync(Cybertill.Test.transaction_addRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_despatch_orders", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.transaction_despatch_ordersResponse> transaction_despatch_ordersAsync(Cybertill.Soap.transaction_despatch_ordersRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.transaction_despatch_ordersResponse> transaction_despatch_ordersAsync(Cybertill.Test.transaction_despatch_ordersRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_despatch_order_items", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.transaction_despatch_order_itemsResponse> transaction_despatch_order_itemsAsync(Cybertill.Soap.transaction_despatch_order_itemsRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.transaction_despatch_order_itemsResponse> transaction_despatch_order_itemsAsync(Cybertill.Test.transaction_despatch_order_itemsRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_refund_order_items", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.transaction_refund_order_itemsResponse> transaction_refund_order_itemsAsync(Cybertill.Soap.transaction_refund_order_itemsRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.transaction_refund_order_itemsResponse> transaction_refund_order_itemsAsync(Cybertill.Test.transaction_refund_order_itemsRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_get_order_lines", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.transaction_get_order_linesResponse> transaction_get_order_linesAsync(Cybertill.Soap.transaction_get_order_linesRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.transaction_get_order_linesResponse> transaction_get_order_linesAsync(Cybertill.Test.transaction_get_order_linesRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/vatrate_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.vatrate_listResponse> vatrate_listAsync(Cybertill.Soap.vatrate_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.vatrate_listResponse> vatrate_listAsync(Cybertill.Test.vatrate_listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/website_list", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<Cybertill.Soap.website_listResponse> website_listAsync(Cybertill.Soap.website_listRequest request);
+        System.Threading.Tasks.Task<Cybertill.Test.website_listResponse> website_listAsync(Cybertill.Test.website_listRequest request);
     }
     
     /// <remarks/>
@@ -8307,16 +8304,16 @@ namespace Cybertill.Soap
     public partial class brand_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "brand_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProductBrand[] result;
+        public Cybertill.Test.ctProductBrand[] result;
         
         public brand_listResponse()
         {
         }
         
-        public brand_listResponse(Cybertill.Soap.ctProductBrand[] result)
+        public brand_listResponse(Cybertill.Test.ctProductBrand[] result)
         {
             this.result = result;
         }
@@ -8369,16 +8366,16 @@ namespace Cybertill.Soap
     public partial class brand_web_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "brand_web_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProductBrand[] result;
+        public Cybertill.Test.ctProductBrand[] result;
         
         public brand_web_listResponse()
         {
         }
         
-        public brand_web_listResponse(Cybertill.Soap.ctProductBrand[] result)
+        public brand_web_listResponse(Cybertill.Test.ctProductBrand[] result)
         {
             this.result = result;
         }
@@ -8423,16 +8420,16 @@ namespace Cybertill.Soap
     public partial class category_flat_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "category_flat_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctEposCategoryFlatList[] result;
+        public Cybertill.Test.ctEposCategoryFlatList[] result;
         
         public category_flat_listResponse()
         {
         }
         
-        public category_flat_listResponse(Cybertill.Soap.ctEposCategoryFlatList[] result)
+        public category_flat_listResponse(Cybertill.Test.ctEposCategoryFlatList[] result)
         {
             this.result = result;
         }
@@ -8485,16 +8482,16 @@ namespace Cybertill.Soap
     public partial class category_web_flat_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "category_web_flat_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctWebsiteCategoryFlatList[] result;
+        public Cybertill.Test.ctWebsiteCategoryFlatList[] result;
         
         public category_web_flat_listResponse()
         {
         }
         
-        public category_web_flat_listResponse(Cybertill.Soap.ctWebsiteCategoryFlatList[] result)
+        public category_web_flat_listResponse(Cybertill.Test.ctWebsiteCategoryFlatList[] result)
         {
             this.result = result;
         }
@@ -8519,16 +8516,16 @@ namespace Cybertill.Soap
     public partial class country_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "country_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctCountry[] result;
+        public Cybertill.Test.ctCountry[] result;
         
         public country_listResponse()
         {
         }
         
-        public country_listResponse(Cybertill.Soap.ctCountry[] result)
+        public country_listResponse(Cybertill.Test.ctCountry[] result)
         {
             this.result = result;
         }
@@ -8553,16 +8550,16 @@ namespace Cybertill.Soap
     public partial class courier_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "courier_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctCourier[] result;
+        public Cybertill.Test.ctCourier[] result;
         
         public courier_listResponse()
         {
         }
         
-        public courier_listResponse(Cybertill.Soap.ctCourier[] result)
+        public courier_listResponse(Cybertill.Test.ctCourier[] result)
         {
             this.result = result;
         }
@@ -8595,16 +8592,16 @@ namespace Cybertill.Soap
     public partial class courier_web_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "courier_web_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctCourier[] result;
+        public Cybertill.Test.ctCourier[] result;
         
         public courier_web_listResponse()
         {
         }
         
-        public courier_web_listResponse(Cybertill.Soap.ctCourier[] result)
+        public courier_web_listResponse(Cybertill.Test.ctCourier[] result)
         {
             this.result = result;
         }
@@ -8629,16 +8626,16 @@ namespace Cybertill.Soap
     public partial class courier_service_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "courier_service_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctCarriageService[] result;
+        public Cybertill.Test.ctCarriageService[] result;
         
         public courier_service_listResponse()
         {
         }
         
-        public courier_service_listResponse(Cybertill.Soap.ctCarriageService[] result)
+        public courier_service_listResponse(Cybertill.Test.ctCarriageService[] result)
         {
             this.result = result;
         }
@@ -8671,16 +8668,16 @@ namespace Cybertill.Soap
     public partial class courier_service_web_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "courier_service_web_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctCarriageService[] result;
+        public Cybertill.Test.ctCarriageService[] result;
         
         public courier_service_web_listResponse()
         {
         }
         
-        public courier_service_web_listResponse(Cybertill.Soap.ctCarriageService[] result)
+        public courier_service_web_listResponse(Cybertill.Test.ctCarriageService[] result)
         {
             this.result = result;
         }
@@ -8713,16 +8710,16 @@ namespace Cybertill.Soap
     public partial class courier_service_by_zone_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "courier_service_by_zone_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctCarriageService[] result;
+        public Cybertill.Test.ctCarriageService[] result;
         
         public courier_service_by_zone_listResponse()
         {
         }
         
-        public courier_service_by_zone_listResponse(Cybertill.Soap.ctCarriageService[] result)
+        public courier_service_by_zone_listResponse(Cybertill.Test.ctCarriageService[] result)
         {
             this.result = result;
         }
@@ -8747,16 +8744,16 @@ namespace Cybertill.Soap
     public partial class courier_zone_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "courier_zone_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctCarriageZone[] result;
+        public Cybertill.Test.ctCarriageZone[] result;
         
         public courier_zone_listResponse()
         {
         }
         
-        public courier_zone_listResponse(Cybertill.Soap.ctCarriageZone[] result)
+        public courier_zone_listResponse(Cybertill.Test.ctCarriageZone[] result)
         {
             this.result = result;
         }
@@ -8789,16 +8786,16 @@ namespace Cybertill.Soap
     public partial class courier_zone_by_country_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "courier_zone_by_country_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctCarriageZone[] result;
+        public Cybertill.Test.ctCarriageZone[] result;
         
         public courier_zone_by_country_listResponse()
         {
         }
         
-        public courier_zone_by_country_listResponse(Cybertill.Soap.ctCarriageZone[] result)
+        public courier_zone_by_country_listResponse(Cybertill.Test.ctCarriageZone[] result)
         {
             this.result = result;
         }
@@ -8823,16 +8820,16 @@ namespace Cybertill.Soap
     public partial class currency_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "currency_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctCurrency[] result;
+        public Cybertill.Test.ctCurrency[] result;
         
         public currency_listResponse()
         {
         }
         
-        public currency_listResponse(Cybertill.Soap.ctCurrency[] result)
+        public currency_listResponse(Cybertill.Test.ctCurrency[] result)
         {
             this.result = result;
         }
@@ -8881,16 +8878,16 @@ namespace Cybertill.Soap
     public partial class customer_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "customer_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctCustomer[] result;
+        public Cybertill.Test.ctCustomer[] result;
         
         public customer_listResponse()
         {
         }
         
-        public customer_listResponse(Cybertill.Soap.ctCustomer[] result)
+        public customer_listResponse(Cybertill.Test.ctCustomer[] result)
         {
             this.result = result;
         }
@@ -8939,16 +8936,16 @@ namespace Cybertill.Soap
     public partial class customer_web_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "customer_web_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctCustomer[] result;
+        public Cybertill.Test.ctCustomer[] result;
         
         public customer_web_listResponse()
         {
         }
         
-        public customer_web_listResponse(Cybertill.Soap.ctCustomer[] result)
+        public customer_web_listResponse(Cybertill.Test.ctCustomer[] result)
         {
             this.result = result;
         }
@@ -8997,16 +8994,16 @@ namespace Cybertill.Soap
     public partial class customer_address_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "customer_address_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctAddress[] result;
+        public Cybertill.Test.ctAddress[] result;
         
         public customer_address_listResponse()
         {
         }
         
-        public customer_address_listResponse(Cybertill.Soap.ctAddress[] result)
+        public customer_address_listResponse(Cybertill.Test.ctAddress[] result)
         {
             this.result = result;
         }
@@ -9043,16 +9040,16 @@ namespace Cybertill.Soap
     public partial class customer_order_historyResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "customer_order_historyResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctOrderHistory[] result;
+        public Cybertill.Test.ctOrderHistory[] result;
         
         public customer_order_historyResponse()
         {
         }
         
-        public customer_order_historyResponse(Cybertill.Soap.ctOrderHistory[] result)
+        public customer_order_historyResponse(Cybertill.Test.ctOrderHistory[] result)
         {
             this.result = result;
         }
@@ -9068,13 +9065,13 @@ namespace Cybertill.Soap
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctAddressEdit[] customer_addresses;
+        public Cybertill.Test.ctAddressEdit[] customer_addresses;
         
         public customer_edit_addressRequest()
         {
         }
         
-        public customer_edit_addressRequest(Cybertill.Soap.ctAddressEdit[] customer_addresses)
+        public customer_edit_addressRequest(Cybertill.Test.ctAddressEdit[] customer_addresses)
         {
             this.customer_addresses = customer_addresses;
         }
@@ -9087,14 +9084,14 @@ namespace Cybertill.Soap
     public partial class customer_edit_addressResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "customer_edit_addressResponse", Order=0)]
-        public Cybertill.Soap.ctUpdateResponse result;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public Cybertill.Test.ctUpdateResponse result;
         
         public customer_edit_addressResponse()
         {
         }
         
-        public customer_edit_addressResponse(Cybertill.Soap.ctUpdateResponse result)
+        public customer_edit_addressResponse(Cybertill.Test.ctUpdateResponse result)
         {
             this.result = result;
         }
@@ -9159,16 +9156,16 @@ namespace Cybertill.Soap
     public partial class item_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "item_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProductOptionDetails[] result;
+        public Cybertill.Test.ctProductOptionDetails[] result;
         
         public item_listResponse()
         {
         }
         
-        public item_listResponse(Cybertill.Soap.ctProductOptionDetails[] result)
+        public item_listResponse(Cybertill.Test.ctProductOptionDetails[] result)
         {
             this.result = result;
         }
@@ -9241,16 +9238,16 @@ namespace Cybertill.Soap
     public partial class item_list_with_udfResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "item_list_with_udfResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProductOptionDetails[] result;
+        public Cybertill.Test.ctProductOptionDetails[] result;
         
         public item_list_with_udfResponse()
         {
         }
         
-        public item_list_with_udfResponse(Cybertill.Soap.ctProductOptionDetails[] result)
+        public item_list_with_udfResponse(Cybertill.Test.ctProductOptionDetails[] result)
         {
             this.result = result;
         }
@@ -9299,16 +9296,16 @@ namespace Cybertill.Soap
     public partial class item_image_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "item_image_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProductImage[] result;
+        public Cybertill.Test.ctProductImage[] result;
         
         public item_image_listResponse()
         {
         }
         
-        public item_image_listResponse(Cybertill.Soap.ctProductImage[] result)
+        public item_image_listResponse(Cybertill.Test.ctProductImage[] result)
         {
             this.result = result;
         }
@@ -9353,16 +9350,16 @@ namespace Cybertill.Soap
     public partial class item_barcode_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "item_barcode_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctBarcode[] result;
+        public Cybertill.Test.ctBarcode[] result;
         
         public item_barcode_listResponse()
         {
         }
         
-        public item_barcode_listResponse(Cybertill.Soap.ctBarcode[] result)
+        public item_barcode_listResponse(Cybertill.Test.ctBarcode[] result)
         {
             this.result = result;
         }
@@ -9407,16 +9404,16 @@ namespace Cybertill.Soap
     public partial class location_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "location_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctLocation[] result;
+        public Cybertill.Test.ctLocation[] result;
         
         public location_listResponse()
         {
         }
         
-        public location_listResponse(Cybertill.Soap.ctLocation[] result)
+        public location_listResponse(Cybertill.Test.ctLocation[] result)
         {
             this.result = result;
         }
@@ -9449,16 +9446,16 @@ namespace Cybertill.Soap
     public partial class location_web_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "location_web_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctWebsiteLocation[] result;
+        public Cybertill.Test.ctWebsiteLocation[] result;
         
         public location_web_listResponse()
         {
         }
         
-        public location_web_listResponse(Cybertill.Soap.ctWebsiteLocation[] result)
+        public location_web_listResponse(Cybertill.Test.ctWebsiteLocation[] result)
         {
             this.result = result;
         }
@@ -9507,16 +9504,16 @@ namespace Cybertill.Soap
     public partial class product_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "product_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProduct[] result;
+        public Cybertill.Test.ctProduct[] result;
         
         public product_listResponse()
         {
         }
         
-        public product_listResponse(Cybertill.Soap.ctProduct[] result)
+        public product_listResponse(Cybertill.Test.ctProduct[] result)
         {
             this.result = result;
         }
@@ -9569,16 +9566,16 @@ namespace Cybertill.Soap
     public partial class product_list_with_udfResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "product_list_with_udfResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProductComplex[] result;
+        public Cybertill.Test.ctProductComplex[] result;
         
         public product_list_with_udfResponse()
         {
         }
         
-        public product_list_with_udfResponse(Cybertill.Soap.ctProductComplex[] result)
+        public product_list_with_udfResponse(Cybertill.Test.ctProductComplex[] result)
         {
             this.result = result;
         }
@@ -9631,16 +9628,16 @@ namespace Cybertill.Soap
     public partial class product_web_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "product_web_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProduct[] result;
+        public Cybertill.Test.ctProduct[] result;
         
         public product_web_listResponse()
         {
         }
         
-        public product_web_listResponse(Cybertill.Soap.ctProduct[] result)
+        public product_web_listResponse(Cybertill.Test.ctProduct[] result)
         {
             this.result = result;
         }
@@ -9681,16 +9678,16 @@ namespace Cybertill.Soap
     public partial class product_searchResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "product_searchResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProduct[] result;
+        public Cybertill.Test.ctProduct[] result;
         
         public product_searchResponse()
         {
         }
         
-        public product_searchResponse(Cybertill.Soap.ctProduct[] result)
+        public product_searchResponse(Cybertill.Test.ctProduct[] result)
         {
             this.result = result;
         }
@@ -9723,16 +9720,16 @@ namespace Cybertill.Soap
     public partial class product_itemsResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "product_itemsResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProductOptionDetails[] result;
+        public Cybertill.Test.ctProductOptionDetails[] result;
         
         public product_itemsResponse()
         {
         }
         
-        public product_itemsResponse(Cybertill.Soap.ctProductOptionDetails[] result)
+        public product_itemsResponse(Cybertill.Test.ctProductOptionDetails[] result)
         {
             this.result = result;
         }
@@ -9785,16 +9782,16 @@ namespace Cybertill.Soap
     public partial class product_by_brand_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "product_by_brand_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProduct[] result;
+        public Cybertill.Test.ctProduct[] result;
         
         public product_by_brand_listResponse()
         {
         }
         
-        public product_by_brand_listResponse(Cybertill.Soap.ctProduct[] result)
+        public product_by_brand_listResponse(Cybertill.Test.ctProduct[] result)
         {
             this.result = result;
         }
@@ -9851,16 +9848,16 @@ namespace Cybertill.Soap
     public partial class product_by_brand_web_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "product_by_brand_web_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProduct[] result;
+        public Cybertill.Test.ctProduct[] result;
         
         public product_by_brand_web_listResponse()
         {
         }
         
-        public product_by_brand_web_listResponse(Cybertill.Soap.ctProduct[] result)
+        public product_by_brand_web_listResponse(Cybertill.Test.ctProduct[] result)
         {
             this.result = result;
         }
@@ -9913,16 +9910,16 @@ namespace Cybertill.Soap
     public partial class product_by_category_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "product_by_category_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProduct[] result;
+        public Cybertill.Test.ctProduct[] result;
         
         public product_by_category_listResponse()
         {
         }
         
-        public product_by_category_listResponse(Cybertill.Soap.ctProduct[] result)
+        public product_by_category_listResponse(Cybertill.Test.ctProduct[] result)
         {
             this.result = result;
         }
@@ -9975,16 +9972,16 @@ namespace Cybertill.Soap
     public partial class product_by_category_web_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "product_by_category_web_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProduct[] result;
+        public Cybertill.Test.ctProduct[] result;
         
         public product_by_category_web_listResponse()
         {
         }
         
-        public product_by_category_web_listResponse(Cybertill.Soap.ctProduct[] result)
+        public product_by_category_web_listResponse(Cybertill.Test.ctProduct[] result)
         {
             this.result = result;
         }
@@ -10033,16 +10030,16 @@ namespace Cybertill.Soap
     public partial class product_image_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "product_image_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctProductImage[] result;
+        public Cybertill.Test.ctProductImage[] result;
         
         public product_image_listResponse()
         {
         }
         
-        public product_image_listResponse(Cybertill.Soap.ctProductImage[] result)
+        public product_image_listResponse(Cybertill.Test.ctProductImage[] result)
         {
             this.result = result;
         }
@@ -10087,16 +10084,16 @@ namespace Cybertill.Soap
     public partial class stock_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "stock_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctStockLevel[] result;
+        public Cybertill.Test.ctStockLevel[] result;
         
         public stock_listResponse()
         {
         }
         
-        public stock_listResponse(Cybertill.Soap.ctStockLevel[] result)
+        public stock_listResponse(Cybertill.Test.ctStockLevel[] result)
         {
             this.result = result;
         }
@@ -10145,16 +10142,16 @@ namespace Cybertill.Soap
     public partial class stock_location_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "stock_location_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctStockLevel[] result;
+        public Cybertill.Test.ctStockLevel[] result;
         
         public stock_location_listResponse()
         {
         }
         
-        public stock_location_listResponse(Cybertill.Soap.ctStockLevel[] result)
+        public stock_location_listResponse(Cybertill.Test.ctStockLevel[] result)
         {
             this.result = result;
         }
@@ -10191,16 +10188,16 @@ namespace Cybertill.Soap
     public partial class stock_productResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "stock_productResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctStockLevel[] result;
+        public Cybertill.Test.ctStockLevel[] result;
         
         public stock_productResponse()
         {
         }
         
-        public stock_productResponse(Cybertill.Soap.ctStockLevel[] result)
+        public stock_productResponse(Cybertill.Test.ctStockLevel[] result)
         {
             this.result = result;
         }
@@ -10237,16 +10234,16 @@ namespace Cybertill.Soap
     public partial class stock_itemResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "stock_itemResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctStockLevel[] result;
+        public Cybertill.Test.ctStockLevel[] result;
         
         public stock_itemResponse()
         {
         }
         
-        public stock_itemResponse(Cybertill.Soap.ctStockLevel[] result)
+        public stock_itemResponse(Cybertill.Test.ctStockLevel[] result)
         {
             this.result = result;
         }
@@ -10262,13 +10259,13 @@ namespace Cybertill.Soap
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctStockUpdateItemDetails[] item_details;
+        public Cybertill.Test.ctStockUpdateItemDetails[] item_details;
         
         public stock_updateRequest()
         {
         }
         
-        public stock_updateRequest(Cybertill.Soap.ctStockUpdateItemDetails[] item_details)
+        public stock_updateRequest(Cybertill.Test.ctStockUpdateItemDetails[] item_details)
         {
             this.item_details = item_details;
         }
@@ -10281,14 +10278,14 @@ namespace Cybertill.Soap
     public partial class stock_updateResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "stock_updateResponse", Order=0)]
-        public Cybertill.Soap.ctUpdateResponse result;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public Cybertill.Test.ctUpdateResponse result;
         
         public stock_updateResponse()
         {
         }
         
-        public stock_updateResponse(Cybertill.Soap.ctUpdateResponse result)
+        public stock_updateResponse(Cybertill.Test.ctUpdateResponse result)
         {
             this.result = result;
         }
@@ -10304,13 +10301,13 @@ namespace Cybertill.Soap
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctStockReserveItemDetails[] item_details;
+        public Cybertill.Test.ctStockReserveItemDetails[] item_details;
         
         public stock_reserveRequest()
         {
         }
         
-        public stock_reserveRequest(Cybertill.Soap.ctStockReserveItemDetails[] item_details)
+        public stock_reserveRequest(Cybertill.Test.ctStockReserveItemDetails[] item_details)
         {
             this.item_details = item_details;
         }
@@ -10323,14 +10320,14 @@ namespace Cybertill.Soap
     public partial class stock_reserveResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "stock_reserveResponse", Order=0)]
-        public Cybertill.Soap.ctUpdateResponse result;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public Cybertill.Test.ctUpdateResponse result;
         
         public stock_reserveResponse()
         {
         }
         
-        public stock_reserveResponse(Cybertill.Soap.ctUpdateResponse result)
+        public stock_reserveResponse(Cybertill.Test.ctUpdateResponse result)
         {
             this.result = result;
         }
@@ -10346,13 +10343,13 @@ namespace Cybertill.Soap
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctStockDespatchItemDetails[] item_details;
+        public Cybertill.Test.ctStockDespatchItemDetails[] item_details;
         
         public stock_despatchRequest()
         {
         }
         
-        public stock_despatchRequest(Cybertill.Soap.ctStockDespatchItemDetails[] item_details)
+        public stock_despatchRequest(Cybertill.Test.ctStockDespatchItemDetails[] item_details)
         {
             this.item_details = item_details;
         }
@@ -10365,14 +10362,14 @@ namespace Cybertill.Soap
     public partial class stock_despatchResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "stock_despatchResponse", Order=0)]
-        public Cybertill.Soap.ctUpdateResponse result;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public Cybertill.Test.ctUpdateResponse result;
         
         public stock_despatchResponse()
         {
         }
         
-        public stock_despatchResponse(Cybertill.Soap.ctUpdateResponse result)
+        public stock_despatchResponse(Cybertill.Test.ctUpdateResponse result)
         {
             this.result = result;
         }
@@ -10405,16 +10402,16 @@ namespace Cybertill.Soap
     public partial class stock_reserve_collect_batch_statusResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "stock_reserve_collect_batch_statusResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctReserveCollectComplex[] result;
+        public Cybertill.Test.ctReserveCollectComplex[] result;
         
         public stock_reserve_collect_batch_statusResponse()
         {
         }
         
-        public stock_reserve_collect_batch_statusResponse(Cybertill.Soap.ctReserveCollectComplex[] result)
+        public stock_reserve_collect_batch_statusResponse(Cybertill.Test.ctReserveCollectComplex[] result)
         {
             this.result = result;
         }
@@ -10428,23 +10425,23 @@ namespace Cybertill.Soap
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public Cybertill.Soap.ctBookingDetails booking_details;
+        public Cybertill.Test.ctBookingDetails booking_details;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctBookingTickets[] booking_tickets;
+        public Cybertill.Test.ctBookingTickets[] booking_tickets;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=2)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctTransactionAddOrderPayments[] booking_payments;
+        public Cybertill.Test.ctTransactionAddOrderPayments[] booking_payments;
         
         public ticket_addRequest()
         {
         }
         
-        public ticket_addRequest(Cybertill.Soap.ctBookingDetails booking_details, Cybertill.Soap.ctBookingTickets[] booking_tickets, Cybertill.Soap.ctTransactionAddOrderPayments[] booking_payments)
+        public ticket_addRequest(Cybertill.Test.ctBookingDetails booking_details, Cybertill.Test.ctBookingTickets[] booking_tickets, Cybertill.Test.ctTransactionAddOrderPayments[] booking_payments)
         {
             this.booking_details = booking_details;
             this.booking_tickets = booking_tickets;
@@ -10459,14 +10456,14 @@ namespace Cybertill.Soap
     public partial class ticket_addResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "ticket_addResponse", Order=0)]
-        public Cybertill.Soap.ctTicketAddResponse result;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public Cybertill.Test.ctTicketAddResponse result;
         
         public ticket_addResponse()
         {
         }
         
-        public ticket_addResponse(Cybertill.Soap.ctTicketAddResponse result)
+        public ticket_addResponse(Cybertill.Test.ctTicketAddResponse result)
         {
             this.result = result;
         }
@@ -10511,16 +10508,16 @@ namespace Cybertill.Soap
     public partial class ticket_event_ListResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "ticket_event_ListResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctEvent[] result;
+        public Cybertill.Test.ctEvent[] result;
         
         public ticket_event_ListResponse()
         {
         }
         
-        public ticket_event_ListResponse(Cybertill.Soap.ctEvent[] result)
+        public ticket_event_ListResponse(Cybertill.Test.ctEvent[] result)
         {
             this.result = result;
         }
@@ -10569,16 +10566,16 @@ namespace Cybertill.Soap
     public partial class ticket_times_ListResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "ticket_times_ListResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctTimeSlot[] result;
+        public Cybertill.Test.ctTimeSlot[] result;
         
         public ticket_times_ListResponse()
         {
         }
         
-        public ticket_times_ListResponse(Cybertill.Soap.ctTimeSlot[] result)
+        public ticket_times_ListResponse(Cybertill.Test.ctTimeSlot[] result)
         {
             this.result = result;
         }
@@ -10631,16 +10628,16 @@ namespace Cybertill.Soap
     public partial class ticket_booking_Sold_ListResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "ticket_booking_Sold_ListResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctBooking[] result;
+        public Cybertill.Test.ctBooking[] result;
         
         public ticket_booking_Sold_ListResponse()
         {
         }
         
-        public ticket_booking_Sold_ListResponse(Cybertill.Soap.ctBooking[] result)
+        public ticket_booking_Sold_ListResponse(Cybertill.Test.ctBooking[] result)
         {
             this.result = result;
         }
@@ -10654,26 +10651,26 @@ namespace Cybertill.Soap
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public Cybertill.Soap.ctTransactionAddOrderDetails order_details;
+        public Cybertill.Test.ctTransactionAddOrderDetails order_details;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctTransactionAddOrderItems[] order_items;
+        public Cybertill.Test.ctTransactionAddOrderItems[] order_items;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=2)]
-        public Cybertill.Soap.ctTransactionAddOrderDelivery order_delivery;
+        public Cybertill.Test.ctTransactionAddOrderDelivery order_delivery;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=3)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctTransactionAddOrderPayments[] order_payments;
+        public Cybertill.Test.ctTransactionAddOrderPayments[] order_payments;
         
         public transaction_addRequest()
         {
         }
         
-        public transaction_addRequest(Cybertill.Soap.ctTransactionAddOrderDetails order_details, Cybertill.Soap.ctTransactionAddOrderItems[] order_items, Cybertill.Soap.ctTransactionAddOrderDelivery order_delivery, Cybertill.Soap.ctTransactionAddOrderPayments[] order_payments)
+        public transaction_addRequest(Cybertill.Test.ctTransactionAddOrderDetails order_details, Cybertill.Test.ctTransactionAddOrderItems[] order_items, Cybertill.Test.ctTransactionAddOrderDelivery order_delivery, Cybertill.Test.ctTransactionAddOrderPayments[] order_payments)
         {
             this.order_details = order_details;
             this.order_items = order_items;
@@ -10689,14 +10686,14 @@ namespace Cybertill.Soap
     public partial class transaction_addResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "transaction_addResponse", Order=0)]
-        public Cybertill.Soap.ctTransactionAddResponse result;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public Cybertill.Test.ctTransactionAddResponse result;
         
         public transaction_addResponse()
         {
         }
         
-        public transaction_addResponse(Cybertill.Soap.ctTransactionAddResponse result)
+        public transaction_addResponse(Cybertill.Test.ctTransactionAddResponse result)
         {
             this.result = result;
         }
@@ -10715,13 +10712,13 @@ namespace Cybertill.Soap
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctDespatchOrderDetails[] despatch_orders;
+        public Cybertill.Test.ctDespatchOrderDetails[] despatch_orders;
         
         public transaction_despatch_ordersRequest()
         {
         }
         
-        public transaction_despatch_ordersRequest(int user_id, Cybertill.Soap.ctDespatchOrderDetails[] despatch_orders)
+        public transaction_despatch_ordersRequest(int user_id, Cybertill.Test.ctDespatchOrderDetails[] despatch_orders)
         {
             this.user_id = user_id;
             this.despatch_orders = despatch_orders;
@@ -10735,14 +10732,14 @@ namespace Cybertill.Soap
     public partial class transaction_despatch_ordersResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "transaction_despatch_ordersResponse", Order=0)]
-        public Cybertill.Soap.ctUpdateResponse result;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public Cybertill.Test.ctUpdateResponse result;
         
         public transaction_despatch_ordersResponse()
         {
         }
         
-        public transaction_despatch_ordersResponse(Cybertill.Soap.ctUpdateResponse result)
+        public transaction_despatch_ordersResponse(Cybertill.Test.ctUpdateResponse result)
         {
             this.result = result;
         }
@@ -10761,13 +10758,13 @@ namespace Cybertill.Soap
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctDespatchOrderItemDetails[] despatch_details;
+        public Cybertill.Test.ctDespatchOrderItemDetails[] despatch_details;
         
         public transaction_despatch_order_itemsRequest()
         {
         }
         
-        public transaction_despatch_order_itemsRequest(int user_id, Cybertill.Soap.ctDespatchOrderItemDetails[] despatch_details)
+        public transaction_despatch_order_itemsRequest(int user_id, Cybertill.Test.ctDespatchOrderItemDetails[] despatch_details)
         {
             this.user_id = user_id;
             this.despatch_details = despatch_details;
@@ -10781,14 +10778,14 @@ namespace Cybertill.Soap
     public partial class transaction_despatch_order_itemsResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "transaction_despatch_order_itemsResponse", Order=0)]
-        public Cybertill.Soap.ctUpdateResponse result;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public Cybertill.Test.ctUpdateResponse result;
         
         public transaction_despatch_order_itemsResponse()
         {
         }
         
-        public transaction_despatch_order_itemsResponse(Cybertill.Soap.ctUpdateResponse result)
+        public transaction_despatch_order_itemsResponse(Cybertill.Test.ctUpdateResponse result)
         {
             this.result = result;
         }
@@ -10804,13 +10801,13 @@ namespace Cybertill.Soap
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctRefundOrderDetails[] refund_details;
+        public Cybertill.Test.ctRefundOrderDetails[] refund_details;
         
         public transaction_refund_order_itemsRequest()
         {
         }
         
-        public transaction_refund_order_itemsRequest(Cybertill.Soap.ctRefundOrderDetails[] refund_details)
+        public transaction_refund_order_itemsRequest(Cybertill.Test.ctRefundOrderDetails[] refund_details)
         {
             this.refund_details = refund_details;
         }
@@ -10823,14 +10820,14 @@ namespace Cybertill.Soap
     public partial class transaction_refund_order_itemsResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "transaction_refund_order_itemsResponse", Order=0)]
-        public Cybertill.Soap.ctUpdateResponse result;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public Cybertill.Test.ctUpdateResponse result;
         
         public transaction_refund_order_itemsResponse()
         {
         }
         
-        public transaction_refund_order_itemsResponse(Cybertill.Soap.ctUpdateResponse result)
+        public transaction_refund_order_itemsResponse(Cybertill.Test.ctUpdateResponse result)
         {
             this.result = result;
         }
@@ -10863,16 +10860,16 @@ namespace Cybertill.Soap
     public partial class transaction_get_order_linesResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "transaction_get_order_linesResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctDeliveryLineDetails[] result;
+        public Cybertill.Test.ctDeliveryLineDetails[] result;
         
         public transaction_get_order_linesResponse()
         {
         }
         
-        public transaction_get_order_linesResponse(Cybertill.Soap.ctDeliveryLineDetails[] result)
+        public transaction_get_order_linesResponse(Cybertill.Test.ctDeliveryLineDetails[] result)
         {
             this.result = result;
         }
@@ -10909,16 +10906,16 @@ namespace Cybertill.Soap
     public partial class vatrate_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "vatrate_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctVatRate[] result;
+        public Cybertill.Test.ctVatRate[] result;
         
         public vatrate_listResponse()
         {
         }
         
-        public vatrate_listResponse(Cybertill.Soap.ctVatRate[] result)
+        public vatrate_listResponse(Cybertill.Test.ctVatRate[] result)
         {
             this.result = result;
         }
@@ -10943,29 +10940,29 @@ namespace Cybertill.Soap
     public partial class website_listResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace= "website_listResponse", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Cybertill.Soap.ctWebsite[] result;
+        public Cybertill.Test.ctWebsite[] result;
         
         public website_listResponse()
         {
         }
         
-        public website_listResponse(Cybertill.Soap.ctWebsite[] result)
+        public website_listResponse(Cybertill.Test.ctWebsite[] result)
         {
             this.result = result;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    public interface CybertillApi_v1_6PortTypeChannel : Cybertill.Soap.CybertillApi_v1_6PortType, System.ServiceModel.IClientChannel
+    public interface CybertillApi_v1_6PortTypeChannel : Cybertill.Test.CybertillApi_v1_6PortType, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    public partial class CybertillApi_v1_6PortTypeClient : System.ServiceModel.ClientBase<Cybertill.Soap.CybertillApi_v1_6PortType>, Cybertill.Soap.CybertillApi_v1_6PortType
+    public partial class CybertillApi_v1_6PortTypeClient : System.ServiceModel.ClientBase<Cybertill.Test.CybertillApi_v1_6PortType>, Cybertill.Test.CybertillApi_v1_6PortType
     {
         
         /// <summary>
@@ -10974,409 +10971,423 @@ namespace Cybertill.Soap
         /// <param name="serviceEndpoint">The endpoint to configure</param>
         /// <param name="clientCredentials">The client credentials</param>
         static partial void ConfigureEndpoint(System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Description.ClientCredentials clientCredentials);
-
-        public CybertillApi_v1_6PortTypeClient(string endpointUrl, TimeSpan timeout, string username, string password) :
-            base(CybertillApi_v1_6PortTypeClient.GetBindingForEndpoint(timeout, true), CybertillApi_v1_6PortTypeClient.GetEndpointAddress(endpointUrl))
+        
+        public CybertillApi_v1_6PortTypeClient() : 
+                base(CybertillApi_v1_6PortTypeClient.GetDefaultBinding(), CybertillApi_v1_6PortTypeClient.GetDefaultEndpointAddress())
         {
-            this.ChannelFactory.Credentials.UserName.UserName = username;
-            this.ChannelFactory.Credentials.UserName.Password = password;
+            this.Endpoint.Name = EndpointConfiguration.CybertillApi_v1_6Port.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
-
-        public CybertillApi_v1_6PortTypeClient(string endpointUrl, TimeSpan timeout) :
-            base(CybertillApi_v1_6PortTypeClient.GetBindingForEndpoint(timeout, false), CybertillApi_v1_6PortTypeClient.GetEndpointAddress(endpointUrl))
+        
+        public CybertillApi_v1_6PortTypeClient(EndpointConfiguration endpointConfiguration) : 
+                base(CybertillApi_v1_6PortTypeClient.GetBindingForEndpoint(endpointConfiguration), CybertillApi_v1_6PortTypeClient.GetEndpointAddress(endpointConfiguration))
         {
+            this.Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
-
-        public CybertillApi_v1_6PortTypeClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
-            base(binding, remoteAddress)
+        
+        public CybertillApi_v1_6PortTypeClient(EndpointConfiguration endpointConfiguration, string remoteAddress) : 
+                base(CybertillApi_v1_6PortTypeClient.GetBindingForEndpoint(endpointConfiguration), new System.ServiceModel.EndpointAddress(remoteAddress))
+        {
+            this.Endpoint.Name = endpointConfiguration.ToString();
+            ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
+        }
+        
+        public CybertillApi_v1_6PortTypeClient(EndpointConfiguration endpointConfiguration, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(CybertillApi_v1_6PortTypeClient.GetBindingForEndpoint(endpointConfiguration), remoteAddress)
+        {
+            this.Endpoint.Name = endpointConfiguration.ToString();
+            ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
+        }
+        
+        public CybertillApi_v1_6PortTypeClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress)
         {
         }
-
+        
         public System.Threading.Tasks.Task<string> authenticate_getAsync(string url, string id)
         {
             return base.Channel.authenticate_getAsync(url, id);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctProductBrand> brand_getAsync(int brand_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctProductBrand> brand_getAsync(int brand_id)
         {
             return base.Channel.brand_getAsync(brand_id);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.brand_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.brand_listAsync(Cybertill.Soap.brand_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.brand_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.brand_listAsync(Cybertill.Test.brand_listRequest request)
         {
             return base.Channel.brand_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.brand_listResponse> brand_listAsync(bool active, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.brand_listResponse> brand_listAsync(bool active, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.brand_listRequest inValue = new Cybertill.Soap.brand_listRequest();
+            Cybertill.Test.brand_listRequest inValue = new Cybertill.Test.brand_listRequest();
             inValue.active = active;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).brand_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).brand_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.brand_web_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.brand_web_listAsync(Cybertill.Soap.brand_web_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.brand_web_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.brand_web_listAsync(Cybertill.Test.brand_web_listRequest request)
         {
             return base.Channel.brand_web_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.brand_web_listResponse> brand_web_listAsync(int website_id, bool active, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.brand_web_listResponse> brand_web_listAsync(int website_id, bool active, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.brand_web_listRequest inValue = new Cybertill.Soap.brand_web_listRequest();
+            Cybertill.Test.brand_web_listRequest inValue = new Cybertill.Test.brand_web_listRequest();
             inValue.website_id = website_id;
             inValue.active = active;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).brand_web_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).brand_web_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctSoapEposCategory> category_getAsync(int cat_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctSoapEposCategory> category_getAsync(int cat_id)
         {
             return base.Channel.category_getAsync(cat_id);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> category_list_countAsync(string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> category_list_countAsync(string date_created, string date_updated)
         {
             return base.Channel.category_list_countAsync(date_created, date_updated);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctSoapEposCategory> category_listAsync()
+        public System.Threading.Tasks.Task<Cybertill.Test.ctSoapEposCategory> category_listAsync()
         {
             return base.Channel.category_listAsync();
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.category_flat_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.category_flat_listAsync(Cybertill.Soap.category_flat_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.category_flat_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.category_flat_listAsync(Cybertill.Test.category_flat_listRequest request)
         {
             return base.Channel.category_flat_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.category_flat_listResponse> category_flat_listAsync(string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.category_flat_listResponse> category_flat_listAsync(string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.category_flat_listRequest inValue = new Cybertill.Soap.category_flat_listRequest();
+            Cybertill.Test.category_flat_listRequest inValue = new Cybertill.Test.category_flat_listRequest();
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).category_flat_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).category_flat_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctSoapWebCategory> category_get_webAsync(int cat_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctSoapWebCategory> category_get_webAsync(int cat_id)
         {
             return base.Channel.category_get_webAsync(cat_id);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> category_web_list_countAsync(int website_id, bool web_visible, string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> category_web_list_countAsync(int website_id, bool web_visible, string date_created, string date_updated)
         {
             return base.Channel.category_web_list_countAsync(website_id, web_visible, date_created, date_updated);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctSoapWebCategory> category_web_listAsync(int website_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctSoapWebCategory> category_web_listAsync(int website_id)
         {
             return base.Channel.category_web_listAsync(website_id);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.category_web_flat_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.category_web_flat_listAsync(Cybertill.Soap.category_web_flat_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.category_web_flat_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.category_web_flat_listAsync(Cybertill.Test.category_web_flat_listRequest request)
         {
             return base.Channel.category_web_flat_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.category_web_flat_listResponse> category_web_flat_listAsync(int website_id, bool web_visible, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.category_web_flat_listResponse> category_web_flat_listAsync(int website_id, bool web_visible, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.category_web_flat_listRequest inValue = new Cybertill.Soap.category_web_flat_listRequest();
+            Cybertill.Test.category_web_flat_listRequest inValue = new Cybertill.Test.category_web_flat_listRequest();
             inValue.website_id = website_id;
             inValue.web_visible = web_visible;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).category_web_flat_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).category_web_flat_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.country_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.country_listAsync(Cybertill.Soap.country_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.country_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.country_listAsync(Cybertill.Test.country_listRequest request)
         {
             return base.Channel.country_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.country_listResponse> country_listAsync()
+        public System.Threading.Tasks.Task<Cybertill.Test.country_listResponse> country_listAsync()
         {
-            Cybertill.Soap.country_listRequest inValue = new Cybertill.Soap.country_listRequest();
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).country_listAsync(inValue);
+            Cybertill.Test.country_listRequest inValue = new Cybertill.Test.country_listRequest();
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).country_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctCountry> country_getAsync(int country_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctCountry> country_getAsync(int country_id)
         {
             return base.Channel.country_getAsync(country_id);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.courier_listAsync(Cybertill.Soap.courier_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.courier_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.courier_listAsync(Cybertill.Test.courier_listRequest request)
         {
             return base.Channel.courier_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.courier_listResponse> courier_listAsync()
+        public System.Threading.Tasks.Task<Cybertill.Test.courier_listResponse> courier_listAsync()
         {
-            Cybertill.Soap.courier_listRequest inValue = new Cybertill.Soap.courier_listRequest();
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).courier_listAsync(inValue);
+            Cybertill.Test.courier_listRequest inValue = new Cybertill.Test.courier_listRequest();
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).courier_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_web_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.courier_web_listAsync(Cybertill.Soap.courier_web_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.courier_web_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.courier_web_listAsync(Cybertill.Test.courier_web_listRequest request)
         {
             return base.Channel.courier_web_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.courier_web_listResponse> courier_web_listAsync(int website_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.courier_web_listResponse> courier_web_listAsync(int website_id)
         {
-            Cybertill.Soap.courier_web_listRequest inValue = new Cybertill.Soap.courier_web_listRequest();
+            Cybertill.Test.courier_web_listRequest inValue = new Cybertill.Test.courier_web_listRequest();
             inValue.website_id = website_id;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).courier_web_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).courier_web_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_service_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.courier_service_listAsync(Cybertill.Soap.courier_service_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.courier_service_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.courier_service_listAsync(Cybertill.Test.courier_service_listRequest request)
         {
             return base.Channel.courier_service_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.courier_service_listResponse> courier_service_listAsync()
+        public System.Threading.Tasks.Task<Cybertill.Test.courier_service_listResponse> courier_service_listAsync()
         {
-            Cybertill.Soap.courier_service_listRequest inValue = new Cybertill.Soap.courier_service_listRequest();
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).courier_service_listAsync(inValue);
+            Cybertill.Test.courier_service_listRequest inValue = new Cybertill.Test.courier_service_listRequest();
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).courier_service_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_service_web_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.courier_service_web_listAsync(Cybertill.Soap.courier_service_web_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.courier_service_web_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.courier_service_web_listAsync(Cybertill.Test.courier_service_web_listRequest request)
         {
             return base.Channel.courier_service_web_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.courier_service_web_listResponse> courier_service_web_listAsync(int website_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.courier_service_web_listResponse> courier_service_web_listAsync(int website_id)
         {
-            Cybertill.Soap.courier_service_web_listRequest inValue = new Cybertill.Soap.courier_service_web_listRequest();
+            Cybertill.Test.courier_service_web_listRequest inValue = new Cybertill.Test.courier_service_web_listRequest();
             inValue.website_id = website_id;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).courier_service_web_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).courier_service_web_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_service_by_zone_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.courier_service_by_zone_listAsync(Cybertill.Soap.courier_service_by_zone_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.courier_service_by_zone_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.courier_service_by_zone_listAsync(Cybertill.Test.courier_service_by_zone_listRequest request)
         {
             return base.Channel.courier_service_by_zone_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.courier_service_by_zone_listResponse> courier_service_by_zone_listAsync(int zone_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.courier_service_by_zone_listResponse> courier_service_by_zone_listAsync(int zone_id)
         {
-            Cybertill.Soap.courier_service_by_zone_listRequest inValue = new Cybertill.Soap.courier_service_by_zone_listRequest();
+            Cybertill.Test.courier_service_by_zone_listRequest inValue = new Cybertill.Test.courier_service_by_zone_listRequest();
             inValue.zone_id = zone_id;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).courier_service_by_zone_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).courier_service_by_zone_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_zone_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.courier_zone_listAsync(Cybertill.Soap.courier_zone_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.courier_zone_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.courier_zone_listAsync(Cybertill.Test.courier_zone_listRequest request)
         {
             return base.Channel.courier_zone_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.courier_zone_listResponse> courier_zone_listAsync()
+        public System.Threading.Tasks.Task<Cybertill.Test.courier_zone_listResponse> courier_zone_listAsync()
         {
-            Cybertill.Soap.courier_zone_listRequest inValue = new Cybertill.Soap.courier_zone_listRequest();
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).courier_zone_listAsync(inValue);
+            Cybertill.Test.courier_zone_listRequest inValue = new Cybertill.Test.courier_zone_listRequest();
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).courier_zone_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.courier_zone_by_country_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.courier_zone_by_country_listAsync(Cybertill.Soap.courier_zone_by_country_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.courier_zone_by_country_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.courier_zone_by_country_listAsync(Cybertill.Test.courier_zone_by_country_listRequest request)
         {
             return base.Channel.courier_zone_by_country_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.courier_zone_by_country_listResponse> courier_zone_by_country_listAsync(int country_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.courier_zone_by_country_listResponse> courier_zone_by_country_listAsync(int country_id)
         {
-            Cybertill.Soap.courier_zone_by_country_listRequest inValue = new Cybertill.Soap.courier_zone_by_country_listRequest();
+            Cybertill.Test.courier_zone_by_country_listRequest inValue = new Cybertill.Test.courier_zone_by_country_listRequest();
             inValue.country_id = country_id;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).courier_zone_by_country_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).courier_zone_by_country_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctTariff> courier_tariffAsync(int country_id, double total, int zone_id, int website_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctTariff> courier_tariffAsync(int country_id, double total, int zone_id, int website_id)
         {
             return base.Channel.courier_tariffAsync(country_id, total, zone_id, website_id);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctCurrency> currency_getAsync(int id)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctCurrency> currency_getAsync(int id)
         {
             return base.Channel.currency_getAsync(id);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.currency_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.currency_listAsync(Cybertill.Soap.currency_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.currency_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.currency_listAsync(Cybertill.Test.currency_listRequest request)
         {
             return base.Channel.currency_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.currency_listResponse> currency_listAsync()
+        public System.Threading.Tasks.Task<Cybertill.Test.currency_listResponse> currency_listAsync()
         {
-            Cybertill.Soap.currency_listRequest inValue = new Cybertill.Soap.currency_listRequest();
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).currency_listAsync(inValue);
+            Cybertill.Test.currency_listRequest inValue = new Cybertill.Test.currency_listRequest();
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).currency_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctCustomerDetails> customer_getAsync(int customer_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctCustomerDetails> customer_getAsync(int customer_id)
         {
             return base.Channel.customer_getAsync(customer_id);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctCustomerDetails> customer_get_webAsync(string email, string password, bool do_not_validate_on_password)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctCustomerDetails> customer_get_webAsync(string email, string password, bool do_not_validate_on_password)
         {
             return base.Channel.customer_get_webAsync(email, password, do_not_validate_on_password);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> customer_list_countAsync(bool active, string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> customer_list_countAsync(bool active, string date_created, string date_updated)
         {
             return base.Channel.customer_list_countAsync(active, date_created, date_updated);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.customer_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.customer_listAsync(Cybertill.Soap.customer_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.customer_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.customer_listAsync(Cybertill.Test.customer_listRequest request)
         {
             return base.Channel.customer_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.customer_listResponse> customer_listAsync(bool active, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.customer_listResponse> customer_listAsync(bool active, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.customer_listRequest inValue = new Cybertill.Soap.customer_listRequest();
+            Cybertill.Test.customer_listRequest inValue = new Cybertill.Test.customer_listRequest();
             inValue.active = active;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).customer_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).customer_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> customer_web_list_countAsync(bool active, string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> customer_web_list_countAsync(bool active, string date_created, string date_updated)
         {
             return base.Channel.customer_web_list_countAsync(active, date_created, date_updated);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.customer_web_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.customer_web_listAsync(Cybertill.Soap.customer_web_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.customer_web_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.customer_web_listAsync(Cybertill.Test.customer_web_listRequest request)
         {
             return base.Channel.customer_web_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.customer_web_listResponse> customer_web_listAsync(bool active, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.customer_web_listResponse> customer_web_listAsync(bool active, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.customer_web_listRequest inValue = new Cybertill.Soap.customer_web_listRequest();
+            Cybertill.Test.customer_web_listRequest inValue = new Cybertill.Test.customer_web_listRequest();
             inValue.active = active;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).customer_web_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).customer_web_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> customer_address_list_countAsync(bool active, string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> customer_address_list_countAsync(bool active, string date_created, string date_updated)
         {
             return base.Channel.customer_address_list_countAsync(active, date_created, date_updated);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.customer_address_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.customer_address_listAsync(Cybertill.Soap.customer_address_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.customer_address_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.customer_address_listAsync(Cybertill.Test.customer_address_listRequest request)
         {
             return base.Channel.customer_address_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.customer_address_listResponse> customer_address_listAsync(bool active, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.customer_address_listResponse> customer_address_listAsync(bool active, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.customer_address_listRequest inValue = new Cybertill.Soap.customer_address_listRequest();
+            Cybertill.Test.customer_address_listRequest inValue = new Cybertill.Test.customer_address_listRequest();
             inValue.active = active;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).customer_address_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).customer_address_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.customer_order_historyResponse> Cybertill.Soap.CybertillApi_v1_6PortType.customer_order_historyAsync(Cybertill.Soap.customer_order_historyRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.customer_order_historyResponse> Cybertill.Test.CybertillApi_v1_6PortType.customer_order_historyAsync(Cybertill.Test.customer_order_historyRequest request)
         {
             return base.Channel.customer_order_historyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.customer_order_historyResponse> customer_order_historyAsync(int customer_id, int website_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.customer_order_historyResponse> customer_order_historyAsync(int customer_id, int website_id)
         {
-            Cybertill.Soap.customer_order_historyRequest inValue = new Cybertill.Soap.customer_order_historyRequest();
+            Cybertill.Test.customer_order_historyRequest inValue = new Cybertill.Test.customer_order_historyRequest();
             inValue.customer_id = customer_id;
             inValue.website_id = website_id;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).customer_order_historyAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).customer_order_historyAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctCustomerAddResponse> customer_addAsync(Cybertill.Soap.ctCustomerAdd customer_details)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctCustomerAddResponse> customer_addAsync(Cybertill.Test.ctCustomerAdd customer_details)
         {
             return base.Channel.customer_addAsync(customer_details);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctUpdateResponse> customer_editAsync(Cybertill.Soap.ctCustomerEdit customer_details)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctUpdateResponse> customer_editAsync(Cybertill.Test.ctCustomerEdit customer_details)
         {
             return base.Channel.customer_editAsync(customer_details);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctAddressAddResponse> customer_add_addressAsync(int customer_id, Cybertill.Soap.ctAddressAdd customer_address)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctAddressAddResponse> customer_add_addressAsync(int customer_id, Cybertill.Test.ctAddressAdd customer_address)
         {
             return base.Channel.customer_add_addressAsync(customer_id, customer_address);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.customer_edit_addressResponse> Cybertill.Soap.CybertillApi_v1_6PortType.customer_edit_addressAsync(Cybertill.Soap.customer_edit_addressRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.customer_edit_addressResponse> Cybertill.Test.CybertillApi_v1_6PortType.customer_edit_addressAsync(Cybertill.Test.customer_edit_addressRequest request)
         {
             return base.Channel.customer_edit_addressAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.customer_edit_addressResponse> customer_edit_addressAsync(Cybertill.Soap.ctAddressEdit[] customer_addresses)
+        public System.Threading.Tasks.Task<Cybertill.Test.customer_edit_addressResponse> customer_edit_addressAsync(Cybertill.Test.ctAddressEdit[] customer_addresses)
         {
-            Cybertill.Soap.customer_edit_addressRequest inValue = new Cybertill.Soap.customer_edit_addressRequest();
+            Cybertill.Test.customer_edit_addressRequest inValue = new Cybertill.Test.customer_edit_addressRequest();
             inValue.customer_addresses = customer_addresses;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).customer_edit_addressAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).customer_edit_addressAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctUpdateResponse> customer_get_passwordAsync(int customer_id, string email, int website_id, string from_email)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctUpdateResponse> customer_get_passwordAsync(int customer_id, string email, int website_id, string from_email)
         {
             return base.Channel.customer_get_passwordAsync(customer_id, email, website_id, from_email);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctGiftcardCheckBalanceResponse> gift_card_check_balanceAsync(string cardNumber, int cardPin)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctGiftcardCheckBalanceResponse> gift_card_check_balanceAsync(string cardNumber, int cardPin)
         {
             return base.Channel.gift_card_check_balanceAsync(cardNumber, cardPin);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctProductOptionDetails> item_getAsync(int id, string @ref, int cntryId, bool includeProduct, bool includeUdfs)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctProductOptionDetails> item_getAsync(int id, string @ref, int cntryId, bool includeProduct, bool includeUdfs)
         {
             return base.Channel.item_getAsync(id, @ref, cntryId, includeProduct, includeUdfs);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> item_list_countAsync(bool available, string date_updated, bool discontinued, bool web_visible, string date_created)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> item_list_countAsync(bool available, string date_updated, bool discontinued, bool web_visible, string date_created)
         {
             return base.Channel.item_list_countAsync(available, date_updated, discontinued, web_visible, date_created);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.item_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.item_listAsync(Cybertill.Soap.item_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.item_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.item_listAsync(Cybertill.Test.item_listRequest request)
         {
             return base.Channel.item_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.item_listResponse> item_listAsync(bool available, string date_updated, int cntryId, bool includeProduct, bool discontinued, bool web_visible, string date_created, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.item_listResponse> item_listAsync(bool available, string date_updated, int cntryId, bool includeProduct, bool discontinued, bool web_visible, string date_created, int start_from, int limit)
         {
-            Cybertill.Soap.item_listRequest inValue = new Cybertill.Soap.item_listRequest();
+            Cybertill.Test.item_listRequest inValue = new Cybertill.Test.item_listRequest();
             inValue.available = available;
             inValue.date_updated = date_updated;
             inValue.cntryId = cntryId;
@@ -11386,18 +11397,18 @@ namespace Cybertill.Soap
             inValue.date_created = date_created;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).item_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).item_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.item_list_with_udfResponse> Cybertill.Soap.CybertillApi_v1_6PortType.item_list_with_udfAsync(Cybertill.Soap.item_list_with_udfRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.item_list_with_udfResponse> Cybertill.Test.CybertillApi_v1_6PortType.item_list_with_udfAsync(Cybertill.Test.item_list_with_udfRequest request)
         {
             return base.Channel.item_list_with_udfAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.item_list_with_udfResponse> item_list_with_udfAsync(bool available, string date_updated, int cntryId, bool includeProduct, bool includeUdf, bool discontinued, bool web_visible, string date_created, int start_from, int limit, bool includeItemUdf)
+        public System.Threading.Tasks.Task<Cybertill.Test.item_list_with_udfResponse> item_list_with_udfAsync(bool available, string date_updated, int cntryId, bool includeProduct, bool includeUdf, bool discontinued, bool web_visible, string date_created, int start_from, int limit, bool includeItemUdf)
         {
-            Cybertill.Soap.item_list_with_udfRequest inValue = new Cybertill.Soap.item_list_with_udfRequest();
+            Cybertill.Test.item_list_with_udfRequest inValue = new Cybertill.Test.item_list_with_udfRequest();
             inValue.available = available;
             inValue.date_updated = date_updated;
             inValue.cntryId = cntryId;
@@ -11409,219 +11420,219 @@ namespace Cybertill.Soap
             inValue.start_from = start_from;
             inValue.limit = limit;
             inValue.includeItemUdf = includeItemUdf;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).item_list_with_udfAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).item_list_with_udfAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> item_image_list_countAsync(int item_id, string date_updated, string date_created)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> item_image_list_countAsync(int item_id, string date_updated, string date_created)
         {
             return base.Channel.item_image_list_countAsync(item_id, date_updated, date_created);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.item_image_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.item_image_listAsync(Cybertill.Soap.item_image_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.item_image_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.item_image_listAsync(Cybertill.Test.item_image_listRequest request)
         {
             return base.Channel.item_image_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.item_image_listResponse> item_image_listAsync(int item_id, string date_updated, string date_created, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.item_image_listResponse> item_image_listAsync(int item_id, string date_updated, string date_created, int start_from, int limit)
         {
-            Cybertill.Soap.item_image_listRequest inValue = new Cybertill.Soap.item_image_listRequest();
+            Cybertill.Test.item_image_listRequest inValue = new Cybertill.Test.item_image_listRequest();
             inValue.item_id = item_id;
             inValue.date_updated = date_updated;
             inValue.date_created = date_created;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).item_image_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).item_image_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> item_barcode_list_countAsync(string date_updated, string date_created)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> item_barcode_list_countAsync(string date_updated, string date_created)
         {
             return base.Channel.item_barcode_list_countAsync(date_updated, date_created);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.item_barcode_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.item_barcode_listAsync(Cybertill.Soap.item_barcode_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.item_barcode_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.item_barcode_listAsync(Cybertill.Test.item_barcode_listRequest request)
         {
             return base.Channel.item_barcode_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.item_barcode_listResponse> item_barcode_listAsync(string date_updated, string date_created, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.item_barcode_listResponse> item_barcode_listAsync(string date_updated, string date_created, int start_from, int limit)
         {
-            Cybertill.Soap.item_barcode_listRequest inValue = new Cybertill.Soap.item_barcode_listRequest();
+            Cybertill.Test.item_barcode_listRequest inValue = new Cybertill.Test.item_barcode_listRequest();
             inValue.date_updated = date_updated;
             inValue.date_created = date_created;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).item_barcode_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).item_barcode_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.location_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.location_listAsync(Cybertill.Soap.location_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.location_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.location_listAsync(Cybertill.Test.location_listRequest request)
         {
             return base.Channel.location_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.location_listResponse> location_listAsync(bool active, string date_created, string date_updated, int cntryId)
+        public System.Threading.Tasks.Task<Cybertill.Test.location_listResponse> location_listAsync(bool active, string date_created, string date_updated, int cntryId)
         {
-            Cybertill.Soap.location_listRequest inValue = new Cybertill.Soap.location_listRequest();
+            Cybertill.Test.location_listRequest inValue = new Cybertill.Test.location_listRequest();
             inValue.active = active;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.cntryId = cntryId;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).location_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).location_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.location_web_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.location_web_listAsync(Cybertill.Soap.location_web_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.location_web_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.location_web_listAsync(Cybertill.Test.location_web_listRequest request)
         {
             return base.Channel.location_web_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.location_web_listResponse> location_web_listAsync(int website_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.location_web_listResponse> location_web_listAsync(int website_id)
         {
-            Cybertill.Soap.location_web_listRequest inValue = new Cybertill.Soap.location_web_listRequest();
+            Cybertill.Test.location_web_listRequest inValue = new Cybertill.Test.location_web_listRequest();
             inValue.website_id = website_id;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).location_web_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).location_web_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctProduct> product_getAsync(int prod_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctProduct> product_getAsync(int prod_id)
         {
             return base.Channel.product_getAsync(prod_id);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctProductComplex> product_get_with_udfAsync(int prod_id, bool include_udf)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctProductComplex> product_get_with_udfAsync(int prod_id, bool include_udf)
         {
             return base.Channel.product_get_with_udfAsync(prod_id, include_udf);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_list_countAsync(bool availability, string date_updated, string date_created)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_list_countAsync(bool availability, string date_updated, string date_created)
         {
             return base.Channel.product_list_countAsync(availability, date_updated, date_created);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.product_listAsync(Cybertill.Soap.product_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.product_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.product_listAsync(Cybertill.Test.product_listRequest request)
         {
             return base.Channel.product_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.product_listResponse> product_listAsync(bool availability, string date_updated, string date_created, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.product_listResponse> product_listAsync(bool availability, string date_updated, string date_created, int start_from, int limit)
         {
-            Cybertill.Soap.product_listRequest inValue = new Cybertill.Soap.product_listRequest();
+            Cybertill.Test.product_listRequest inValue = new Cybertill.Test.product_listRequest();
             inValue.availability = availability;
             inValue.date_updated = date_updated;
             inValue.date_created = date_created;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).product_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).product_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_list_with_udfResponse> Cybertill.Soap.CybertillApi_v1_6PortType.product_list_with_udfAsync(Cybertill.Soap.product_list_with_udfRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.product_list_with_udfResponse> Cybertill.Test.CybertillApi_v1_6PortType.product_list_with_udfAsync(Cybertill.Test.product_list_with_udfRequest request)
         {
             return base.Channel.product_list_with_udfAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.product_list_with_udfResponse> product_list_with_udfAsync(bool availability, bool include_udf, string date_updated, string date_created, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.product_list_with_udfResponse> product_list_with_udfAsync(bool availability, bool include_udf, string date_updated, string date_created, int start_from, int limit)
         {
-            Cybertill.Soap.product_list_with_udfRequest inValue = new Cybertill.Soap.product_list_with_udfRequest();
+            Cybertill.Test.product_list_with_udfRequest inValue = new Cybertill.Test.product_list_with_udfRequest();
             inValue.availability = availability;
             inValue.include_udf = include_udf;
             inValue.date_updated = date_updated;
             inValue.date_created = date_created;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).product_list_with_udfAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).product_list_with_udfAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_web_list_countAsync(int website_id, bool availability, string date_updated, string date_created)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_web_list_countAsync(int website_id, bool availability, string date_updated, string date_created)
         {
             return base.Channel.product_web_list_countAsync(website_id, availability, date_updated, date_created);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_web_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.product_web_listAsync(Cybertill.Soap.product_web_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.product_web_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.product_web_listAsync(Cybertill.Test.product_web_listRequest request)
         {
             return base.Channel.product_web_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.product_web_listResponse> product_web_listAsync(int website_id, bool availability, string date_updated, string date_created, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.product_web_listResponse> product_web_listAsync(int website_id, bool availability, string date_updated, string date_created, int start_from, int limit)
         {
-            Cybertill.Soap.product_web_listRequest inValue = new Cybertill.Soap.product_web_listRequest();
+            Cybertill.Test.product_web_listRequest inValue = new Cybertill.Test.product_web_listRequest();
             inValue.website_id = website_id;
             inValue.availability = availability;
             inValue.date_updated = date_updated;
             inValue.date_created = date_created;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).product_web_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).product_web_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_searchResponse> Cybertill.Soap.CybertillApi_v1_6PortType.product_searchAsync(Cybertill.Soap.product_searchRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.product_searchResponse> Cybertill.Test.CybertillApi_v1_6PortType.product_searchAsync(Cybertill.Test.product_searchRequest request)
         {
             return base.Channel.product_searchAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.product_searchResponse> product_searchAsync(string name, string desc, string item_ref)
+        public System.Threading.Tasks.Task<Cybertill.Test.product_searchResponse> product_searchAsync(string name, string desc, string item_ref)
         {
-            Cybertill.Soap.product_searchRequest inValue = new Cybertill.Soap.product_searchRequest();
+            Cybertill.Test.product_searchRequest inValue = new Cybertill.Test.product_searchRequest();
             inValue.name = name;
             inValue.desc = desc;
             inValue.item_ref = item_ref;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).product_searchAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).product_searchAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_itemsResponse> Cybertill.Soap.CybertillApi_v1_6PortType.product_itemsAsync(Cybertill.Soap.product_itemsRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.product_itemsResponse> Cybertill.Test.CybertillApi_v1_6PortType.product_itemsAsync(Cybertill.Test.product_itemsRequest request)
         {
             return base.Channel.product_itemsAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.product_itemsResponse> product_itemsAsync(int prod_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.product_itemsResponse> product_itemsAsync(int prod_id)
         {
-            Cybertill.Soap.product_itemsRequest inValue = new Cybertill.Soap.product_itemsRequest();
+            Cybertill.Test.product_itemsRequest inValue = new Cybertill.Test.product_itemsRequest();
             inValue.prod_id = prod_id;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).product_itemsAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).product_itemsAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_by_brand_list_countAsync(int brand_id, bool availability, string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_by_brand_list_countAsync(int brand_id, bool availability, string date_created, string date_updated)
         {
             return base.Channel.product_by_brand_list_countAsync(brand_id, availability, date_created, date_updated);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_by_brand_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.product_by_brand_listAsync(Cybertill.Soap.product_by_brand_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.product_by_brand_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.product_by_brand_listAsync(Cybertill.Test.product_by_brand_listRequest request)
         {
             return base.Channel.product_by_brand_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.product_by_brand_listResponse> product_by_brand_listAsync(int brand_id, bool availability, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.product_by_brand_listResponse> product_by_brand_listAsync(int brand_id, bool availability, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.product_by_brand_listRequest inValue = new Cybertill.Soap.product_by_brand_listRequest();
+            Cybertill.Test.product_by_brand_listRequest inValue = new Cybertill.Test.product_by_brand_listRequest();
             inValue.brand_id = brand_id;
             inValue.availability = availability;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).product_by_brand_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).product_by_brand_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_by_brand_web_list_countAsync(int brand_id, int website_id, bool availability, string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_by_brand_web_list_countAsync(int brand_id, int website_id, bool availability, string date_created, string date_updated)
         {
             return base.Channel.product_by_brand_web_list_countAsync(brand_id, website_id, availability, date_created, date_updated);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_by_brand_web_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.product_by_brand_web_listAsync(Cybertill.Soap.product_by_brand_web_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.product_by_brand_web_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.product_by_brand_web_listAsync(Cybertill.Test.product_by_brand_web_listRequest request)
         {
             return base.Channel.product_by_brand_web_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.product_by_brand_web_listResponse> product_by_brand_web_listAsync(int brand_id, int website_id, bool availability, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.product_by_brand_web_listResponse> product_by_brand_web_listAsync(int brand_id, int website_id, bool availability, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.product_by_brand_web_listRequest inValue = new Cybertill.Soap.product_by_brand_web_listRequest();
+            Cybertill.Test.product_by_brand_web_listRequest inValue = new Cybertill.Test.product_by_brand_web_listRequest();
             inValue.brand_id = brand_id;
             inValue.website_id = website_id;
             inValue.availability = availability;
@@ -11629,390 +11640,390 @@ namespace Cybertill.Soap
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).product_by_brand_web_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).product_by_brand_web_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_by_category_list_countAsync(int cat_id, bool availability, string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_by_category_list_countAsync(int cat_id, bool availability, string date_created, string date_updated)
         {
             return base.Channel.product_by_category_list_countAsync(cat_id, availability, date_created, date_updated);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_by_category_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.product_by_category_listAsync(Cybertill.Soap.product_by_category_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.product_by_category_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.product_by_category_listAsync(Cybertill.Test.product_by_category_listRequest request)
         {
             return base.Channel.product_by_category_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.product_by_category_listResponse> product_by_category_listAsync(int cat_id, bool availability, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.product_by_category_listResponse> product_by_category_listAsync(int cat_id, bool availability, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.product_by_category_listRequest inValue = new Cybertill.Soap.product_by_category_listRequest();
+            Cybertill.Test.product_by_category_listRequest inValue = new Cybertill.Test.product_by_category_listRequest();
             inValue.cat_id = cat_id;
             inValue.availability = availability;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).product_by_category_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).product_by_category_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_by_category_web_list_countAsync(int cat_id, bool availability, string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_by_category_web_list_countAsync(int cat_id, bool availability, string date_created, string date_updated)
         {
             return base.Channel.product_by_category_web_list_countAsync(cat_id, availability, date_created, date_updated);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_by_category_web_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.product_by_category_web_listAsync(Cybertill.Soap.product_by_category_web_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.product_by_category_web_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.product_by_category_web_listAsync(Cybertill.Test.product_by_category_web_listRequest request)
         {
             return base.Channel.product_by_category_web_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.product_by_category_web_listResponse> product_by_category_web_listAsync(int cat_id, bool availability, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.product_by_category_web_listResponse> product_by_category_web_listAsync(int cat_id, bool availability, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.product_by_category_web_listRequest inValue = new Cybertill.Soap.product_by_category_web_listRequest();
+            Cybertill.Test.product_by_category_web_listRequest inValue = new Cybertill.Test.product_by_category_web_listRequest();
             inValue.cat_id = cat_id;
             inValue.availability = availability;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).product_by_category_web_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).product_by_category_web_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> product_image_list_countAsync(int item_id, string date_updated, string date_created)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> product_image_list_countAsync(int item_id, string date_updated, string date_created)
         {
             return base.Channel.product_image_list_countAsync(item_id, date_updated, date_created);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.product_image_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.product_image_listAsync(Cybertill.Soap.product_image_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.product_image_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.product_image_listAsync(Cybertill.Test.product_image_listRequest request)
         {
             return base.Channel.product_image_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.product_image_listResponse> product_image_listAsync(int prod_id, string date_updated, string date_created, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.product_image_listResponse> product_image_listAsync(int prod_id, string date_updated, string date_created, int start_from, int limit)
         {
-            Cybertill.Soap.product_image_listRequest inValue = new Cybertill.Soap.product_image_listRequest();
+            Cybertill.Test.product_image_listRequest inValue = new Cybertill.Test.product_image_listRequest();
             inValue.prod_id = prod_id;
             inValue.date_updated = date_updated;
             inValue.date_created = date_created;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).product_image_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).product_image_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> stock_list_countAsync(string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> stock_list_countAsync(string date_created, string date_updated)
         {
             return base.Channel.stock_list_countAsync(date_created, date_updated);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.stock_listAsync(Cybertill.Soap.stock_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.stock_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.stock_listAsync(Cybertill.Test.stock_listRequest request)
         {
             return base.Channel.stock_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.stock_listResponse> stock_listAsync(string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.stock_listResponse> stock_listAsync(string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.stock_listRequest inValue = new Cybertill.Soap.stock_listRequest();
+            Cybertill.Test.stock_listRequest inValue = new Cybertill.Test.stock_listRequest();
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).stock_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).stock_listAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> stock_location_list_countAsync(int loc_id, string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> stock_location_list_countAsync(int loc_id, string date_created, string date_updated)
         {
             return base.Channel.stock_location_list_countAsync(loc_id, date_created, date_updated);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_location_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.stock_location_listAsync(Cybertill.Soap.stock_location_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.stock_location_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.stock_location_listAsync(Cybertill.Test.stock_location_listRequest request)
         {
             return base.Channel.stock_location_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.stock_location_listResponse> stock_location_listAsync(int loc_id, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.stock_location_listResponse> stock_location_listAsync(int loc_id, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.stock_location_listRequest inValue = new Cybertill.Soap.stock_location_listRequest();
+            Cybertill.Test.stock_location_listRequest inValue = new Cybertill.Test.stock_location_listRequest();
             inValue.loc_id = loc_id;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).stock_location_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).stock_location_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_productResponse> Cybertill.Soap.CybertillApi_v1_6PortType.stock_productAsync(Cybertill.Soap.stock_productRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.stock_productResponse> Cybertill.Test.CybertillApi_v1_6PortType.stock_productAsync(Cybertill.Test.stock_productRequest request)
         {
             return base.Channel.stock_productAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.stock_productResponse> stock_productAsync(int product_id, int loc_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.stock_productResponse> stock_productAsync(int product_id, int loc_id)
         {
-            Cybertill.Soap.stock_productRequest inValue = new Cybertill.Soap.stock_productRequest();
+            Cybertill.Test.stock_productRequest inValue = new Cybertill.Test.stock_productRequest();
             inValue.product_id = product_id;
             inValue.loc_id = loc_id;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).stock_productAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).stock_productAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_itemResponse> Cybertill.Soap.CybertillApi_v1_6PortType.stock_itemAsync(Cybertill.Soap.stock_itemRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.stock_itemResponse> Cybertill.Test.CybertillApi_v1_6PortType.stock_itemAsync(Cybertill.Test.stock_itemRequest request)
         {
             return base.Channel.stock_itemAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.stock_itemResponse> stock_itemAsync(int item_id, int loc_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.stock_itemResponse> stock_itemAsync(int item_id, int loc_id)
         {
-            Cybertill.Soap.stock_itemRequest inValue = new Cybertill.Soap.stock_itemRequest();
+            Cybertill.Test.stock_itemRequest inValue = new Cybertill.Test.stock_itemRequest();
             inValue.item_id = item_id;
             inValue.loc_id = loc_id;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).stock_itemAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).stock_itemAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_updateResponse> Cybertill.Soap.CybertillApi_v1_6PortType.stock_updateAsync(Cybertill.Soap.stock_updateRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.stock_updateResponse> Cybertill.Test.CybertillApi_v1_6PortType.stock_updateAsync(Cybertill.Test.stock_updateRequest request)
         {
             return base.Channel.stock_updateAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.stock_updateResponse> stock_updateAsync(Cybertill.Soap.ctStockUpdateItemDetails[] item_details)
+        public System.Threading.Tasks.Task<Cybertill.Test.stock_updateResponse> stock_updateAsync(Cybertill.Test.ctStockUpdateItemDetails[] item_details)
         {
-            Cybertill.Soap.stock_updateRequest inValue = new Cybertill.Soap.stock_updateRequest();
+            Cybertill.Test.stock_updateRequest inValue = new Cybertill.Test.stock_updateRequest();
             inValue.item_details = item_details;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).stock_updateAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).stock_updateAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_reserveResponse> Cybertill.Soap.CybertillApi_v1_6PortType.stock_reserveAsync(Cybertill.Soap.stock_reserveRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.stock_reserveResponse> Cybertill.Test.CybertillApi_v1_6PortType.stock_reserveAsync(Cybertill.Test.stock_reserveRequest request)
         {
             return base.Channel.stock_reserveAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.stock_reserveResponse> stock_reserveAsync(Cybertill.Soap.ctStockReserveItemDetails[] item_details)
+        public System.Threading.Tasks.Task<Cybertill.Test.stock_reserveResponse> stock_reserveAsync(Cybertill.Test.ctStockReserveItemDetails[] item_details)
         {
-            Cybertill.Soap.stock_reserveRequest inValue = new Cybertill.Soap.stock_reserveRequest();
+            Cybertill.Test.stock_reserveRequest inValue = new Cybertill.Test.stock_reserveRequest();
             inValue.item_details = item_details;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).stock_reserveAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).stock_reserveAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_despatchResponse> Cybertill.Soap.CybertillApi_v1_6PortType.stock_despatchAsync(Cybertill.Soap.stock_despatchRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.stock_despatchResponse> Cybertill.Test.CybertillApi_v1_6PortType.stock_despatchAsync(Cybertill.Test.stock_despatchRequest request)
         {
             return base.Channel.stock_despatchAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.stock_despatchResponse> stock_despatchAsync(Cybertill.Soap.ctStockDespatchItemDetails[] item_details)
+        public System.Threading.Tasks.Task<Cybertill.Test.stock_despatchResponse> stock_despatchAsync(Cybertill.Test.ctStockDespatchItemDetails[] item_details)
         {
-            Cybertill.Soap.stock_despatchRequest inValue = new Cybertill.Soap.stock_despatchRequest();
+            Cybertill.Test.stock_despatchRequest inValue = new Cybertill.Test.stock_despatchRequest();
             inValue.item_details = item_details;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).stock_despatchAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).stock_despatchAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctReserveCollectionConfirmation> stock_reserve_collectAsync(Cybertill.Soap.ctReserveCollectData reserve_collect_data)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctReserveCollectionConfirmation> stock_reserve_collectAsync(Cybertill.Test.ctReserveCollectData reserve_collect_data)
         {
             return base.Channel.stock_reserve_collectAsync(reserve_collect_data);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctReserveCollectionConfirmation> stock_override_reserve_collectAsync(Cybertill.Soap.ctReserveCollectData reserve_collect_data)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctReserveCollectionConfirmation> stock_override_reserve_collectAsync(Cybertill.Test.ctReserveCollectData reserve_collect_data)
         {
             return base.Channel.stock_override_reserve_collectAsync(reserve_collect_data);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.stock_reserve_collect_batch_statusResponse> Cybertill.Soap.CybertillApi_v1_6PortType.stock_reserve_collect_batch_statusAsync(Cybertill.Soap.stock_reserve_collect_batch_statusRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.stock_reserve_collect_batch_statusResponse> Cybertill.Test.CybertillApi_v1_6PortType.stock_reserve_collect_batch_statusAsync(Cybertill.Test.stock_reserve_collect_batch_statusRequest request)
         {
             return base.Channel.stock_reserve_collect_batch_statusAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.stock_reserve_collect_batch_statusResponse> stock_reserve_collect_batch_statusAsync(string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.stock_reserve_collect_batch_statusResponse> stock_reserve_collect_batch_statusAsync(string date_updated)
         {
-            Cybertill.Soap.stock_reserve_collect_batch_statusRequest inValue = new Cybertill.Soap.stock_reserve_collect_batch_statusRequest();
+            Cybertill.Test.stock_reserve_collect_batch_statusRequest inValue = new Cybertill.Test.stock_reserve_collect_batch_statusRequest();
             inValue.date_updated = date_updated;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).stock_reserve_collect_batch_statusAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).stock_reserve_collect_batch_statusAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.ticket_addResponse> Cybertill.Soap.CybertillApi_v1_6PortType.ticket_addAsync(Cybertill.Soap.ticket_addRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.ticket_addResponse> Cybertill.Test.CybertillApi_v1_6PortType.ticket_addAsync(Cybertill.Test.ticket_addRequest request)
         {
             return base.Channel.ticket_addAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ticket_addResponse> ticket_addAsync(Cybertill.Soap.ctBookingDetails booking_details, Cybertill.Soap.ctBookingTickets[] booking_tickets, Cybertill.Soap.ctTransactionAddOrderPayments[] booking_payments)
+        public System.Threading.Tasks.Task<Cybertill.Test.ticket_addResponse> ticket_addAsync(Cybertill.Test.ctBookingDetails booking_details, Cybertill.Test.ctBookingTickets[] booking_tickets, Cybertill.Test.ctTransactionAddOrderPayments[] booking_payments)
         {
-            Cybertill.Soap.ticket_addRequest inValue = new Cybertill.Soap.ticket_addRequest();
+            Cybertill.Test.ticket_addRequest inValue = new Cybertill.Test.ticket_addRequest();
             inValue.booking_details = booking_details;
             inValue.booking_tickets = booking_tickets;
             inValue.booking_payments = booking_payments;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).ticket_addAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).ticket_addAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> ticket_event_List_CountAsync(string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> ticket_event_List_CountAsync(string date_created, string date_updated, int start_from, int limit)
         {
             return base.Channel.ticket_event_List_CountAsync(date_created, date_updated, start_from, limit);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.ticket_event_ListResponse> Cybertill.Soap.CybertillApi_v1_6PortType.ticket_event_ListAsync(Cybertill.Soap.ticket_event_ListRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.ticket_event_ListResponse> Cybertill.Test.CybertillApi_v1_6PortType.ticket_event_ListAsync(Cybertill.Test.ticket_event_ListRequest request)
         {
             return base.Channel.ticket_event_ListAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ticket_event_ListResponse> ticket_event_ListAsync(string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.ticket_event_ListResponse> ticket_event_ListAsync(string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.ticket_event_ListRequest inValue = new Cybertill.Soap.ticket_event_ListRequest();
+            Cybertill.Test.ticket_event_ListRequest inValue = new Cybertill.Test.ticket_event_ListRequest();
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).ticket_event_ListAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).ticket_event_ListAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> ticket_times_List_CountAsync(int event_id, string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> ticket_times_List_CountAsync(int event_id, string date_created, string date_updated)
         {
             return base.Channel.ticket_times_List_CountAsync(event_id, date_created, date_updated);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.ticket_times_ListResponse> Cybertill.Soap.CybertillApi_v1_6PortType.ticket_times_ListAsync(Cybertill.Soap.ticket_times_ListRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.ticket_times_ListResponse> Cybertill.Test.CybertillApi_v1_6PortType.ticket_times_ListAsync(Cybertill.Test.ticket_times_ListRequest request)
         {
             return base.Channel.ticket_times_ListAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ticket_times_ListResponse> ticket_times_ListAsync(int event_id, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.ticket_times_ListResponse> ticket_times_ListAsync(int event_id, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.ticket_times_ListRequest inValue = new Cybertill.Soap.ticket_times_ListRequest();
+            Cybertill.Test.ticket_times_ListRequest inValue = new Cybertill.Test.ticket_times_ListRequest();
             inValue.event_id = event_id;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).ticket_times_ListAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).ticket_times_ListAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctResultCount> ticket_booking_Sold_List_CountAsync(int event_id, int event_date_id, string date_created, string date_updated)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctResultCount> ticket_booking_Sold_List_CountAsync(int event_id, int event_date_id, string date_created, string date_updated)
         {
             return base.Channel.ticket_booking_Sold_List_CountAsync(event_id, event_date_id, date_created, date_updated);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.ticket_booking_Sold_ListResponse> Cybertill.Soap.CybertillApi_v1_6PortType.ticket_booking_Sold_ListAsync(Cybertill.Soap.ticket_booking_Sold_ListRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.ticket_booking_Sold_ListResponse> Cybertill.Test.CybertillApi_v1_6PortType.ticket_booking_Sold_ListAsync(Cybertill.Test.ticket_booking_Sold_ListRequest request)
         {
             return base.Channel.ticket_booking_Sold_ListAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ticket_booking_Sold_ListResponse> ticket_booking_Sold_ListAsync(int event_id, int event_date_id, string date_created, string date_updated, int start_from, int limit)
+        public System.Threading.Tasks.Task<Cybertill.Test.ticket_booking_Sold_ListResponse> ticket_booking_Sold_ListAsync(int event_id, int event_date_id, string date_created, string date_updated, int start_from, int limit)
         {
-            Cybertill.Soap.ticket_booking_Sold_ListRequest inValue = new Cybertill.Soap.ticket_booking_Sold_ListRequest();
+            Cybertill.Test.ticket_booking_Sold_ListRequest inValue = new Cybertill.Test.ticket_booking_Sold_ListRequest();
             inValue.event_id = event_id;
             inValue.event_date_id = event_date_id;
             inValue.date_created = date_created;
             inValue.date_updated = date_updated;
             inValue.start_from = start_from;
             inValue.limit = limit;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).ticket_booking_Sold_ListAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).ticket_booking_Sold_ListAsync(inValue);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.ctTransactionDetails> transaction_getAsync(int order_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.ctTransactionDetails> transaction_getAsync(int order_id)
         {
             return base.Channel.transaction_getAsync(order_id);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.transaction_addResponse> Cybertill.Soap.CybertillApi_v1_6PortType.transaction_addAsync(Cybertill.Soap.transaction_addRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.transaction_addResponse> Cybertill.Test.CybertillApi_v1_6PortType.transaction_addAsync(Cybertill.Test.transaction_addRequest request)
         {
             return base.Channel.transaction_addAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.transaction_addResponse> transaction_addAsync(Cybertill.Soap.ctTransactionAddOrderDetails order_details, Cybertill.Soap.ctTransactionAddOrderItems[] order_items, Cybertill.Soap.ctTransactionAddOrderDelivery order_delivery, Cybertill.Soap.ctTransactionAddOrderPayments[] order_payments)
+        public System.Threading.Tasks.Task<Cybertill.Test.transaction_addResponse> transaction_addAsync(Cybertill.Test.ctTransactionAddOrderDetails order_details, Cybertill.Test.ctTransactionAddOrderItems[] order_items, Cybertill.Test.ctTransactionAddOrderDelivery order_delivery, Cybertill.Test.ctTransactionAddOrderPayments[] order_payments)
         {
-            Cybertill.Soap.transaction_addRequest inValue = new Cybertill.Soap.transaction_addRequest();
+            Cybertill.Test.transaction_addRequest inValue = new Cybertill.Test.transaction_addRequest();
             inValue.order_details = order_details;
             inValue.order_items = order_items;
             inValue.order_delivery = order_delivery;
             inValue.order_payments = order_payments;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).transaction_addAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).transaction_addAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.transaction_despatch_ordersResponse> Cybertill.Soap.CybertillApi_v1_6PortType.transaction_despatch_ordersAsync(Cybertill.Soap.transaction_despatch_ordersRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.transaction_despatch_ordersResponse> Cybertill.Test.CybertillApi_v1_6PortType.transaction_despatch_ordersAsync(Cybertill.Test.transaction_despatch_ordersRequest request)
         {
             return base.Channel.transaction_despatch_ordersAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.transaction_despatch_ordersResponse> transaction_despatch_ordersAsync(int user_id, Cybertill.Soap.ctDespatchOrderDetails[] despatch_orders)
+        public System.Threading.Tasks.Task<Cybertill.Test.transaction_despatch_ordersResponse> transaction_despatch_ordersAsync(int user_id, Cybertill.Test.ctDespatchOrderDetails[] despatch_orders)
         {
-            Cybertill.Soap.transaction_despatch_ordersRequest inValue = new Cybertill.Soap.transaction_despatch_ordersRequest();
+            Cybertill.Test.transaction_despatch_ordersRequest inValue = new Cybertill.Test.transaction_despatch_ordersRequest();
             inValue.user_id = user_id;
             inValue.despatch_orders = despatch_orders;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).transaction_despatch_ordersAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).transaction_despatch_ordersAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.transaction_despatch_order_itemsResponse> Cybertill.Soap.CybertillApi_v1_6PortType.transaction_despatch_order_itemsAsync(Cybertill.Soap.transaction_despatch_order_itemsRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.transaction_despatch_order_itemsResponse> Cybertill.Test.CybertillApi_v1_6PortType.transaction_despatch_order_itemsAsync(Cybertill.Test.transaction_despatch_order_itemsRequest request)
         {
             return base.Channel.transaction_despatch_order_itemsAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.transaction_despatch_order_itemsResponse> transaction_despatch_order_itemsAsync(int user_id, Cybertill.Soap.ctDespatchOrderItemDetails[] despatch_details)
+        public System.Threading.Tasks.Task<Cybertill.Test.transaction_despatch_order_itemsResponse> transaction_despatch_order_itemsAsync(int user_id, Cybertill.Test.ctDespatchOrderItemDetails[] despatch_details)
         {
-            Cybertill.Soap.transaction_despatch_order_itemsRequest inValue = new Cybertill.Soap.transaction_despatch_order_itemsRequest();
+            Cybertill.Test.transaction_despatch_order_itemsRequest inValue = new Cybertill.Test.transaction_despatch_order_itemsRequest();
             inValue.user_id = user_id;
             inValue.despatch_details = despatch_details;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).transaction_despatch_order_itemsAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).transaction_despatch_order_itemsAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.transaction_refund_order_itemsResponse> Cybertill.Soap.CybertillApi_v1_6PortType.transaction_refund_order_itemsAsync(Cybertill.Soap.transaction_refund_order_itemsRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.transaction_refund_order_itemsResponse> Cybertill.Test.CybertillApi_v1_6PortType.transaction_refund_order_itemsAsync(Cybertill.Test.transaction_refund_order_itemsRequest request)
         {
             return base.Channel.transaction_refund_order_itemsAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.transaction_refund_order_itemsResponse> transaction_refund_order_itemsAsync(Cybertill.Soap.ctRefundOrderDetails[] refund_details)
+        public System.Threading.Tasks.Task<Cybertill.Test.transaction_refund_order_itemsResponse> transaction_refund_order_itemsAsync(Cybertill.Test.ctRefundOrderDetails[] refund_details)
         {
-            Cybertill.Soap.transaction_refund_order_itemsRequest inValue = new Cybertill.Soap.transaction_refund_order_itemsRequest();
+            Cybertill.Test.transaction_refund_order_itemsRequest inValue = new Cybertill.Test.transaction_refund_order_itemsRequest();
             inValue.refund_details = refund_details;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).transaction_refund_order_itemsAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).transaction_refund_order_itemsAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.transaction_get_order_linesResponse> Cybertill.Soap.CybertillApi_v1_6PortType.transaction_get_order_linesAsync(Cybertill.Soap.transaction_get_order_linesRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.transaction_get_order_linesResponse> Cybertill.Test.CybertillApi_v1_6PortType.transaction_get_order_linesAsync(Cybertill.Test.transaction_get_order_linesRequest request)
         {
             return base.Channel.transaction_get_order_linesAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.transaction_get_order_linesResponse> transaction_get_order_linesAsync(int transaction_id)
+        public System.Threading.Tasks.Task<Cybertill.Test.transaction_get_order_linesResponse> transaction_get_order_linesAsync(int transaction_id)
         {
-            Cybertill.Soap.transaction_get_order_linesRequest inValue = new Cybertill.Soap.transaction_get_order_linesRequest();
+            Cybertill.Test.transaction_get_order_linesRequest inValue = new Cybertill.Test.transaction_get_order_linesRequest();
             inValue.transaction_id = transaction_id;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).transaction_get_order_linesAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).transaction_get_order_linesAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.vatrate_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.vatrate_listAsync(Cybertill.Soap.vatrate_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.vatrate_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.vatrate_listAsync(Cybertill.Test.vatrate_listRequest request)
         {
             return base.Channel.vatrate_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.vatrate_listResponse> vatrate_listAsync(int dataVatId, int countryId)
+        public System.Threading.Tasks.Task<Cybertill.Test.vatrate_listResponse> vatrate_listAsync(int dataVatId, int countryId)
         {
-            Cybertill.Soap.vatrate_listRequest inValue = new Cybertill.Soap.vatrate_listRequest();
+            Cybertill.Test.vatrate_listRequest inValue = new Cybertill.Test.vatrate_listRequest();
             inValue.dataVatId = dataVatId;
             inValue.countryId = countryId;
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).vatrate_listAsync(inValue);
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).vatrate_listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Cybertill.Soap.website_listResponse> Cybertill.Soap.CybertillApi_v1_6PortType.website_listAsync(Cybertill.Soap.website_listRequest request)
+        System.Threading.Tasks.Task<Cybertill.Test.website_listResponse> Cybertill.Test.CybertillApi_v1_6PortType.website_listAsync(Cybertill.Test.website_listRequest request)
         {
             return base.Channel.website_listAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Cybertill.Soap.website_listResponse> website_listAsync()
+        public System.Threading.Tasks.Task<Cybertill.Test.website_listResponse> website_listAsync()
         {
-            Cybertill.Soap.website_listRequest inValue = new Cybertill.Soap.website_listRequest();
-            return ((Cybertill.Soap.CybertillApi_v1_6PortType)(this)).website_listAsync(inValue);
+            Cybertill.Test.website_listRequest inValue = new Cybertill.Test.website_listRequest();
+            return ((Cybertill.Test.CybertillApi_v1_6PortType)(this)).website_listAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()
@@ -12024,38 +12035,44 @@ namespace Cybertill.Soap
         {
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginClose(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndClose));
         }
-
-        private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(TimeSpan timeout, bool enableAuth)
+        
+        private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
-            var httpsBinding = new BasicHttpsBinding();
-            
-            if (enableAuth)
+            if ((endpointConfiguration == EndpointConfiguration.CybertillApi_v1_6Port))
             {
-                httpsBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Basic;
-                httpsBinding.Security.Mode = BasicHttpsSecurityMode.Transport;
+                System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
+                result.MaxBufferSize = int.MaxValue;
+                result.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
+                result.MaxReceivedMessageSize = int.MaxValue;
+                result.AllowCookies = true;
+                return result;
             }
-
-            var integerMaxValue = int.MaxValue;
-            httpsBinding.MaxBufferSize = integerMaxValue;
-            httpsBinding.MaxReceivedMessageSize = integerMaxValue;
-            httpsBinding.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
-            httpsBinding.AllowCookies = true;
-
-            httpsBinding.ReceiveTimeout = timeout;
-            httpsBinding.SendTimeout = timeout;
-            httpsBinding.OpenTimeout = timeout;
-            httpsBinding.CloseTimeout = timeout;
-
-            return httpsBinding;
+            throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
-
-        private static System.ServiceModel.EndpointAddress GetEndpointAddress(string endpointUrl)
+        
+        private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
         {
-            if (!endpointUrl.StartsWith("https://"))
+            if ((endpointConfiguration == EndpointConfiguration.CybertillApi_v1_6Port))
             {
-                throw new UriFormatException("The endpoint URL must start with https://.");
+                return new System.ServiceModel.EndpointAddress("http://ct226532.c-pos.co.uk/current/CybertillApi_v1_6.php");
             }
-            return new System.ServiceModel.EndpointAddress(endpointUrl);
+            throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
+        }
+        
+        private static System.ServiceModel.Channels.Binding GetDefaultBinding()
+        {
+            return CybertillApi_v1_6PortTypeClient.GetBindingForEndpoint(EndpointConfiguration.CybertillApi_v1_6Port);
+        }
+        
+        private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
+        {
+            return CybertillApi_v1_6PortTypeClient.GetEndpointAddress(EndpointConfiguration.CybertillApi_v1_6Port);
+        }
+        
+        public enum EndpointConfiguration
+        {
+            
+            CybertillApi_v1_6Port,
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cybertill
+namespace Test
 {
     public class Class1
     {
