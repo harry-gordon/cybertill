@@ -1,8 +1,10 @@
 ﻿using Cybertill.Soap;
 using System;
-using System.ServiceModel.Dispatcher;
-using System.Threading;
+using System.Reflection;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace Cybertill.Console
 {
@@ -15,23 +17,29 @@ namespace Cybertill.Console
 
         static async Task MainAsync(string[] args)
         {
-            const string endpointUrl = "https://ct226532.c-pos.co.uk/current/CybertillApi_v1_6.php";
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddUserSecrets(Assembly.GetAssembly(typeof(Program)))
+                .AddEnvironmentVariables()
+                .Build();
+
+            var cybertillConfig = new CybertillConfig();
+            configuration.Bind("Cybertill", cybertillConfig);
+
             var timeout = TimeSpan.FromSeconds(120);
 
             var authClient =
                 new CybertillApi_v1_6PortTypeClient(
-                    endpointUrl,
+                    cybertillConfig.EndpointUrl,
                     timeout
                 );
+            
+            var authResult = await authClient.authenticate_getAsync(cybertillConfig.Username, cybertillConfig.AuthId);
 
-            const string website = "www.untouchables.co.uk";
-            const string authId = "28e6376f9917ad10ab7ea986212998c1";
-
-            var authResult = await authClient.authenticate_getAsync(website, authId);
-
+            // This looks wrong (and doesn't work) but is based on the PHP sample
             var client =
                 new CybertillApi_v1_6PortTypeClient(
-                    endpointUrl,
+                    cybertillConfig.EndpointUrl,
                     timeout,
                     authResult,
                     string.Empty

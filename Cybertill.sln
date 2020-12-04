@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cybertill", "Cybertill\Cybe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cybertill.Console", "Cybertill.Console\Cybertill.Console.csproj", "{B72A1501-01DF-4F90-B508-33A03FFE867B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{CE5ED9D6-8FC2-4732-A94D-CB8948D11570}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{B72A1501-01DF-4F90-B508-33A03FFE867B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B72A1501-01DF-4F90-B508-33A03FFE867B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B72A1501-01DF-4F90-B508-33A03FFE867B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE5ED9D6-8FC2-4732-A94D-CB8948D11570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE5ED9D6-8FC2-4732-A94D-CB8948D11570}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE5ED9D6-8FC2-4732-A94D-CB8948D11570}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE5ED9D6-8FC2-4732-A94D-CB8948D11570}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

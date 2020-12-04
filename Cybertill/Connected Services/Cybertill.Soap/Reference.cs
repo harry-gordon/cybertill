@@ -12028,7 +12028,7 @@ namespace Cybertill.Soap
         private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(TimeSpan timeout, bool enableAuth)
         {
             var httpsBinding = new BasicHttpsBinding();
-            
+
             if (enableAuth)
             {
                 httpsBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Basic;
