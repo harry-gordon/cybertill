@@ -40,12 +40,16 @@ namespace Cybertill.Console
             var client =
                 new CybertillApi_v1_6PortTypeClient(
                     cybertillConfig.EndpointUrl,
-                    timeout,
-                    authResult,
-                    string.Empty
+                    timeout
                 );
 
-            var categories = await client.category_listAsync();
+            var scope = new OperationContextScope(client.InnerChannel);
+
+            // Add a SOAP Header to an outgoing request
+            var header = MessageHeader.CreateHeader("Authentication", string.Empty, $"Basic {authResult}");
+            OperationContext.Current.OutgoingMessageHeaders.Add(header);
+
+            var categories = await client.country_listAsync();
         }
     }
 }
