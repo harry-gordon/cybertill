@@ -28,28 +28,33 @@ namespace Cybertill.Console
 
             var timeout = TimeSpan.FromSeconds(120);
 
-            var authClient =
-                new CybertillApi_v1_6PortTypeClient(
-                    cybertillConfig.EndpointUrl,
-                    timeout
-                );
-            
-            var authResult = await authClient.authenticate_getAsync(cybertillConfig.Username, cybertillConfig.AuthId);
-
-            // This looks wrong (and doesn't work) but is based on the PHP sample
             var client =
                 new CybertillApi_v1_6PortTypeClient(
                     cybertillConfig.EndpointUrl,
                     timeout
                 );
+            
+            var authResult = await client.authenticate_getAsync(cybertillConfig.Username, cybertillConfig.AuthId);
 
-            var scope = new OperationContextScope(client.InnerChannel);
+            Task<country_listResponse> countryListTask;
+            using (var scope = new OperationContextScope(client.InnerChannel))
+            {
+                // Add SOAP Header to an outgoing request
+                var header = MessageHeader.CreateHeader("login", string.Empty, $"{authResult}");
+                OperationContext.Current.OutgoingMessageHeaders.Add(header);
 
-            // Add a SOAP Header to an outgoing request
-            var header = MessageHeader.CreateHeader("Authentication", string.Empty, $"Basic {authResult}");
-            OperationContext.Current.OutgoingMessageHeaders.Add(header);
+                /*
+                // Add HTTP Header to an outgoing request
+                var requestMessage = new HttpRequestMessageProperty();
+                requestMessage.Headers["Authentication"] = $"Basic {authResult}";
+                OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name]
+                    = requestMessage;
+                */
 
-            var categories = await client.country_listAsync();
+                countryListTask = client.country_listAsync();
+            }
+
+            var countryList = await countryListTask;
         }
     }
 }
