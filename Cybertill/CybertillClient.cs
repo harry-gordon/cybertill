@@ -3,8 +3,8 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
+using Cybertill.API.Soap;
 using Cybertill.Console;
-using Cybertill.Soap;
 
 namespace Cybertill
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Cybertill.Soap;
+using Cybertill.API.Soap;
 
 namespace Cybertill
 {
