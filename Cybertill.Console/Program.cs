@@ -30,7 +30,11 @@ namespace Cybertill.Console
 
             await _client.InitAsync();
 
-            var categories = await _client.ExecuteAsync(c => c.category_listAsync());
+            var countries = await _client.ExecuteAsync(c => c.country_listAsync());
+
+            var country = countries.result.First(x => x.iso3166Cc == "GBR");
+
+            var locations = await _client.ExecuteAsync(c => c.location_listAsync(true, string.Empty, string.Empty, country.id));
 
             //await StockCheckAsync();
         }
@@ -42,7 +46,9 @@ namespace Cybertill.Console
 
             var countryId = countries.result.First().id;
 
-            var locations = await _client.ExecuteAsync(c => c.location_listAsync(true, string.Empty, string.Empty, countryId));
+            var locations = await _client.ExecuteAsync(c => 
+                c.location_listAsync(true, string.Empty, string.Empty, countryId)
+            );
 
             var dummyProductId = 5;
             var locationId = locations.result.First().id;
