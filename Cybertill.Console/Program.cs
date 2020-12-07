@@ -40,7 +40,7 @@ namespace Cybertill.Console
             using (var scope = new OperationContextScope(client.InnerChannel))
             {
                 // Add SOAP Header to an outgoing request
-                var header = MessageHeader.CreateHeader("login", string.Empty, $"{authResult}");
+                var header = MessageHeader.CreateHeader("Authentication", string.Empty, $"Basic {authResult}");
                 OperationContext.Current.OutgoingMessageHeaders.Add(header);
 
                 /*
