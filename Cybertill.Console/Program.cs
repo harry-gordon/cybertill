@@ -1,8 +1,6 @@
-﻿using Cybertill.Soap;
-using System;
+﻿using System;
+using System.Linq;
 using System.Reflection;
-using System.ServiceModel;
-using System.ServiceModel.Channels;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
@@ -23,38 +21,29 @@ namespace Cybertill.Console
                 .AddEnvironmentVariables()
                 .Build();
 
-            var cybertillConfig = new CybertillConfig();
-            configuration.Bind("Cybertill", cybertillConfig);
+            var config = new CybertillConfig();
+            configuration.Bind("Cybertill", config);
 
-            var timeout = TimeSpan.FromSeconds(120);
+            var client = new CybertillClient(config);
 
-            var client =
-                new CybertillApi_v1_6PortTypeClient(
-                    cybertillConfig.EndpointUrl,
-                    timeout
-                );
-            
-            var authResult = await client.authenticate_getAsync(cybertillConfig.Username, cybertillConfig.AuthId);
+            await client.InitAsync();
 
-            Task<country_listResponse> countryListTask;
-            using (var scope = new OperationContextScope(client.InnerChannel))
-            {
-                // Add SOAP Header to an outgoing request
-                var header = MessageHeader.CreateHeader("Authentication", string.Empty, $"Basic {authResult}");
-                OperationContext.Current.OutgoingMessageHeaders.Add(header);
+            //var categories = await client.ExecuteAsync(c => c.category_listAsync());
+            var countries = await client.ExecuteAsync(c => c.country_listAsync());
 
-                /*
-                // Add HTTP Header to an outgoing request
-                var requestMessage = new HttpRequestMessageProperty();
-                requestMessage.Headers["Authentication"] = $"Basic {authResult}";
-                OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name]
-                    = requestMessage;
-                */
+            var countryId = countries.result.First().id;
 
-                countryListTask = client.country_listAsync();
-            }
+            var locations = await client.ExecuteAsync(c => c.location_listAsync(true, string.Empty, string.Empty, countryId));
 
-            var countryList = await countryListTask;
+            var dummyProductId = 5;
+            var locationId = locations.result.First().id;
+
+            // Interestingly, location ID is optional but not in this generated code
+            // Might be worth modifying the code to allow a null value?
+            var productStock = await client.ExecuteAsync(c => c.stock_productAsync(dummyProductId, locationId));
+
+            // It's unclear how this query works
+            //var stock = await client.ExecuteAsync(c => c.stock_listAsync("2018-01-01", "2018-01-10", 0, 100));
         }
     }
 }
