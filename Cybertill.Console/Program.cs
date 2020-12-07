@@ -47,7 +47,7 @@ namespace Cybertill.Console
             var dummyProductId = 5;
             var locationId = locations.result.First().id;
 
-            // Interestingly, location ID is optional but not in this generated code
+            // Interestingly, location ID is optional (per the docs) but not in this generated code
             // Might be worth modifying the code to allow a null value?
             var productStock = await _client.ExecuteAsync(c => c.stock_productAsync(dummyProductId, locationId));
 
