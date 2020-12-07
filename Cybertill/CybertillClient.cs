@@ -12,7 +12,7 @@ namespace Cybertill
     {
         private readonly CybertillConfig _config;
         private readonly CybertillApi_v1_6PortTypeClient _client;
-        private string _authValue;
+        private string _authHeaderValue;
 
         public CybertillClient(CybertillConfig config)
         {
@@ -30,8 +30,9 @@ namespace Cybertill
         public async Task InitAsync()
         {
             var authResult = await _client.authenticate_getAsync(_config.Username, _config.AuthId);
+            // This looks wacky but it's how Cybertill auth works
             authResult = $"{authResult}:{authResult}";
-            _authValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authResult));
+            _authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authResult));
         }
 
         public Task<T> ExecuteAsync<T>(Func<CybertillApi_v1_6PortTypeClient, Task<T>> func)
@@ -40,13 +41,9 @@ namespace Cybertill
 
             using (var scope = new OperationContextScope(_client.InnerChannel))
             {
-                //// Add SOAP Header to an outgoing request
-                //var header = MessageHeader.CreateHeader("Authentication", string.Empty, $"Basic {_authValue}");
-                //OperationContext.Current.OutgoingMessageHeaders.Add(header);
-
-                // Add HTTP Header to an outgoing request
+                // Add HTTP auth header
                 var requestMessage = new HttpRequestMessageProperty();
-                requestMessage.Headers["Authorization"] = $"Basic {_authValue}";
+                requestMessage.Headers["Authorization"] = $"Basic {_authHeaderValue}";
                 OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name]
                     = requestMessage;
 
@@ -56,7 +53,7 @@ namespace Cybertill
 
         private void CheckAuth()
         {
-            if (_authValue == null)
+            if (_authHeaderValue == null)
             {
                 throw new InvalidOperationException("Client is not authorized, please initialise the client before making an calls");
             }
