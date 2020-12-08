@@ -1,0 +1,3088 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="CybertillApi_v1_6" targetNamespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/">
+      <xsd:complexType name="ctProductBrand">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="description" type="xsd:string" />
+          <xsd:element name="active" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctProductBrandElement" type="tns:ctProductBrand" />
+      <xsd:complexType name="CtProductBrandArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctProductBrand" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtProductBrandArrayElement" type="tns:CtProductBrandArray" />
+      <xsd:complexType name="ctSoapEposCategory">
+        <xsd:sequence>
+          <xsd:element name="category" type="tns:ctEposCategory" />
+          <xsd:element minOccurs="0" name="child_categories" type="tns:CtSoapEposCategoryArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctSoapEposCategoryElement" type="tns:ctSoapEposCategory" />
+      <xsd:complexType name="ctEposCategory">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="descr" type="xsd:string" />
+          <xsd:element name="pathString" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctEposCategoryElement" type="tns:ctEposCategory" />
+      <xsd:complexType name="CtSoapEposCategoryArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctSoapEposCategory" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtSoapEposCategoryArrayElement" type="tns:CtSoapEposCategoryArray" />
+      <xsd:complexType name="ctResultCount">
+        <xsd:sequence>
+          <xsd:element name="total" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctResultCountElement" type="tns:ctResultCount" />
+      <xsd:complexType name="ctEposCategoryFlatList">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="descr" type="xsd:string" />
+          <xsd:element name="pathString" type="xsd:string" />
+          <xsd:element name="lft" type="xsd:int" />
+          <xsd:element name="rgt" type="xsd:int" />
+          <xsd:element name="depth" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctEposCategoryFlatListElement" type="tns:ctEposCategoryFlatList" />
+      <xsd:complexType name="CtEposCategoryFlatListArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctEposCategoryFlatList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtEposCategoryFlatListArrayElement" type="tns:CtEposCategoryFlatListArray" />
+      <xsd:complexType name="ctSoapWebCategory">
+        <xsd:sequence>
+          <xsd:element name="category" type="tns:ctWebsiteCategory" />
+          <xsd:element minOccurs="0" name="child_categories" type="tns:CtSoapWebCategoryArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctSoapWebCategoryElement" type="tns:ctSoapWebCategory" />
+      <xsd:complexType name="ctWebsiteCategory">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="descr" type="xsd:string" />
+          <xsd:element name="webVisible" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctWebsiteCategoryElement" type="tns:ctWebsiteCategory" />
+      <xsd:complexType name="CtSoapWebCategoryArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctSoapWebCategory" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtSoapWebCategoryArrayElement" type="tns:CtSoapWebCategoryArray" />
+      <xsd:complexType name="ctWebsiteCategoryFlatList">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="descr" type="xsd:string" />
+          <xsd:element name="webVisible" type="xsd:string" />
+          <xsd:element name="websiteId" type="xsd:string" />
+          <xsd:element name="lft" type="xsd:int" />
+          <xsd:element name="rgt" type="xsd:int" />
+          <xsd:element name="depth" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctWebsiteCategoryFlatListElement" type="tns:ctWebsiteCategoryFlatList" />
+      <xsd:complexType name="CtWebsiteCategoryFlatListArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctWebsiteCategoryFlatList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtWebsiteCategoryFlatListArrayElement" type="tns:CtWebsiteCategoryFlatListArray" />
+      <xsd:complexType name="ctCountry">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="iso3166Cc" type="xsd:string" />
+          <xsd:element name="iso3166Cc1" type="xsd:string" />
+          <xsd:element name="iso3166CcNumeric" type="xsd:int" />
+          <xsd:element name="inEu" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="currencyId" type="xsd:int" />
+          <xsd:element name="active" type="xsd:boolean" />
+          <xsd:element name="createdAt" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCountryElement" type="tns:ctCountry" />
+      <xsd:complexType name="CtCountryArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctCountry" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtCountryArrayElement" type="tns:CtCountryArray" />
+      <xsd:complexType name="ctCourier">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="company" type="xsd:string" />
+          <xsd:element name="country" type="tns:ctCourierCountry" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCourierElement" type="tns:ctCourier" />
+      <xsd:complexType name="ctCourierCountry">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCourierCountryElement" type="tns:ctCourierCountry" />
+      <xsd:complexType name="CtCourierArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctCourier" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtCourierArrayElement" type="tns:CtCourierArray" />
+      <xsd:complexType name="ctCarriageService">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="ref" type="xsd:string" />
+          <xsd:element name="notes" type="xsd:string" />
+          <xsd:element name="courier" type="tns:ctCourier" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCarriageServiceElement" type="tns:ctCarriageService" />
+      <xsd:complexType name="CtCarriageServiceArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctCarriageService" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtCarriageServiceArrayElement" type="tns:CtCarriageServiceArray" />
+      <xsd:complexType name="ctCarriageZone">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="ref" type="xsd:string" />
+          <xsd:element name="notes" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCarriageZoneElement" type="tns:ctCarriageZone" />
+      <xsd:complexType name="CtCarriageZoneArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctCarriageZone" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtCarriageZoneArrayElement" type="tns:CtCarriageZoneArray" />
+      <xsd:complexType name="ctTariff">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="weight_tariffs" type="tns:CtCarriageWeightTariffLkpArray" />
+          <xsd:element minOccurs="0" name="value_tariffs" type="tns:CtCarriageValueTariffLkpArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctTariffElement" type="tns:ctTariff" />
+      <xsd:complexType name="ctCarriageWeightTariffLkp">
+        <xsd:sequence>
+          <xsd:element name="productOption" type="tns:ctProductOption" />
+          <xsd:element name="carriageService" type="tns:ctCarriageService" />
+          <xsd:element name="carriageZone" type="tns:ctCarriageZone" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCarriageWeightTariffLkpElement" type="tns:ctCarriageWeightTariffLkp" />
+      <xsd:complexType name="ctProductOption">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="ref" type="xsd:string" />
+          <xsd:element name="styleString" type="xsd:string" />
+          <xsd:element name="availableToSell" type="xsd:boolean" />
+          <xsd:element name="discontinued" type="xsd:boolean" />
+          <xsd:element name="webVisible" type="xsd:boolean" />
+          <xsd:element name="manNumber" type="xsd:string" />
+          <xsd:element name="dataVatId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="product" type="tns:ctProduct" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctProductOptionElement" type="tns:ctProductOption" />
+      <xsd:complexType name="ctProduct">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="descrShort" type="xsd:string" />
+          <xsd:element name="descrLong" type="xsd:string" />
+          <xsd:element name="availableToSell" type="xsd:boolean" />
+          <xsd:element name="deliverable" type="xsd:boolean" />
+          <xsd:element name="itemWeight" type="xsd:double" />
+          <xsd:element name="typeLkp" type="xsd:int" />
+          <xsd:element name="stkBrandId" type="xsd:int" />
+          <xsd:element name="dataVatId" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctProductElement" type="tns:ctProduct" />
+      <xsd:complexType name="CtCarriageWeightTariffLkpArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctCarriageWeightTariffLkp" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtCarriageWeightTariffLkpArrayElement" type="tns:CtCarriageWeightTariffLkpArray" />
+      <xsd:complexType name="ctCarriageValueTariffLkp">
+        <xsd:sequence>
+          <xsd:element name="productOption" type="tns:ctProductOption" />
+          <xsd:element name="carriageService" type="tns:ctCarriageService" />
+          <xsd:element name="carriageZone" type="tns:ctCarriageZone" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCarriageValueTariffLkpElement" type="tns:ctCarriageValueTariffLkp" />
+      <xsd:complexType name="CtCarriageValueTariffLkpArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctCarriageValueTariffLkp" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtCarriageValueTariffLkpArrayElement" type="tns:CtCarriageValueTariffLkpArray" />
+      <xsd:complexType name="ctCurrency">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="descr" type="xsd:string" />
+          <xsd:element name="code" type="xsd:string" />
+          <xsd:element name="symbol" type="xsd:string" />
+          <xsd:element name="iso4217Numeric" type="xsd:int" />
+          <xsd:element name="exchangeRate" type="xsd:double" />
+          <xsd:element name="isBase" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCurrencyElement" type="tns:ctCurrency" />
+      <xsd:complexType name="CtCurrencyArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctCurrency" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtCurrencyArrayElement" type="tns:CtCurrencyArray" />
+      <xsd:complexType name="ctCustomerDetails">
+        <xsd:sequence>
+          <xsd:element name="customer" type="tns:ctCustomer" />
+          <xsd:element minOccurs="0" name="addresses" type="tns:CtAddressArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCustomerDetailsElement" type="tns:ctCustomerDetails" />
+      <xsd:complexType name="ctCustomer">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="firstName" type="xsd:string" />
+          <xsd:element name="lastName" type="xsd:string" />
+          <xsd:element name="initial" type="xsd:string" />
+          <xsd:element name="salutation" type="xsd:string" />
+          <xsd:element name="dob" type="xsd:string" />
+          <xsd:element name="gender" type="xsd:int" />
+          <xsd:element name="company" type="xsd:string" />
+          <xsd:element name="position" type="xsd:string" />
+          <xsd:element name="vatNumber" type="xsd:string" />
+          <xsd:element name="privacy" type="xsd:int" />
+          <xsd:element name="spamOptout" type="xsd:boolean" />
+          <xsd:element name="thirdpartyOptout" type="xsd:boolean" />
+          <xsd:element name="postmailshot" type="xsd:boolean" />
+          <xsd:element name="CustomerSource" type="tns:CustomerSource" />
+          <xsd:element name="CustomerGroup" type="tns:CustomerGroup" />
+          <xsd:element name="active" type="xsd:boolean" />
+          <xsd:element name="webEmail" type="xsd:string" />
+          <xsd:element name="typeLkp" type="xsd:int" />
+          <xsd:element name="accNumber" type="xsd:string" />
+          <xsd:element name="createdAt" type="xsd:string" />
+          <xsd:element name="ukTaxpayer" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCustomerElement" type="tns:ctCustomer" />
+      <xsd:complexType name="CustomerSource">
+        <xsd:sequence>
+          <xsd:element name="code" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CustomerSourceElement" type="tns:CustomerSource" />
+      <xsd:complexType name="CustomerGroup">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CustomerGroupElement" type="tns:CustomerGroup" />
+      <xsd:complexType name="ctAddress">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="add1" type="xsd:string" />
+          <xsd:element name="add2" type="xsd:string" />
+          <xsd:element name="city" type="xsd:string" />
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="Country" type="tns:Country" />
+          <xsd:element name="tel1" type="xsd:string" />
+          <xsd:element name="tel2" type="xsd:string" />
+          <xsd:element name="addName" type="xsd:string" />
+          <xsd:element name="zip" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctAddressElement" type="tns:ctAddress" />
+      <xsd:complexType name="Country">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="iso3166Cc" type="xsd:string" />
+          <xsd:element name="iso3166Cc1" type="xsd:string" />
+          <xsd:element name="iso3166CcNumeric" type="xsd:int" />
+          <xsd:element name="inEu" type="xsd:boolean" />
+          <xsd:element name="Currency" type="tns:Currency" />
+          <xsd:element name="active" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CountryElement" type="tns:Country" />
+      <xsd:complexType name="Currency">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="descr" type="xsd:string" />
+          <xsd:element name="code" type="xsd:string" />
+          <xsd:element name="symbol" type="xsd:string" />
+          <xsd:element name="iso4217Numeric" type="xsd:int" />
+          <xsd:element name="exchangeRate" type="xsd:int" />
+          <xsd:element name="isBase" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CurrencyElement" type="tns:Currency" />
+      <xsd:complexType name="CtAddressArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctAddress" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtAddressArrayElement" type="tns:CtAddressArray" />
+      <xsd:complexType name="CtCustomerArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctCustomer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtCustomerArrayElement" type="tns:CtCustomerArray" />
+      <xsd:complexType name="ctOrderHistory">
+        <xsd:sequence>
+          <xsd:element name="transaction" type="tns:ctTransaction" />
+          <xsd:element name="productOption" type="tns:ctProductOption" />
+          <xsd:element name="stockQty" type="xsd:double" />
+          <xsd:element name="totalGrossPaid" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctOrderHistoryElement" type="tns:ctOrderHistory" />
+      <xsd:complexType name="ctTransaction">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="status" type="xsd:int" />
+          <xsd:element name="orderTotal" type="xsd:double" />
+          <xsd:element name="vat" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctTransactionElement" type="tns:ctTransaction" />
+      <xsd:complexType name="CtOrderHistoryArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctOrderHistory" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtOrderHistoryArrayElement" type="tns:CtOrderHistoryArray" />
+      <xsd:complexType name="ctCustomerAdd">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="firstName" type="xsd:string" />
+          <xsd:element name="lastName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="initial" type="xsd:string" />
+          <xsd:element minOccurs="0" name="salutation" type="xsd:string" />
+          <xsd:element minOccurs="0" name="dob" type="xsd:string" />
+          <xsd:element minOccurs="0" name="gender" type="xsd:int" />
+          <xsd:element minOccurs="0" name="company" type="xsd:string" />
+          <xsd:element minOccurs="0" name="position" type="xsd:string" />
+          <xsd:element minOccurs="0" name="vatNumber" type="xsd:string" />
+          <xsd:element name="privacy" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="webEmail" type="xsd:string" />
+          <xsd:element minOccurs="0" name="webPassword" type="xsd:string" />
+          <xsd:element minOccurs="0" name="webPasswordAgain" type="xsd:string" />
+          <xsd:element minOccurs="0" name="spamOptout" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="thirdpartyOptout" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="postmailshot" type="xsd:boolean" />
+          <xsd:element name="defaultAddress" type="tns:ctAddressAdd" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCustomerAddElement" type="tns:ctCustomerAdd" />
+      <xsd:complexType name="ctAddressAdd">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="addName" type="xsd:string" />
+          <xsd:element name="add1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="add2" type="xsd:string" />
+          <xsd:element minOccurs="0" name="city" type="xsd:string" />
+          <xsd:element minOccurs="0" name="state" type="xsd:string" />
+          <xsd:element name="countryId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="zip" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tel1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tel2" type="xsd:string" />
+          <xsd:element minOccurs="0" name="fax" type="xsd:string" />
+          <xsd:element minOccurs="0" name="allowDuplicatePostcode" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="company" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctAddressAddElement" type="tns:ctAddressAdd" />
+      <xsd:complexType name="ctCustomerAddResponse">
+        <xsd:sequence>
+          <xsd:element name="success" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="customerId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="addressId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="errors" type="tns:CtSoapValidationErrorArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCustomerAddResponseElement" type="tns:ctCustomerAddResponse" />
+      <xsd:complexType name="ctSoapValidationError">
+        <xsd:sequence>
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="error" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctSoapValidationErrorElement" type="tns:ctSoapValidationError" />
+      <xsd:complexType name="CtSoapValidationErrorArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctSoapValidationError" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtSoapValidationErrorArrayElement" type="tns:CtSoapValidationErrorArray" />
+      <xsd:complexType name="ctCustomerEdit">
+        <xsd:sequence>
+          <xsd:element name="customerId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="firstName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="lastName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="initial" type="xsd:string" />
+          <xsd:element minOccurs="0" name="salutation" type="xsd:string" />
+          <xsd:element minOccurs="0" name="dob" type="xsd:string" />
+          <xsd:element minOccurs="0" name="company" type="xsd:string" />
+          <xsd:element minOccurs="0" name="position" type="xsd:string" />
+          <xsd:element minOccurs="0" name="vatNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="privacy" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="webEmail" type="xsd:string" />
+          <xsd:element minOccurs="0" name="webPasswordOld" type="xsd:string" />
+          <xsd:element minOccurs="0" name="webPassword" type="xsd:string" />
+          <xsd:element minOccurs="0" name="webPasswordAgain" type="xsd:string" />
+          <xsd:element minOccurs="0" name="spamOptout" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="thirdpartyOptout" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="postmailshot" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ukTaxpayer" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="giftAid" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="addressId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="doNotValidateOnPassword" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctCustomerEditElement" type="tns:ctCustomerEdit" />
+      <xsd:complexType name="ctUpdateResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="errors" type="tns:CtSoapValidationErrorArray" />
+          <xsd:element name="success" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="message" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctUpdateResponseElement" type="tns:ctUpdateResponse" />
+      <xsd:complexType name="ctAddressAddResponse">
+        <xsd:sequence>
+          <xsd:element name="success" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="addressId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="errors" type="tns:CtSoapValidationErrorArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctAddressAddResponseElement" type="tns:ctAddressAddResponse" />
+      <xsd:complexType name="ctAddressEdit">
+        <xsd:sequence>
+          <xsd:element name="customerId" type="xsd:int" />
+          <xsd:element name="addressId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="addName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="add1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="add2" type="xsd:string" />
+          <xsd:element minOccurs="0" name="city" type="xsd:string" />
+          <xsd:element minOccurs="0" name="state" type="xsd:string" />
+          <xsd:element minOccurs="0" name="countryId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="zip" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tel1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tel2" type="xsd:string" />
+          <xsd:element minOccurs="0" name="fax" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctAddressEditElement" type="tns:ctAddressEdit" />
+      <xsd:complexType name="CtAddressEditArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctAddressEdit" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtAddressEditArrayElement" type="tns:CtAddressEditArray" />
+      <xsd:complexType name="ctGiftcardCheckBalanceResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="currentBalance" type="xsd:string" />
+          <xsd:element minOccurs="0" name="expiryDate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="status" type="xsd:string" />
+          <xsd:element minOccurs="0" name="error" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctGiftcardCheckBalanceResponseElement" type="tns:ctGiftcardCheckBalanceResponse" />
+      <xsd:complexType name="ctProductOptionDetails">
+        <xsd:sequence>
+          <xsd:element name="productOption" type="tns:ctProductOption" />
+          <xsd:element minOccurs="0" name="productOptionPrice" type="tns:ctProductOptionPrice" />
+          <xsd:element minOccurs="0" name="udfs" type="tns:CtProductUdfArray" />
+          <xsd:element minOccurs="0" name="item_udfs" type="tns:CtProductUdfArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctProductOptionDetailsElement" type="tns:ctProductOptionDetails" />
+      <xsd:complexType name="ctProductOptionPrice">
+        <xsd:sequence>
+          <xsd:element name="priceRrp" type="xsd:double" />
+          <xsd:element name="priceStore" type="xsd:double" />
+          <xsd:element name="priceWeb" type="xsd:double" />
+          <xsd:element name="priceStaff" type="xsd:double" />
+          <xsd:element name="priceTrade" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctProductOptionPriceElement" type="tns:ctProductOptionPrice" />
+      <xsd:complexType name="ctProductUdf">
+        <xsd:sequence>
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="value" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctProductUdfElement" type="tns:ctProductUdf" />
+      <xsd:complexType name="CtProductUdfArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctProductUdf" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtProductUdfArrayElement" type="tns:CtProductUdfArray" />
+      <xsd:complexType name="CtProductOptionDetailsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctProductOptionDetails" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtProductOptionDetailsArrayElement" type="tns:CtProductOptionDetailsArray" />
+      <xsd:complexType name="ctProductImage">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="objectId" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="descr" type="xsd:string" />
+          <xsd:element name="fileName" type="xsd:string" />
+          <xsd:element name="isDefault" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctProductImageElement" type="tns:ctProductImage" />
+      <xsd:complexType name="CtProductImageArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctProductImage" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtProductImageArrayElement" type="tns:CtProductImageArray" />
+      <xsd:complexType name="ctBarcode">
+        <xsd:sequence>
+          <xsd:element name="stkItemId" type="xsd:int" />
+          <xsd:element name="barcode" type="xsd:string" />
+          <xsd:element name="isPrimary" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctBarcodeElement" type="tns:ctBarcode" />
+      <xsd:complexType name="CtBarcodeArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctBarcode" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtBarcodeArrayElement" type="tns:CtBarcodeArray" />
+      <xsd:complexType name="ctLocation">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="area" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctLocationElement" type="tns:ctLocation" />
+      <xsd:complexType name="CtLocationArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctLocation" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtLocationArrayElement" type="tns:CtLocationArray" />
+      <xsd:complexType name="ctWebsiteLocation">
+        <xsd:sequence>
+          <xsd:element name="location" type="tns:ctLocation" />
+          <xsd:element name="webOrderPriority" type="xsd:int" />
+          <xsd:element name="stockIn" type="xsd:string" />
+          <xsd:element name="stockOut" type="xsd:string" />
+          <xsd:element name="stockDue" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctWebsiteLocationElement" type="tns:ctWebsiteLocation" />
+      <xsd:complexType name="CtWebsiteLocationArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctWebsiteLocation" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtWebsiteLocationArrayElement" type="tns:CtWebsiteLocationArray" />
+      <xsd:complexType name="ctProductComplex">
+        <xsd:sequence>
+          <xsd:element name="product" type="tns:ctProduct" />
+          <xsd:element minOccurs="0" name="udfs" type="tns:CtProductUdfArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctProductComplexElement" type="tns:ctProductComplex" />
+      <xsd:complexType name="CtProductArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctProduct" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtProductArrayElement" type="tns:CtProductArray" />
+      <xsd:complexType name="CtProductComplexArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctProductComplex" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtProductComplexArrayElement" type="tns:CtProductComplexArray" />
+      <xsd:complexType name="ctStockLevel">
+        <xsd:sequence>
+          <xsd:element name="stkItemId" type="xsd:int" />
+          <xsd:element name="locationId" type="xsd:int" />
+          <xsd:element name="stock" type="xsd:double" />
+          <xsd:element name="reserved" type="xsd:double" />
+          <xsd:element name="pop" type="xsd:double" />
+          <xsd:element name="ibt" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctStockLevelElement" type="tns:ctStockLevel" />
+      <xsd:complexType name="CtStockLevelArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctStockLevel" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtStockLevelArrayElement" type="tns:CtStockLevelArray" />
+      <xsd:complexType name="ctStockUpdateItemDetails">
+        <xsd:sequence>
+          <xsd:element name="itemId" type="xsd:int" />
+          <xsd:element name="locationId" type="xsd:int" />
+          <xsd:element name="reasonText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="qty" type="xsd:int" />
+          <xsd:element minOccurs="0" name="min" type="xsd:int" />
+          <xsd:element minOccurs="0" name="max" type="xsd:int" />
+          <xsd:element minOccurs="0" name="updateType" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctStockUpdateItemDetailsElement" type="tns:ctStockUpdateItemDetails" />
+      <xsd:complexType name="CtStockUpdateItemDetailsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctStockUpdateItemDetails" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtStockUpdateItemDetailsArrayElement" type="tns:CtStockUpdateItemDetailsArray" />
+      <xsd:complexType name="ctStockReserveItemDetails">
+        <xsd:sequence>
+          <xsd:element name="itemId" type="xsd:int" />
+          <xsd:element name="locationId" type="xsd:int" />
+          <xsd:element name="reasonText" type="xsd:string" />
+          <xsd:element name="qty" type="xsd:int" />
+          <xsd:element minOccurs="0" name="updateType" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctStockReserveItemDetailsElement" type="tns:ctStockReserveItemDetails" />
+      <xsd:complexType name="CtStockReserveItemDetailsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctStockReserveItemDetails" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtStockReserveItemDetailsArrayElement" type="tns:CtStockReserveItemDetailsArray" />
+      <xsd:complexType name="ctStockDespatchItemDetails">
+        <xsd:sequence>
+          <xsd:element name="itemId" type="xsd:int" />
+          <xsd:element name="locationId" type="xsd:int" />
+          <xsd:element name="reasonText" type="xsd:string" />
+          <xsd:element name="qty" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctStockDespatchItemDetailsElement" type="tns:ctStockDespatchItemDetails" />
+      <xsd:complexType name="CtStockDespatchItemDetailsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctStockDespatchItemDetails" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtStockDespatchItemDetailsArrayElement" type="tns:CtStockDespatchItemDetailsArray" />
+      <xsd:complexType name="ctReserveCollectData">
+        <xsd:sequence>
+          <xsd:element name="locationId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="customerId" type="xsd:int" />
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="expirationHours" type="xsd:int" />
+          <xsd:element name="items" type="tns:CtReservationItemArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctReserveCollectDataElement" type="tns:ctReserveCollectData" />
+      <xsd:complexType name="ctReservationItem">
+        <xsd:sequence>
+          <xsd:element name="itemId" type="xsd:int" />
+          <xsd:element name="qty" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctReservationItemElement" type="tns:ctReservationItem" />
+      <xsd:complexType name="CtReservationItemArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctReservationItem" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtReservationItemArrayElement" type="tns:CtReservationItemArray" />
+      <xsd:complexType name="ctReserveCollectionConfirmation">
+        <xsd:sequence>
+          <xsd:element name="reservationId" type="xsd:string" />
+          <xsd:element name="reservationBranchName" type="xsd:string" />
+          <xsd:element name="reservationExpiry" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctReserveCollectionConfirmationElement" type="tns:ctReserveCollectionConfirmation" />
+      <xsd:complexType name="ctReserveCollectComplex">
+        <xsd:sequence>
+          <xsd:element name="reserveCollect" type="tns:ctReserveCollect" />
+          <xsd:element minOccurs="0" name="reserveCollectItems" type="tns:CtReserveCollectItemArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctReserveCollectComplexElement" type="tns:ctReserveCollectComplex" />
+      <xsd:complexType name="ctReserveCollect">
+        <xsd:sequence>
+          <xsd:element name="reservationId" type="xsd:string" />
+          <xsd:element name="locationId" type="xsd:int" />
+          <xsd:element name="customerId" type="xsd:int" />
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="sold" type="xsd:int" />
+          <xsd:element name="timeExpire" type="xsd:string" />
+          <xsd:element name="timeUpdated" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctReserveCollectElement" type="tns:ctReserveCollect" />
+      <xsd:complexType name="ctReserveCollectItem">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="stkItemId" type="xsd:int" />
+          <xsd:element name="qty" type="xsd:int" />
+          <xsd:element name="collectionStatus" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctReserveCollectItemElement" type="tns:ctReserveCollectItem" />
+      <xsd:complexType name="CtReserveCollectItemArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctReserveCollectItem" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtReserveCollectItemArrayElement" type="tns:CtReserveCollectItemArray" />
+      <xsd:complexType name="CtReserveCollectComplexArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctReserveCollectComplex" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtReserveCollectComplexArrayElement" type="tns:CtReserveCollectComplexArray" />
+      <xsd:complexType name="ctBookingDetails">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="bookingReference" type="xsd:string" />
+          <xsd:element name="customerId" type="xsd:int" />
+          <xsd:element name="websiteId" type="xsd:int" />
+          <xsd:element name="eventDate" type="xsd:string" />
+          <xsd:element name="eventTime" type="xsd:string" />
+          <xsd:element minOccurs="0" name="eventEndTime" type="xsd:string" />
+          <xsd:element name="eventId" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctBookingDetailsElement" type="tns:ctBookingDetails" />
+      <xsd:complexType name="ctBookingTickets">
+        <xsd:sequence>
+          <xsd:element name="ticketTypeId" type="xsd:string" />
+          <xsd:element name="salesQty" type="xsd:int" />
+          <xsd:element name="itemPrice" type="xsd:double" />
+          <xsd:element minOccurs="0" name="discountPrice" type="xsd:double" />
+          <xsd:element minOccurs="0" name="note" type="xsd:string" />
+          <xsd:element minOccurs="0" name="vatRate" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctBookingTicketsElement" type="tns:ctBookingTickets" />
+      <xsd:complexType name="CtBookingTicketsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctBookingTickets" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtBookingTicketsArrayElement" type="tns:CtBookingTicketsArray" />
+      <xsd:complexType name="ctTransactionAddOrderPayments">
+        <xsd:sequence>
+          <xsd:element name="type" type="xsd:int" />
+          <xsd:element name="total" type="xsd:double" />
+          <xsd:element minOccurs="0" name="cardNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="cardPin" type="xsd:int" />
+          <xsd:element minOccurs="0" name="currency" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctTransactionAddOrderPaymentsElement" type="tns:ctTransactionAddOrderPayments" />
+      <xsd:complexType name="CtTransactionAddOrderPaymentsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctTransactionAddOrderPayments" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtTransactionAddOrderPaymentsArrayElement" type="tns:CtTransactionAddOrderPaymentsArray" />
+      <xsd:complexType name="ctTicketAddResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="booking_ref" type="xsd:string" />
+          <xsd:element minOccurs="0" name="errors" type="tns:CtSoapValidationErrorArray" />
+          <xsd:element name="success" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctTicketAddResponseElement" type="tns:ctTicketAddResponse" />
+      <xsd:complexType name="ctEvent">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="runDateFrom" type="xsd:string" />
+          <xsd:element name="runDateTo" type="xsd:string" />
+          <xsd:element name="capacity" type="xsd:int" />
+          <xsd:element minOccurs="0" name="productOptions" type="tns:CtProductOptionArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctEventElement" type="tns:ctEvent" />
+      <xsd:complexType name="CtProductOptionArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctProductOption" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtProductOptionArrayElement" type="tns:CtProductOptionArray" />
+      <xsd:complexType name="CtEventArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctEvent" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtEventArrayElement" type="tns:CtEventArray" />
+      <xsd:complexType name="ctTimeSlot">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="runDate" type="xsd:string" />
+          <xsd:element name="sold" type="xsd:int" />
+          <xsd:element minOccurs="0" name="startTime" type="xsd:string" />
+          <xsd:element minOccurs="0" name="endTime" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctTimeSlotElement" type="tns:ctTimeSlot" />
+      <xsd:complexType name="CtTimeSlotArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctTimeSlot" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtTimeSlotArrayElement" type="tns:CtTimeSlotArray" />
+      <xsd:complexType name="ctBooking">
+        <xsd:sequence>
+          <xsd:element name="bookingDetails" type="tns:ctBookingDetails" />
+          <xsd:element name="bookingTickets" type="tns:CtTransactionAddOrderItemsArray" />
+          <xsd:element name="bookingPayments" type="tns:CtTransactionAddOrderPaymentsArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctBookingElement" type="tns:ctBooking" />
+      <xsd:complexType name="ctTransactionAddOrderItems">
+        <xsd:sequence>
+          <xsd:element name="itemId" type="xsd:int" />
+          <xsd:element name="salesQty" type="xsd:double" />
+          <xsd:element name="itemPrice" type="xsd:double" />
+          <xsd:element minOccurs="0" name="discountPrice" type="xsd:double" />
+          <xsd:element minOccurs="0" name="note" type="xsd:string" />
+          <xsd:element minOccurs="0" name="vatRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="salesTax" type="xsd:double" />
+          <xsd:element minOccurs="0" name="issuedValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="despatchFromLocationId" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctTransactionAddOrderItemsElement" type="tns:ctTransactionAddOrderItems" />
+      <xsd:complexType name="CtTransactionAddOrderItemsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctTransactionAddOrderItems" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtTransactionAddOrderItemsArrayElement" type="tns:CtTransactionAddOrderItemsArray" />
+      <xsd:complexType name="CtBookingArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctBooking" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtBookingArrayElement" type="tns:CtBookingArray" />
+      <xsd:complexType name="ctTransactionDetails">
+        <xsd:sequence>
+          <xsd:element name="transaction" type="tns:ctTransaction" />
+          <xsd:element name="transactionOrderItems" type="tns:CtTransactionOrderLineArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctTransactionDetailsElement" type="tns:ctTransactionDetails" />
+      <xsd:complexType name="ctTransactionOrderLine">
+        <xsd:sequence>
+          <xsd:element name="productOption" type="tns:ctProductOption" />
+          <xsd:element name="stockQty" type="xsd:double" />
+          <xsd:element name="totalGrossPaid" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctTransactionOrderLineElement" type="tns:ctTransactionOrderLine" />
+      <xsd:complexType name="CtTransactionOrderLineArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctTransactionOrderLine" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtTransactionOrderLineArrayElement" type="tns:CtTransactionOrderLineArray" />
+      <xsd:complexType name="ctTransactionAddOrderDetails">
+        <xsd:sequence>
+          <xsd:element name="websiteId" type="xsd:int" />
+          <xsd:element name="customerId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="locationId" type="xsd:int" />
+          <xsd:element name="orderTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="orderNote" type="xsd:string" />
+          <xsd:element minOccurs="0" name="customerOrderRef" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctTransactionAddOrderDetailsElement" type="tns:ctTransactionAddOrderDetails" />
+      <xsd:complexType name="ctTransactionAddOrderDelivery">
+        <xsd:sequence>
+          <xsd:element name="isCollection" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="addressId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="serviceId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="tariffId" type="xsd:int" />
+          <xsd:element minOccurs="0" name="tariff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="vatRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="salesTax" type="xsd:double" />
+          <xsd:element minOccurs="0" name="recipient" type="xsd:string" />
+          <xsd:element minOccurs="0" name="dateRequired" type="xsd:string" />
+          <xsd:element minOccurs="0" name="when" type="xsd:int" />
+          <xsd:element minOccurs="0" name="instructions" type="xsd:string" />
+          <xsd:element minOccurs="0" name="giftMessage" type="xsd:string" />
+          <xsd:element minOccurs="0" name="giftReceipt" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctTransactionAddOrderDeliveryElement" type="tns:ctTransactionAddOrderDelivery" />
+      <xsd:complexType name="ctTransactionAddResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="transaction" type="tns:ctTransaction" />
+          <xsd:element minOccurs="0" name="customer_order_ref" type="xsd:string" />
+          <xsd:element minOccurs="0" name="errors" type="tns:CtSoapValidationErrorArray" />
+          <xsd:element name="success" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="issuedValue" type="tns:CtSoapIssuedValueArray" />
+          <xsd:element minOccurs="0" name="currentBalance" type="xsd:string" />
+          <xsd:element minOccurs="0" name="transactionBalance" type="xsd:string" />
+          <xsd:element minOccurs="0" name="giftCardPayment" type="tns:CtPaymenGiftCardResponseArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctTransactionAddResponseElement" type="tns:ctTransactionAddResponse" />
+      <xsd:complexType name="ctSoapIssuedValue">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="value" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctSoapIssuedValueElement" type="tns:ctSoapIssuedValue" />
+      <xsd:complexType name="CtSoapIssuedValueArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctSoapIssuedValue" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtSoapIssuedValueArrayElement" type="tns:CtSoapIssuedValueArray" />
+      <xsd:complexType name="ctPaymenGiftCardResponse">
+        <xsd:sequence>
+          <xsd:element name="currentBalance" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctPaymenGiftCardResponseElement" type="tns:ctPaymenGiftCardResponse" />
+      <xsd:complexType name="CtPaymenGiftCardResponseArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctPaymenGiftCardResponse" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtPaymenGiftCardResponseArrayElement" type="tns:CtPaymenGiftCardResponseArray" />
+      <xsd:complexType name="ctDespatchOrderDetails">
+        <xsd:sequence>
+          <xsd:element name="transactionId" type="xsd:int" />
+          <xsd:element name="locationId" type="xsd:int" />
+          <xsd:element name="consignmentRef" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctDespatchOrderDetailsElement" type="tns:ctDespatchOrderDetails" />
+      <xsd:complexType name="CtDespatchOrderDetailsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctDespatchOrderDetails" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtDespatchOrderDetailsArrayElement" type="tns:CtDespatchOrderDetailsArray" />
+      <xsd:complexType name="ctDespatchOrderItemDetails">
+        <xsd:sequence>
+          <xsd:element name="transactionId" type="xsd:int" />
+          <xsd:element name="itemId" type="xsd:int" />
+          <xsd:element name="qty" type="xsd:int" />
+          <xsd:element name="locationId" type="xsd:int" />
+          <xsd:element name="consignmentRef" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctDespatchOrderItemDetailsElement" type="tns:ctDespatchOrderItemDetails" />
+      <xsd:complexType name="CtDespatchOrderItemDetailsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctDespatchOrderItemDetails" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtDespatchOrderItemDetailsArrayElement" type="tns:CtDespatchOrderItemDetailsArray" />
+      <xsd:complexType name="ctRefundOrderDetails">
+        <xsd:sequence>
+          <xsd:element name="transactionId" type="xsd:int" />
+          <xsd:element name="items" type="tns:CtRefundItemArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctRefundOrderDetailsElement" type="tns:ctRefundOrderDetails" />
+      <xsd:complexType name="ctRefundItem">
+        <xsd:sequence>
+          <xsd:element name="itemId" type="xsd:int" />
+          <xsd:element name="qty" type="xsd:int" />
+          <xsd:element name="returnOption" type="xsd:int" />
+          <xsd:element name="refundReason" type="xsd:string" />
+          <xsd:element name="paymentType" type="xsd:int" />
+          <xsd:element minOccurs="0" name="paymentAmount" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctRefundItemElement" type="tns:ctRefundItem" />
+      <xsd:complexType name="CtRefundItemArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctRefundItem" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtRefundItemArrayElement" type="tns:CtRefundItemArray" />
+      <xsd:complexType name="CtRefundOrderDetailsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctRefundOrderDetails" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtRefundOrderDetailsArrayElement" type="tns:CtRefundOrderDetailsArray" />
+      <xsd:complexType name="ctDeliveryLineDetails">
+        <xsd:sequence>
+          <xsd:element name="status" type="xsd:int" />
+          <xsd:element name="qty" type="xsd:int" />
+          <xsd:element name="order_id" type="xsd:int" />
+          <xsd:element name="location_id" type="xsd:int" />
+          <xsd:element name="item_id" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctDeliveryLineDetailsElement" type="tns:ctDeliveryLineDetails" />
+      <xsd:complexType name="CtDeliveryLineDetailsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctDeliveryLineDetails" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtDeliveryLineDetailsArrayElement" type="tns:CtDeliveryLineDetailsArray" />
+      <xsd:complexType name="ctVatRate">
+        <xsd:sequence>
+          <xsd:element name="dataVatId" type="xsd:int" />
+          <xsd:element name="rate" type="xsd:double" />
+          <xsd:element name="countryId" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctVatRateElement" type="tns:ctVatRate" />
+      <xsd:complexType name="CtVatRateArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctVatRate" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtVatRateArrayElement" type="tns:CtVatRateArray" />
+      <xsd:complexType name="ctWebsite">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="url" type="xsd:string" />
+          <xsd:element name="location" type="tns:ctLocation" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ctWebsiteElement" type="tns:ctWebsite" />
+      <xsd:complexType name="CtWebsiteArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ctWebsite" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CtWebsiteArrayElement" type="tns:CtWebsiteArray" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="authenticate_getRequest">
+    <wsdl:part name="url" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="authenticate_getResponse">
+    <wsdl:part name="result" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="brand_getRequest">
+    <wsdl:part name="brand_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="brand_getResponse">
+    <wsdl:part name="result" type="tns:ctProductBrand" />
+  </wsdl:message>
+  <wsdl:message name="brand_listRequest">
+    <wsdl:part name="active" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="brand_listResponse">
+    <wsdl:part name="result" type="tns:CtProductBrandArray" />
+  </wsdl:message>
+  <wsdl:message name="brand_web_listRequest">
+    <wsdl:part name="website_id" type="xsd:int" />
+    <wsdl:part name="active" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="brand_web_listResponse">
+    <wsdl:part name="result" type="tns:CtProductBrandArray" />
+  </wsdl:message>
+  <wsdl:message name="category_getRequest">
+    <wsdl:part name="cat_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="category_getResponse">
+    <wsdl:part name="result" type="tns:ctSoapEposCategory" />
+  </wsdl:message>
+  <wsdl:message name="category_list_countRequest">
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="category_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="category_listRequest" />
+  <wsdl:message name="category_listResponse">
+    <wsdl:part name="result" type="tns:ctSoapEposCategory" />
+  </wsdl:message>
+  <wsdl:message name="category_flat_listRequest">
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="category_flat_listResponse">
+    <wsdl:part name="result" type="tns:CtEposCategoryFlatListArray" />
+  </wsdl:message>
+  <wsdl:message name="category_get_webRequest">
+    <wsdl:part name="cat_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="category_get_webResponse">
+    <wsdl:part name="result" type="tns:ctSoapWebCategory" />
+  </wsdl:message>
+  <wsdl:message name="category_web_list_countRequest">
+    <wsdl:part name="website_id" type="xsd:int" />
+    <wsdl:part name="web_visible" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="category_web_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="category_web_listRequest">
+    <wsdl:part name="website_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="category_web_listResponse">
+    <wsdl:part name="result" type="tns:ctSoapWebCategory" />
+  </wsdl:message>
+  <wsdl:message name="category_web_flat_listRequest">
+    <wsdl:part name="website_id" type="xsd:int" />
+    <wsdl:part name="web_visible" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="category_web_flat_listResponse">
+    <wsdl:part name="result" type="tns:CtWebsiteCategoryFlatListArray" />
+  </wsdl:message>
+  <wsdl:message name="country_listRequest" />
+  <wsdl:message name="country_listResponse">
+    <wsdl:part name="result" type="tns:CtCountryArray" />
+  </wsdl:message>
+  <wsdl:message name="country_getRequest">
+    <wsdl:part name="country_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="country_getResponse">
+    <wsdl:part name="result" type="tns:ctCountry" />
+  </wsdl:message>
+  <wsdl:message name="courier_listRequest" />
+  <wsdl:message name="courier_listResponse">
+    <wsdl:part name="result" type="tns:CtCourierArray" />
+  </wsdl:message>
+  <wsdl:message name="courier_web_listRequest">
+    <wsdl:part name="website_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="courier_web_listResponse">
+    <wsdl:part name="result" type="tns:CtCourierArray" />
+  </wsdl:message>
+  <wsdl:message name="courier_service_listRequest" />
+  <wsdl:message name="courier_service_listResponse">
+    <wsdl:part name="result" type="tns:CtCarriageServiceArray" />
+  </wsdl:message>
+  <wsdl:message name="courier_service_web_listRequest">
+    <wsdl:part name="website_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="courier_service_web_listResponse">
+    <wsdl:part name="result" type="tns:CtCarriageServiceArray" />
+  </wsdl:message>
+  <wsdl:message name="courier_service_by_zone_listRequest">
+    <wsdl:part name="zone_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="courier_service_by_zone_listResponse">
+    <wsdl:part name="result" type="tns:CtCarriageServiceArray" />
+  </wsdl:message>
+  <wsdl:message name="courier_zone_listRequest" />
+  <wsdl:message name="courier_zone_listResponse">
+    <wsdl:part name="result" type="tns:CtCarriageZoneArray" />
+  </wsdl:message>
+  <wsdl:message name="courier_zone_by_country_listRequest">
+    <wsdl:part name="country_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="courier_zone_by_country_listResponse">
+    <wsdl:part name="result" type="tns:CtCarriageZoneArray" />
+  </wsdl:message>
+  <wsdl:message name="courier_tariffRequest">
+    <wsdl:part name="country_id" type="xsd:int" />
+    <wsdl:part name="total" type="xsd:double" />
+    <wsdl:part name="zone_id" type="xsd:int" />
+    <wsdl:part name="website_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="courier_tariffResponse">
+    <wsdl:part name="result" type="tns:ctTariff" />
+  </wsdl:message>
+  <wsdl:message name="currency_getRequest">
+    <wsdl:part name="id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="currency_getResponse">
+    <wsdl:part name="result" type="tns:ctCurrency" />
+  </wsdl:message>
+  <wsdl:message name="currency_listRequest" />
+  <wsdl:message name="currency_listResponse">
+    <wsdl:part name="result" type="tns:CtCurrencyArray" />
+  </wsdl:message>
+  <wsdl:message name="customer_getRequest">
+    <wsdl:part name="customer_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="customer_getResponse">
+    <wsdl:part name="result" type="tns:ctCustomerDetails" />
+  </wsdl:message>
+  <wsdl:message name="customer_get_webRequest">
+    <wsdl:part name="email" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="do_not_validate_on_password" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="customer_get_webResponse">
+    <wsdl:part name="result" type="tns:ctCustomerDetails" />
+  </wsdl:message>
+  <wsdl:message name="customer_list_countRequest">
+    <wsdl:part name="active" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="customer_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="customer_listRequest">
+    <wsdl:part name="active" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="customer_listResponse">
+    <wsdl:part name="result" type="tns:CtCustomerArray" />
+  </wsdl:message>
+  <wsdl:message name="customer_web_list_countRequest">
+    <wsdl:part name="active" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="customer_web_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="customer_web_listRequest">
+    <wsdl:part name="active" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="customer_web_listResponse">
+    <wsdl:part name="result" type="tns:CtCustomerArray" />
+  </wsdl:message>
+  <wsdl:message name="customer_address_list_countRequest">
+    <wsdl:part name="active" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="customer_address_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="customer_address_listRequest">
+    <wsdl:part name="active" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="customer_address_listResponse">
+    <wsdl:part name="result" type="tns:CtAddressArray" />
+  </wsdl:message>
+  <wsdl:message name="customer_order_historyRequest">
+    <wsdl:part name="customer_id" type="xsd:int" />
+    <wsdl:part name="website_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="customer_order_historyResponse">
+    <wsdl:part name="result" type="tns:CtOrderHistoryArray" />
+  </wsdl:message>
+  <wsdl:message name="customer_addRequest">
+    <wsdl:part name="customer_details" type="tns:ctCustomerAdd" />
+  </wsdl:message>
+  <wsdl:message name="customer_addResponse">
+    <wsdl:part name="result" type="tns:ctCustomerAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="customer_editRequest">
+    <wsdl:part name="customer_details" type="tns:ctCustomerEdit" />
+  </wsdl:message>
+  <wsdl:message name="customer_editResponse">
+    <wsdl:part name="result" type="tns:ctUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="customer_add_addressRequest">
+    <wsdl:part name="customer_id" type="xsd:int" />
+    <wsdl:part name="customer_address" type="tns:ctAddressAdd" />
+  </wsdl:message>
+  <wsdl:message name="customer_add_addressResponse">
+    <wsdl:part name="result" type="tns:ctAddressAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="customer_edit_addressRequest">
+    <wsdl:part name="customer_addresses" type="tns:CtAddressEditArray" />
+  </wsdl:message>
+  <wsdl:message name="customer_edit_addressResponse">
+    <wsdl:part name="result" type="tns:ctUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="customer_get_passwordRequest">
+    <wsdl:part name="customer_id" type="xsd:int" />
+    <wsdl:part name="email" type="xsd:string" />
+    <wsdl:part name="website_id" type="xsd:int" />
+    <wsdl:part name="from_email" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="customer_get_passwordResponse">
+    <wsdl:part name="result" type="tns:ctUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="gift_card_check_balanceRequest">
+    <wsdl:part name="cardNumber" type="xsd:string" />
+    <wsdl:part name="cardPin" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="gift_card_check_balanceResponse">
+    <wsdl:part name="result" type="tns:ctGiftcardCheckBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="item_getRequest">
+    <wsdl:part name="id" type="xsd:int" />
+    <wsdl:part name="ref" type="xsd:string" />
+    <wsdl:part name="cntryId" type="xsd:int" />
+    <wsdl:part name="includeProduct" type="xsd:boolean" />
+    <wsdl:part name="includeUdfs" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="item_getResponse">
+    <wsdl:part name="result" type="tns:ctProductOptionDetails" />
+  </wsdl:message>
+  <wsdl:message name="item_list_countRequest">
+    <wsdl:part name="available" type="xsd:boolean" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="discontinued" type="xsd:boolean" />
+    <wsdl:part name="web_visible" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="item_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="item_listRequest">
+    <wsdl:part name="available" type="xsd:boolean" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="cntryId" type="xsd:int" />
+    <wsdl:part name="includeProduct" type="xsd:boolean" />
+    <wsdl:part name="discontinued" type="xsd:boolean" />
+    <wsdl:part name="web_visible" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="item_listResponse">
+    <wsdl:part name="result" type="tns:CtProductOptionDetailsArray" />
+  </wsdl:message>
+  <wsdl:message name="item_list_with_udfRequest">
+    <wsdl:part name="available" type="xsd:boolean" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="cntryId" type="xsd:int" />
+    <wsdl:part name="includeProduct" type="xsd:boolean" />
+    <wsdl:part name="includeUdf" type="xsd:boolean" />
+    <wsdl:part name="discontinued" type="xsd:boolean" />
+    <wsdl:part name="web_visible" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+    <wsdl:part name="includeItemUdf" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="item_list_with_udfResponse">
+    <wsdl:part name="result" type="tns:CtProductOptionDetailsArray" />
+  </wsdl:message>
+  <wsdl:message name="item_image_list_countRequest">
+    <wsdl:part name="item_id" type="xsd:int" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="date_created" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="item_image_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="item_image_listRequest">
+    <wsdl:part name="item_id" type="xsd:int" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="item_image_listResponse">
+    <wsdl:part name="result" type="tns:CtProductImageArray" />
+  </wsdl:message>
+  <wsdl:message name="item_barcode_list_countRequest">
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="date_created" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="item_barcode_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="item_barcode_listRequest">
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="item_barcode_listResponse">
+    <wsdl:part name="result" type="tns:CtBarcodeArray" />
+  </wsdl:message>
+  <wsdl:message name="location_listRequest">
+    <wsdl:part name="active" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="cntryId" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="location_listResponse">
+    <wsdl:part name="result" type="tns:CtLocationArray" />
+  </wsdl:message>
+  <wsdl:message name="location_web_listRequest">
+    <wsdl:part name="website_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="location_web_listResponse">
+    <wsdl:part name="result" type="tns:CtWebsiteLocationArray" />
+  </wsdl:message>
+  <wsdl:message name="product_getRequest">
+    <wsdl:part name="prod_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="product_getResponse">
+    <wsdl:part name="result" type="tns:ctProduct" />
+  </wsdl:message>
+  <wsdl:message name="product_get_with_udfRequest">
+    <wsdl:part name="prod_id" type="xsd:int" />
+    <wsdl:part name="include_udf" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="product_get_with_udfResponse">
+    <wsdl:part name="result" type="tns:ctProductComplex" />
+  </wsdl:message>
+  <wsdl:message name="product_list_countRequest">
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="date_created" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="product_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="product_listRequest">
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="product_listResponse">
+    <wsdl:part name="result" type="tns:CtProductArray" />
+  </wsdl:message>
+  <wsdl:message name="product_list_with_udfRequest">
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="include_udf" type="xsd:boolean" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="product_list_with_udfResponse">
+    <wsdl:part name="result" type="tns:CtProductComplexArray" />
+  </wsdl:message>
+  <wsdl:message name="product_web_list_countRequest">
+    <wsdl:part name="website_id" type="xsd:int" />
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="date_created" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="product_web_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="product_web_listRequest">
+    <wsdl:part name="website_id" type="xsd:int" />
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="product_web_listResponse">
+    <wsdl:part name="result" type="tns:CtProductArray" />
+  </wsdl:message>
+  <wsdl:message name="product_searchRequest">
+    <wsdl:part name="name" type="xsd:string" />
+    <wsdl:part name="desc" type="xsd:string" />
+    <wsdl:part name="item_ref" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="product_searchResponse">
+    <wsdl:part name="result" type="tns:CtProductArray" />
+  </wsdl:message>
+  <wsdl:message name="product_itemsRequest">
+    <wsdl:part name="prod_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="product_itemsResponse">
+    <wsdl:part name="result" type="tns:CtProductOptionDetailsArray" />
+  </wsdl:message>
+  <wsdl:message name="product_by_brand_list_countRequest">
+    <wsdl:part name="brand_id" type="xsd:int" />
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="product_by_brand_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="product_by_brand_listRequest">
+    <wsdl:part name="brand_id" type="xsd:int" />
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="product_by_brand_listResponse">
+    <wsdl:part name="result" type="tns:CtProductArray" />
+  </wsdl:message>
+  <wsdl:message name="product_by_brand_web_list_countRequest">
+    <wsdl:part name="brand_id" type="xsd:int" />
+    <wsdl:part name="website_id" type="xsd:int" />
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="product_by_brand_web_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="product_by_brand_web_listRequest">
+    <wsdl:part name="brand_id" type="xsd:int" />
+    <wsdl:part name="website_id" type="xsd:int" />
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="product_by_brand_web_listResponse">
+    <wsdl:part name="result" type="tns:CtProductArray" />
+  </wsdl:message>
+  <wsdl:message name="product_by_category_list_countRequest">
+    <wsdl:part name="cat_id" type="xsd:int" />
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="product_by_category_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="product_by_category_listRequest">
+    <wsdl:part name="cat_id" type="xsd:int" />
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="product_by_category_listResponse">
+    <wsdl:part name="result" type="tns:CtProductArray" />
+  </wsdl:message>
+  <wsdl:message name="product_by_category_web_list_countRequest">
+    <wsdl:part name="cat_id" type="xsd:int" />
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="product_by_category_web_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="product_by_category_web_listRequest">
+    <wsdl:part name="cat_id" type="xsd:int" />
+    <wsdl:part name="availability" type="xsd:boolean" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="product_by_category_web_listResponse">
+    <wsdl:part name="result" type="tns:CtProductArray" />
+  </wsdl:message>
+  <wsdl:message name="product_image_list_countRequest">
+    <wsdl:part name="item_id" type="xsd:int" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="date_created" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="product_image_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="product_image_listRequest">
+    <wsdl:part name="prod_id" type="xsd:int" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="product_image_listResponse">
+    <wsdl:part name="result" type="tns:CtProductImageArray" />
+  </wsdl:message>
+  <wsdl:message name="stock_list_countRequest">
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="stock_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="stock_listRequest">
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="stock_listResponse">
+    <wsdl:part name="result" type="tns:CtStockLevelArray" />
+  </wsdl:message>
+  <wsdl:message name="stock_location_list_countRequest">
+    <wsdl:part name="loc_id" type="xsd:int" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="stock_location_list_countResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="stock_location_listRequest">
+    <wsdl:part name="loc_id" type="xsd:int" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="stock_location_listResponse">
+    <wsdl:part name="result" type="tns:CtStockLevelArray" />
+  </wsdl:message>
+  <wsdl:message name="stock_productRequest">
+    <wsdl:part name="product_id" type="xsd:int" />
+    <wsdl:part name="loc_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="stock_productResponse">
+    <wsdl:part name="result" type="tns:CtStockLevelArray" />
+  </wsdl:message>
+  <wsdl:message name="stock_itemRequest">
+    <wsdl:part name="item_id" type="xsd:int" />
+    <wsdl:part name="loc_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="stock_itemResponse">
+    <wsdl:part name="result" type="tns:CtStockLevelArray" />
+  </wsdl:message>
+  <wsdl:message name="stock_updateRequest">
+    <wsdl:part name="item_details" type="tns:CtStockUpdateItemDetailsArray" />
+  </wsdl:message>
+  <wsdl:message name="stock_updateResponse">
+    <wsdl:part name="result" type="tns:ctUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="stock_reserveRequest">
+    <wsdl:part name="item_details" type="tns:CtStockReserveItemDetailsArray" />
+  </wsdl:message>
+  <wsdl:message name="stock_reserveResponse">
+    <wsdl:part name="result" type="tns:ctUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="stock_despatchRequest">
+    <wsdl:part name="item_details" type="tns:CtStockDespatchItemDetailsArray" />
+  </wsdl:message>
+  <wsdl:message name="stock_despatchResponse">
+    <wsdl:part name="result" type="tns:ctUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="stock_reserve_collectRequest">
+    <wsdl:part name="reserve_collect_data" type="tns:ctReserveCollectData" />
+  </wsdl:message>
+  <wsdl:message name="stock_reserve_collectResponse">
+    <wsdl:part name="result" type="tns:ctReserveCollectionConfirmation" />
+  </wsdl:message>
+  <wsdl:message name="stock_override_reserve_collectRequest">
+    <wsdl:part name="reserve_collect_data" type="tns:ctReserveCollectData" />
+  </wsdl:message>
+  <wsdl:message name="stock_override_reserve_collectResponse">
+    <wsdl:part name="result" type="tns:ctReserveCollectionConfirmation" />
+  </wsdl:message>
+  <wsdl:message name="stock_reserve_collect_batch_statusRequest">
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="stock_reserve_collect_batch_statusResponse">
+    <wsdl:part name="result" type="tns:CtReserveCollectComplexArray" />
+  </wsdl:message>
+  <wsdl:message name="ticket_addRequest">
+    <wsdl:part name="booking_details" type="tns:ctBookingDetails" />
+    <wsdl:part name="booking_tickets" type="tns:CtBookingTicketsArray" />
+    <wsdl:part name="booking_payments" type="tns:CtTransactionAddOrderPaymentsArray" />
+  </wsdl:message>
+  <wsdl:message name="ticket_addResponse">
+    <wsdl:part name="result" type="tns:ctTicketAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="ticket_event_List_CountRequest">
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="ticket_event_List_CountResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="ticket_event_ListRequest">
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="ticket_event_ListResponse">
+    <wsdl:part name="result" type="tns:CtEventArray" />
+  </wsdl:message>
+  <wsdl:message name="ticket_times_List_CountRequest">
+    <wsdl:part name="event_id" type="xsd:int" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ticket_times_List_CountResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="ticket_times_ListRequest">
+    <wsdl:part name="event_id" type="xsd:int" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="ticket_times_ListResponse">
+    <wsdl:part name="result" type="tns:CtTimeSlotArray" />
+  </wsdl:message>
+  <wsdl:message name="ticket_booking_Sold_List_CountRequest">
+    <wsdl:part name="event_id" type="xsd:int" />
+    <wsdl:part name="event_date_id" type="xsd:int" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ticket_booking_Sold_List_CountResponse">
+    <wsdl:part name="result" type="tns:ctResultCount" />
+  </wsdl:message>
+  <wsdl:message name="ticket_booking_Sold_ListRequest">
+    <wsdl:part name="event_id" type="xsd:int" />
+    <wsdl:part name="event_date_id" type="xsd:int" />
+    <wsdl:part name="date_created" type="xsd:string" />
+    <wsdl:part name="date_updated" type="xsd:string" />
+    <wsdl:part name="start_from" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="ticket_booking_Sold_ListResponse">
+    <wsdl:part name="result" type="tns:CtBookingArray" />
+  </wsdl:message>
+  <wsdl:message name="transaction_getRequest">
+    <wsdl:part name="order_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="transaction_getResponse">
+    <wsdl:part name="result" type="tns:ctTransactionDetails" />
+  </wsdl:message>
+  <wsdl:message name="transaction_addRequest">
+    <wsdl:part name="order_details" type="tns:ctTransactionAddOrderDetails" />
+    <wsdl:part name="order_items" type="tns:CtTransactionAddOrderItemsArray" />
+    <wsdl:part name="order_delivery" type="tns:ctTransactionAddOrderDelivery" />
+    <wsdl:part name="order_payments" type="tns:CtTransactionAddOrderPaymentsArray" />
+  </wsdl:message>
+  <wsdl:message name="transaction_addResponse">
+    <wsdl:part name="result" type="tns:ctTransactionAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="transaction_despatch_ordersRequest">
+    <wsdl:part name="user_id" type="xsd:int" />
+    <wsdl:part name="despatch_orders" type="tns:CtDespatchOrderDetailsArray" />
+  </wsdl:message>
+  <wsdl:message name="transaction_despatch_ordersResponse">
+    <wsdl:part name="result" type="tns:ctUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="transaction_despatch_order_itemsRequest">
+    <wsdl:part name="user_id" type="xsd:int" />
+    <wsdl:part name="despatch_details" type="tns:CtDespatchOrderItemDetailsArray" />
+  </wsdl:message>
+  <wsdl:message name="transaction_despatch_order_itemsResponse">
+    <wsdl:part name="result" type="tns:ctUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="transaction_refund_order_itemsRequest">
+    <wsdl:part name="refund_details" type="tns:CtRefundOrderDetailsArray" />
+  </wsdl:message>
+  <wsdl:message name="transaction_refund_order_itemsResponse">
+    <wsdl:part name="result" type="tns:ctUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="transaction_get_order_linesRequest">
+    <wsdl:part name="transaction_id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="transaction_get_order_linesResponse">
+    <wsdl:part name="result" type="tns:CtDeliveryLineDetailsArray" />
+  </wsdl:message>
+  <wsdl:message name="vatrate_listRequest">
+    <wsdl:part name="dataVatId" type="xsd:int" />
+    <wsdl:part name="countryId" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="vatrate_listResponse">
+    <wsdl:part name="result" type="tns:CtVatRateArray" />
+  </wsdl:message>
+  <wsdl:message name="website_listRequest" />
+  <wsdl:message name="website_listResponse">
+    <wsdl:part name="result" type="tns:CtWebsiteArray" />
+  </wsdl:message>
+  <wsdl:portType name="CybertillApi_v1_6PortType">
+    <wsdl:operation name="authenticate_get" parameterOrder="url id">
+      <wsdl:input message="tns:authenticate_getRequest" />
+      <wsdl:output message="tns:authenticate_getResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="brand_get" parameterOrder="brand_id">
+      <wsdl:input message="tns:brand_getRequest" />
+      <wsdl:output message="tns:brand_getResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="brand_list" parameterOrder="active date_created date_updated start_from limit">
+      <wsdl:input message="tns:brand_listRequest" />
+      <wsdl:output message="tns:brand_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="brand_web_list" parameterOrder="website_id active date_created date_updated start_from limit">
+      <wsdl:input message="tns:brand_web_listRequest" />
+      <wsdl:output message="tns:brand_web_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="category_get" parameterOrder="cat_id">
+      <wsdl:input message="tns:category_getRequest" />
+      <wsdl:output message="tns:category_getResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="category_list_count" parameterOrder="date_created date_updated">
+      <wsdl:input message="tns:category_list_countRequest" />
+      <wsdl:output message="tns:category_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="category_list">
+      <wsdl:input message="tns:category_listRequest" />
+      <wsdl:output message="tns:category_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="category_flat_list" parameterOrder="date_created date_updated start_from limit">
+      <wsdl:input message="tns:category_flat_listRequest" />
+      <wsdl:output message="tns:category_flat_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="category_get_web" parameterOrder="cat_id">
+      <wsdl:input message="tns:category_get_webRequest" />
+      <wsdl:output message="tns:category_get_webResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="category_web_list_count" parameterOrder="website_id web_visible date_created date_updated">
+      <wsdl:input message="tns:category_web_list_countRequest" />
+      <wsdl:output message="tns:category_web_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="category_web_list" parameterOrder="website_id">
+      <wsdl:input message="tns:category_web_listRequest" />
+      <wsdl:output message="tns:category_web_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="category_web_flat_list" parameterOrder="website_id web_visible date_created date_updated start_from limit">
+      <wsdl:input message="tns:category_web_flat_listRequest" />
+      <wsdl:output message="tns:category_web_flat_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="country_list">
+      <wsdl:input message="tns:country_listRequest" />
+      <wsdl:output message="tns:country_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="country_get" parameterOrder="country_id">
+      <wsdl:input message="tns:country_getRequest" />
+      <wsdl:output message="tns:country_getResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="courier_list">
+      <wsdl:input message="tns:courier_listRequest" />
+      <wsdl:output message="tns:courier_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="courier_web_list" parameterOrder="website_id">
+      <wsdl:input message="tns:courier_web_listRequest" />
+      <wsdl:output message="tns:courier_web_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="courier_service_list">
+      <wsdl:input message="tns:courier_service_listRequest" />
+      <wsdl:output message="tns:courier_service_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="courier_service_web_list" parameterOrder="website_id">
+      <wsdl:input message="tns:courier_service_web_listRequest" />
+      <wsdl:output message="tns:courier_service_web_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="courier_service_by_zone_list" parameterOrder="zone_id">
+      <wsdl:input message="tns:courier_service_by_zone_listRequest" />
+      <wsdl:output message="tns:courier_service_by_zone_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="courier_zone_list">
+      <wsdl:input message="tns:courier_zone_listRequest" />
+      <wsdl:output message="tns:courier_zone_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="courier_zone_by_country_list" parameterOrder="country_id">
+      <wsdl:input message="tns:courier_zone_by_country_listRequest" />
+      <wsdl:output message="tns:courier_zone_by_country_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="courier_tariff" parameterOrder="country_id total zone_id website_id">
+      <wsdl:input message="tns:courier_tariffRequest" />
+      <wsdl:output message="tns:courier_tariffResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="currency_get" parameterOrder="id">
+      <wsdl:input message="tns:currency_getRequest" />
+      <wsdl:output message="tns:currency_getResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="currency_list">
+      <wsdl:input message="tns:currency_listRequest" />
+      <wsdl:output message="tns:currency_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_get" parameterOrder="customer_id">
+      <wsdl:input message="tns:customer_getRequest" />
+      <wsdl:output message="tns:customer_getResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_get_web" parameterOrder="email password do_not_validate_on_password">
+      <wsdl:input message="tns:customer_get_webRequest" />
+      <wsdl:output message="tns:customer_get_webResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_list_count" parameterOrder="active date_created date_updated">
+      <wsdl:input message="tns:customer_list_countRequest" />
+      <wsdl:output message="tns:customer_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_list" parameterOrder="active date_created date_updated start_from limit">
+      <wsdl:input message="tns:customer_listRequest" />
+      <wsdl:output message="tns:customer_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_web_list_count" parameterOrder="active date_created date_updated">
+      <wsdl:input message="tns:customer_web_list_countRequest" />
+      <wsdl:output message="tns:customer_web_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_web_list" parameterOrder="active date_created date_updated start_from limit">
+      <wsdl:input message="tns:customer_web_listRequest" />
+      <wsdl:output message="tns:customer_web_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_address_list_count" parameterOrder="active date_created date_updated">
+      <wsdl:input message="tns:customer_address_list_countRequest" />
+      <wsdl:output message="tns:customer_address_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_address_list" parameterOrder="active date_created date_updated start_from limit">
+      <wsdl:input message="tns:customer_address_listRequest" />
+      <wsdl:output message="tns:customer_address_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_order_history" parameterOrder="customer_id website_id">
+      <wsdl:input message="tns:customer_order_historyRequest" />
+      <wsdl:output message="tns:customer_order_historyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_add" parameterOrder="customer_details">
+      <wsdl:input message="tns:customer_addRequest" />
+      <wsdl:output message="tns:customer_addResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_edit" parameterOrder="customer_details">
+      <wsdl:input message="tns:customer_editRequest" />
+      <wsdl:output message="tns:customer_editResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_add_address" parameterOrder="customer_id customer_address">
+      <wsdl:input message="tns:customer_add_addressRequest" />
+      <wsdl:output message="tns:customer_add_addressResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_edit_address" parameterOrder="customer_addresses">
+      <wsdl:input message="tns:customer_edit_addressRequest" />
+      <wsdl:output message="tns:customer_edit_addressResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="customer_get_password" parameterOrder="customer_id email website_id from_email">
+      <wsdl:input message="tns:customer_get_passwordRequest" />
+      <wsdl:output message="tns:customer_get_passwordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="gift_card_check_balance" parameterOrder="cardNumber cardPin">
+      <wsdl:input message="tns:gift_card_check_balanceRequest" />
+      <wsdl:output message="tns:gift_card_check_balanceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="item_get" parameterOrder="id ref cntryId includeProduct includeUdfs">
+      <wsdl:input message="tns:item_getRequest" />
+      <wsdl:output message="tns:item_getResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="item_list_count" parameterOrder="available date_updated discontinued web_visible date_created">
+      <wsdl:input message="tns:item_list_countRequest" />
+      <wsdl:output message="tns:item_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="item_list" parameterOrder="available date_updated cntryId includeProduct discontinued web_visible date_created start_from limit">
+      <wsdl:input message="tns:item_listRequest" />
+      <wsdl:output message="tns:item_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="item_list_with_udf" parameterOrder="available date_updated cntryId includeProduct includeUdf discontinued web_visible date_created start_from limit includeItemUdf">
+      <wsdl:input message="tns:item_list_with_udfRequest" />
+      <wsdl:output message="tns:item_list_with_udfResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="item_image_list_count" parameterOrder="item_id date_updated date_created">
+      <wsdl:input message="tns:item_image_list_countRequest" />
+      <wsdl:output message="tns:item_image_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="item_image_list" parameterOrder="item_id date_updated date_created start_from limit">
+      <wsdl:input message="tns:item_image_listRequest" />
+      <wsdl:output message="tns:item_image_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="item_barcode_list_count" parameterOrder="date_updated date_created">
+      <wsdl:input message="tns:item_barcode_list_countRequest" />
+      <wsdl:output message="tns:item_barcode_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="item_barcode_list" parameterOrder="date_updated date_created start_from limit">
+      <wsdl:input message="tns:item_barcode_listRequest" />
+      <wsdl:output message="tns:item_barcode_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="location_list" parameterOrder="active date_created date_updated cntryId">
+      <wsdl:input message="tns:location_listRequest" />
+      <wsdl:output message="tns:location_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="location_web_list" parameterOrder="website_id">
+      <wsdl:input message="tns:location_web_listRequest" />
+      <wsdl:output message="tns:location_web_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_get" parameterOrder="prod_id">
+      <wsdl:input message="tns:product_getRequest" />
+      <wsdl:output message="tns:product_getResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_get_with_udf" parameterOrder="prod_id include_udf">
+      <wsdl:input message="tns:product_get_with_udfRequest" />
+      <wsdl:output message="tns:product_get_with_udfResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_list_count" parameterOrder="availability date_updated date_created">
+      <wsdl:input message="tns:product_list_countRequest" />
+      <wsdl:output message="tns:product_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_list" parameterOrder="availability date_updated date_created start_from limit">
+      <wsdl:input message="tns:product_listRequest" />
+      <wsdl:output message="tns:product_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_list_with_udf" parameterOrder="availability include_udf date_updated date_created start_from limit">
+      <wsdl:input message="tns:product_list_with_udfRequest" />
+      <wsdl:output message="tns:product_list_with_udfResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_web_list_count" parameterOrder="website_id availability date_updated date_created">
+      <wsdl:input message="tns:product_web_list_countRequest" />
+      <wsdl:output message="tns:product_web_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_web_list" parameterOrder="website_id availability date_updated date_created start_from limit">
+      <wsdl:input message="tns:product_web_listRequest" />
+      <wsdl:output message="tns:product_web_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_search" parameterOrder="name desc item_ref">
+      <wsdl:input message="tns:product_searchRequest" />
+      <wsdl:output message="tns:product_searchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_items" parameterOrder="prod_id">
+      <wsdl:input message="tns:product_itemsRequest" />
+      <wsdl:output message="tns:product_itemsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_by_brand_list_count" parameterOrder="brand_id availability date_created date_updated">
+      <wsdl:input message="tns:product_by_brand_list_countRequest" />
+      <wsdl:output message="tns:product_by_brand_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_by_brand_list" parameterOrder="brand_id availability date_created date_updated start_from limit">
+      <wsdl:input message="tns:product_by_brand_listRequest" />
+      <wsdl:output message="tns:product_by_brand_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_by_brand_web_list_count" parameterOrder="brand_id website_id availability date_created date_updated">
+      <wsdl:input message="tns:product_by_brand_web_list_countRequest" />
+      <wsdl:output message="tns:product_by_brand_web_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_by_brand_web_list" parameterOrder="brand_id website_id availability date_created date_updated start_from limit">
+      <wsdl:input message="tns:product_by_brand_web_listRequest" />
+      <wsdl:output message="tns:product_by_brand_web_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_by_category_list_count" parameterOrder="cat_id availability date_created date_updated">
+      <wsdl:input message="tns:product_by_category_list_countRequest" />
+      <wsdl:output message="tns:product_by_category_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_by_category_list" parameterOrder="cat_id availability date_created date_updated start_from limit">
+      <wsdl:input message="tns:product_by_category_listRequest" />
+      <wsdl:output message="tns:product_by_category_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_by_category_web_list_count" parameterOrder="cat_id availability date_created date_updated">
+      <wsdl:input message="tns:product_by_category_web_list_countRequest" />
+      <wsdl:output message="tns:product_by_category_web_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_by_category_web_list" parameterOrder="cat_id availability date_created date_updated start_from limit">
+      <wsdl:input message="tns:product_by_category_web_listRequest" />
+      <wsdl:output message="tns:product_by_category_web_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_image_list_count" parameterOrder="item_id date_updated date_created">
+      <wsdl:input message="tns:product_image_list_countRequest" />
+      <wsdl:output message="tns:product_image_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="product_image_list" parameterOrder="prod_id date_updated date_created start_from limit">
+      <wsdl:input message="tns:product_image_listRequest" />
+      <wsdl:output message="tns:product_image_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_list_count" parameterOrder="date_created date_updated">
+      <wsdl:input message="tns:stock_list_countRequest" />
+      <wsdl:output message="tns:stock_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_list" parameterOrder="date_created date_updated start_from limit">
+      <wsdl:input message="tns:stock_listRequest" />
+      <wsdl:output message="tns:stock_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_location_list_count" parameterOrder="loc_id date_created date_updated">
+      <wsdl:input message="tns:stock_location_list_countRequest" />
+      <wsdl:output message="tns:stock_location_list_countResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_location_list" parameterOrder="loc_id date_created date_updated start_from limit">
+      <wsdl:input message="tns:stock_location_listRequest" />
+      <wsdl:output message="tns:stock_location_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_product" parameterOrder="product_id loc_id">
+      <wsdl:input message="tns:stock_productRequest" />
+      <wsdl:output message="tns:stock_productResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_item" parameterOrder="item_id loc_id">
+      <wsdl:input message="tns:stock_itemRequest" />
+      <wsdl:output message="tns:stock_itemResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_update" parameterOrder="item_details">
+      <wsdl:input message="tns:stock_updateRequest" />
+      <wsdl:output message="tns:stock_updateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_reserve" parameterOrder="item_details">
+      <wsdl:input message="tns:stock_reserveRequest" />
+      <wsdl:output message="tns:stock_reserveResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_despatch" parameterOrder="item_details">
+      <wsdl:input message="tns:stock_despatchRequest" />
+      <wsdl:output message="tns:stock_despatchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_reserve_collect" parameterOrder="reserve_collect_data">
+      <wsdl:input message="tns:stock_reserve_collectRequest" />
+      <wsdl:output message="tns:stock_reserve_collectResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_override_reserve_collect" parameterOrder="reserve_collect_data">
+      <wsdl:input message="tns:stock_override_reserve_collectRequest" />
+      <wsdl:output message="tns:stock_override_reserve_collectResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stock_reserve_collect_batch_status" parameterOrder="date_updated">
+      <wsdl:input message="tns:stock_reserve_collect_batch_statusRequest" />
+      <wsdl:output message="tns:stock_reserve_collect_batch_statusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ticket_add" parameterOrder="booking_details booking_tickets booking_payments">
+      <wsdl:input message="tns:ticket_addRequest" />
+      <wsdl:output message="tns:ticket_addResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ticket_event_List_Count" parameterOrder="date_created date_updated start_from limit">
+      <wsdl:input message="tns:ticket_event_List_CountRequest" />
+      <wsdl:output message="tns:ticket_event_List_CountResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ticket_event_List" parameterOrder="date_created date_updated start_from limit">
+      <wsdl:input message="tns:ticket_event_ListRequest" />
+      <wsdl:output message="tns:ticket_event_ListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ticket_times_List_Count" parameterOrder="event_id date_created date_updated">
+      <wsdl:input message="tns:ticket_times_List_CountRequest" />
+      <wsdl:output message="tns:ticket_times_List_CountResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ticket_times_List" parameterOrder="event_id date_created date_updated start_from limit">
+      <wsdl:input message="tns:ticket_times_ListRequest" />
+      <wsdl:output message="tns:ticket_times_ListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ticket_booking_Sold_List_Count" parameterOrder="event_id event_date_id date_created date_updated">
+      <wsdl:input message="tns:ticket_booking_Sold_List_CountRequest" />
+      <wsdl:output message="tns:ticket_booking_Sold_List_CountResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ticket_booking_Sold_List" parameterOrder="event_id event_date_id date_created date_updated start_from limit">
+      <wsdl:input message="tns:ticket_booking_Sold_ListRequest" />
+      <wsdl:output message="tns:ticket_booking_Sold_ListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="transaction_get" parameterOrder="order_id">
+      <wsdl:input message="tns:transaction_getRequest" />
+      <wsdl:output message="tns:transaction_getResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="transaction_add" parameterOrder="order_details order_items order_delivery order_payments">
+      <wsdl:input message="tns:transaction_addRequest" />
+      <wsdl:output message="tns:transaction_addResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="transaction_despatch_orders" parameterOrder="user_id despatch_orders">
+      <wsdl:input message="tns:transaction_despatch_ordersRequest" />
+      <wsdl:output message="tns:transaction_despatch_ordersResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="transaction_despatch_order_items" parameterOrder="user_id despatch_details">
+      <wsdl:input message="tns:transaction_despatch_order_itemsRequest" />
+      <wsdl:output message="tns:transaction_despatch_order_itemsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="transaction_refund_order_items" parameterOrder="refund_details">
+      <wsdl:input message="tns:transaction_refund_order_itemsRequest" />
+      <wsdl:output message="tns:transaction_refund_order_itemsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="transaction_get_order_lines" parameterOrder="transaction_id">
+      <wsdl:input message="tns:transaction_get_order_linesRequest" />
+      <wsdl:output message="tns:transaction_get_order_linesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vatrate_list" parameterOrder="dataVatId countryId">
+      <wsdl:input message="tns:vatrate_listRequest" />
+      <wsdl:output message="tns:vatrate_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="website_list">
+      <wsdl:input message="tns:website_listRequest" />
+      <wsdl:output message="tns:website_listResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CybertillApi_v1_6Binding" type="tns:CybertillApi_v1_6PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="authenticate_get">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/authenticate_get" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="url id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="brand_get">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/brand_get" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="brand_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="brand_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/brand_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="active date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="brand_web_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/brand_web_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="website_id active date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="category_get">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_get" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="cat_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="category_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="category_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="category_flat_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_flat_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="category_get_web">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_get_web" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="cat_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="category_web_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_web_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="website_id web_visible date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="category_web_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_web_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="website_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="category_web_flat_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/category_web_flat_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="website_id web_visible date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="country_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/country_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="country_get">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/country_get" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="country_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="courier_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="courier_web_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_web_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="website_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="courier_service_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_service_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="courier_service_web_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_service_web_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="website_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="courier_service_by_zone_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_service_by_zone_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="zone_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="courier_zone_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_zone_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="courier_zone_by_country_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_zone_by_country_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="country_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="courier_tariff">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/courier_tariff" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="country_id total zone_id website_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="currency_get">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/currency_get" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="currency_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/currency_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_get">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_get" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="customer_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_get_web">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_get_web" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="email password do_not_validate_on_password" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="active date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="active date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_web_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_web_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="active date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_web_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_web_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="active date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_address_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_address_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="active date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_address_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_address_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="active date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_order_history">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_order_history" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="customer_id website_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_add">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_add" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="customer_details" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_edit">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_edit" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="customer_details" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_add_address">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_add_address" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="customer_id customer_address" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_edit_address">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_edit_address" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="customer_addresses" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="customer_get_password">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/customer_get_password" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="customer_id email website_id from_email" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gift_card_check_balance">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/gift_card_check_balance" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="cardNumber cardPin" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="item_get">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_get" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="id ref cntryId includeProduct includeUdfs" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="item_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="available date_updated discontinued web_visible date_created" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="item_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="available date_updated cntryId includeProduct discontinued web_visible date_created start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="item_list_with_udf">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_list_with_udf" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="available date_updated cntryId includeProduct includeUdf discontinued web_visible date_created start_from limit includeItemUdf" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="item_image_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_image_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="item_id date_updated date_created" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="item_image_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_image_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="item_id date_updated date_created start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="item_barcode_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_barcode_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="date_updated date_created" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="item_barcode_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/item_barcode_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="date_updated date_created start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="location_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/location_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="active date_created date_updated cntryId" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="location_web_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/location_web_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="website_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_get">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_get" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="prod_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_get_with_udf">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_get_with_udf" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="prod_id include_udf" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="availability date_updated date_created" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="availability date_updated date_created start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_list_with_udf">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_list_with_udf" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="availability include_udf date_updated date_created start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_web_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_web_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="website_id availability date_updated date_created" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_web_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_web_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="website_id availability date_updated date_created start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_search">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_search" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="name desc item_ref" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_items">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_items" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="prod_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_by_brand_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_brand_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="brand_id availability date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_by_brand_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_brand_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="brand_id availability date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_by_brand_web_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_brand_web_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="brand_id website_id availability date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_by_brand_web_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_brand_web_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="brand_id website_id availability date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_by_category_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_category_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="cat_id availability date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_by_category_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_category_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="cat_id availability date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_by_category_web_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_category_web_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="cat_id availability date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_by_category_web_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_by_category_web_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="cat_id availability date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_image_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_image_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="item_id date_updated date_created" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="product_image_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/product_image_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="prod_id date_updated date_created start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_location_list_count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_location_list_count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="loc_id date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_location_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_location_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="loc_id date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_product">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_product" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="product_id loc_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_item">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_item" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="item_id loc_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_update">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_update" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="item_details" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_reserve">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_reserve" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="item_details" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_despatch">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_despatch" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="item_details" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_reserve_collect">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_reserve_collect" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="reserve_collect_data" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_override_reserve_collect">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_override_reserve_collect" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="reserve_collect_data" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stock_reserve_collect_batch_status">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_reserve_collect_batch_status" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ticket_add">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_add" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="booking_details booking_tickets booking_payments" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ticket_event_List_Count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_event_List_Count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ticket_event_List">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_event_List" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ticket_times_List_Count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_times_List_Count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="event_id date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ticket_times_List">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_times_List" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="event_id date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ticket_booking_Sold_List_Count">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_booking_Sold_List_Count" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="event_id event_date_id date_created date_updated" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ticket_booking_Sold_List">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/ticket_booking_Sold_List" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="event_id event_date_id date_created date_updated start_from limit" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transaction_get">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_get" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="order_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transaction_add">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_add" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="order_details order_items order_delivery order_payments" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transaction_despatch_orders">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_despatch_orders" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="user_id despatch_orders" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transaction_despatch_order_items">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_despatch_order_items" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="user_id despatch_details" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transaction_refund_order_items">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_refund_order_items" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="refund_details" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transaction_get_order_lines">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/transaction_get_order_lines" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="transaction_id" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vatrate_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/vatrate_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="dataVatId countryId" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="website_list">
+      <soap:operation soapAction="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/website_list" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" parts="result" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CybertillApi_v1_6Service">
+    <wsdl:port name="CybertillApi_v1_6Port" binding="tns:CybertillApi_v1_6Binding">
+      <soap:address location="http://ct226532.c-pos.co.uk/current/CybertillApi_v1_6.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

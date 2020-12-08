@@ -2,11 +2,11 @@
 using System.Threading.Tasks;
 using Cybertill.API.Soap;
 
-namespace Cybertill
+namespace Cybertill.API
 {
     public interface ICybertillClient
     {
         Task InitAsync();
-        Task<T> ExecuteAsync<T>(Func<CybertillApi_v1_6PortTypeClient, Task<T>> func);
+        T Execute<T>(Func<CybertillApi_v1_6Service, T> func);
     }
 }

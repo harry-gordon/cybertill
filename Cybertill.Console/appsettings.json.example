@@ -1,0 +1,5 @@
+{
+  "Cybertill:Username": "www.example.co.uk",
+  "Cybertill:EndpointUrl": "https://ctXXXXXX.c-pos.co.uk/current/CybertillApi_v1_6.php",
+  "Cybertill:AuthId": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+}

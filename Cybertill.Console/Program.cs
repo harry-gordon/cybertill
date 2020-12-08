@@ -2,11 +2,12 @@
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Cybertill.API;
 using Microsoft.Extensions.Configuration;
 
-namespace Cybertill.Console
+namespace Cybertill.Console2
 {
-    internal class Program
+    class Program
     {
         private static ICybertillClient _client;
 
@@ -19,8 +20,6 @@ namespace Cybertill.Console
         {
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddUserSecrets(Assembly.GetAssembly(typeof(Program)))
-                .AddEnvironmentVariables()
                 .Build();
 
             var config = new CybertillConfig();
@@ -30,35 +29,41 @@ namespace Cybertill.Console
 
             await _client.InitAsync();
 
-            var countries = await _client.ExecuteAsync(c => c.country_listAsync());
-
-            var country = countries.result.First(x => x.iso3166Cc == "GBR");
-
-            var locations = await _client.ExecuteAsync(c => c.location_listAsync(true, string.Empty, string.Empty, country.id));
-
-            //await StockCheckAsync();
+            StockCheck();
         }
 
-        static async Task StockCheckAsync()
+        static void StockCheck()
         {
-            //var categories = await _client.ExecuteAsync(c => c.category_listAsync());
-            var countries = await _client.ExecuteAsync(c => c.country_listAsync());
+            //var categories = _client.Execute(c => c.category_list());
 
-            var countryId = countries.result.First().id;
+            var countries = _client.Execute(c => c.country_list());
 
-            var locations = await _client.ExecuteAsync(c => 
-                c.location_listAsync(true, string.Empty, string.Empty, countryId)
+            var countryId = countries.First(c => c.iso3166Cc == "GBR").id;
+
+            var locations = _client.Execute(c =>
+                c.location_list(true, null, null, countryId)
             );
 
-            var dummyProductId = 5;
-            var locationId = locations.result.First().id;
+            //var products = _client.Execute(c => c.product_list(true, null, null, 0, 100));
 
-            // Interestingly, location ID is optional (per the docs) but not in this generated code
-            // Might be worth modifying the code to allow a null value?
-            var productStock = await _client.ExecuteAsync(c => c.stock_productAsync(dummyProductId, locationId));
+            //var productId = products.First().id;
+            var locationId = locations.First().id;
 
-            // It's unclear how this query works
-            //var stock = await client.ExecuteAsync(c => c.stock_listAsync("2018-01-01", "2018-01-10", 0, 100));
+            //// Interestingly, location ID is optional (per the docs) but not in this generated code
+            //// Might be worth modifying the code to allow a null value?
+            //var productStock = _client.Execute(c => c.stock_product(productId, locationId));
+
+            var oneWeekAgo = DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd");
+
+            var stockListCount = _client.Execute(c => c.stock_list_count(null, oneWeekAgo));
+            var stockList = _client.Execute(c => c.stock_list(null, oneWeekAgo, 0, 100));
+
+            var stockEntry = stockList.First(x => x.stock > 10);
+
+            var productId = stockEntry.stkItemId;
+
+            var productStockEntry = _client.Execute(c => c.stock_product(productId, locationId));
+            var product = _client.Execute(c => c.product_get(productId));
         }
     }
 }
