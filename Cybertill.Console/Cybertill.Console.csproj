@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F5B4E79F-250E-434B-86E6-6CA90E52147F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Cybertill.Console2</RootNamespace>
-    <AssemblyName>Cybertill.Console2</AssemblyName>
+    <RootNamespace>Cybertill.Console</RootNamespace>
+    <AssemblyName>Cybertill.Console</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

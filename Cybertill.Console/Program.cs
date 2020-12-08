@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using Cybertill.API;
 using Microsoft.Extensions.Configuration;
 
-namespace Cybertill.Console2
+namespace Cybertill.Console
 {
     class Program
     {
