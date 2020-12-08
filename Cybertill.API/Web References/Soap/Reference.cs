@@ -3057,18 +3057,33 @@ namespace Cybertill.API.Soap {
                 this.stock_location_listCompleted(this, new stock_location_listCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-        
-        /// <remarks/>
+
+        /// <remarks>
+        /// This was renamed manually to differentiate between stock_product call with and without location
+        /// </remarks>
         [System.Web.Services.Protocols.SoapRpcMethodAttribute("http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_product", RequestNamespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/", ResponseNamespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/", Use=System.Web.Services.Description.SoapBindingUse.Literal)]
         [return: System.Xml.Serialization.XmlArrayAttribute("result")]
         [return: System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public ctStockLevel[] stock_product(int product_id, int loc_id) {
+        public ctStockLevel[] stock_product_by_location(int product_id, int loc_id) {
             object[] results = this.Invoke("stock_product", new object[] {
                         product_id,
                         loc_id});
             return ((ctStockLevel[])(results[0]));
         }
-        
+
+        /// <remarks>
+        /// This was manually added to allow calls to stock_product without location
+        /// </remarks>
+        [System.Web.Services.Protocols.SoapRpcMethodAttribute("http://cybertill.co.uk/wsdl/CybertillApi_v1_6/stock_product", RequestNamespace = "http://cybertill.co.uk/wsdl/CybertillApi_v1_6/", ResponseNamespace = "http://cybertill.co.uk/wsdl/CybertillApi_v1_6/", Use = System.Web.Services.Description.SoapBindingUse.Literal)]
+        [return: System.Xml.Serialization.XmlArrayAttribute("result")]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("item", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
+        public ctStockLevel[] stock_product(int product_id)
+        {
+            object[] results = this.Invoke("stock_product", new object[] {
+                product_id});
+            return ((ctStockLevel[])(results[0]));
+        }
+
         /// <remarks/>
         public void stock_productAsync(int product_id, int loc_id) {
             this.stock_productAsync(product_id, loc_id, null);

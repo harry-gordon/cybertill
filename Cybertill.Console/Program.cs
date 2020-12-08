@@ -33,35 +33,19 @@ namespace Cybertill.Console
 
         static void StockCheck()
         {
-            //var categories = _client.Execute(c => c.category_list());
-
-            var countries = _client.Execute(c => c.country_list());
-
-            var countryId = countries.First(c => c.iso3166Cc == "GBR").id;
-
-            var locations = _client.Execute(c =>
-                c.location_list(true, null, null, countryId)
-            );
-
-            //var products = _client.Execute(c => c.product_list(true, null, null, 0, 100));
-
-            //var productId = products.First().id;
-            var locationId = locations.First().id;
-
-            //// Interestingly, location ID is optional (per the docs) but not in this generated code
-            //// Might be worth modifying the code to allow a null value?
-            //var productStock = _client.Execute(c => c.stock_product(productId, locationId));
-
             var oneWeekAgo = DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd");
 
+            // Assuming we are doing bulk stock updates we can retrieve only new stock updates
             var stockListCount = _client.Execute(c => c.stock_list_count(null, oneWeekAgo));
             var stockList = _client.Execute(c => c.stock_list(null, oneWeekAgo, 0, 100));
 
+            // In this test lets find a product with stock
             var stockEntry = stockList.First(x => x.stock > 10);
 
             var productId = stockEntry.stkItemId;
 
-            var productStockEntry = _client.Execute(c => c.stock_product(productId, locationId));
+            // Just checking our assumption about stkItemId being the product ID
+            var productStockEntry = _client.Execute(c => c.stock_product(productId));
             var product = _client.Execute(c => c.product_get(productId));
         }
     }
