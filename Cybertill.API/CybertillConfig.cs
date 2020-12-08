@@ -1,4 +1,4 @@
-﻿namespace Cybertill.Console
+﻿namespace Cybertill.API
 {
     public class CybertillConfig
     {
