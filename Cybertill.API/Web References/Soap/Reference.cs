@@ -221,6 +221,9 @@ namespace Cybertill.API.Soap {
         
         private bool useDefaultCredentialsSetExplicitly;
 
+        /// <summary>
+        /// Cybertill auth header
+        /// </summary>
         public string AuthHeaderValue;
         
         /// <remarks/>
@@ -2143,12 +2146,29 @@ namespace Cybertill.API.Soap {
                 this.item_barcode_listCompleted(this, new item_barcode_listCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-        
-        /// <remarks/>
+
+        /// <remarks>
+        /// This was created manually to differentiate between location_list call with and without location
+        /// </remarks>
+        [System.Web.Services.Protocols.SoapRpcMethodAttribute("http://cybertill.co.uk/wsdl/CybertillApi_v1_6/location_list", RequestNamespace = "http://cybertill.co.uk/wsdl/CybertillApi_v1_6/", ResponseNamespace = "http://cybertill.co.uk/wsdl/CybertillApi_v1_6/", Use = System.Web.Services.Description.SoapBindingUse.Literal)]
+        [return: System.Xml.Serialization.XmlArrayAttribute("result")]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("item", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
+        public ctLocation[] location_list(bool active, string date_created, string date_updated)
+        {
+            object[] results = this.Invoke("location_list", new object[] {
+                active,
+                date_created,
+                date_updated});
+            return ((ctLocation[])(results[0]));
+        }
+
+        /// <remarks>
+        /// This was renamed manually to differentiate between location_list call with and without location
+        /// </remarks>
         [System.Web.Services.Protocols.SoapRpcMethodAttribute("http://cybertill.co.uk/wsdl/CybertillApi_v1_6/location_list", RequestNamespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/", ResponseNamespace="http://cybertill.co.uk/wsdl/CybertillApi_v1_6/", Use=System.Web.Services.Description.SoapBindingUse.Literal)]
         [return: System.Xml.Serialization.XmlArrayAttribute("result")]
         [return: System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public ctLocation[] location_list(bool active, string date_created, string date_updated, int cntryId) {
+        public ctLocation[] location_list_by_country(bool active, string date_created, string date_updated, int cntryId) {
             object[] results = this.Invoke("location_list", new object[] {
                         active,
                         date_created,

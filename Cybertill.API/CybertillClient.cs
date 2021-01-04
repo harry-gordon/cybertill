@@ -34,7 +34,7 @@ namespace Cybertill.API
 
             _authenticatedClient = new CybertillApi_v1_6Service
             {
-                Url = "https://ct226532.c-pos.co.uk/current/CybertillApi_v1_6.php",
+                Url = _config.EndpointUrl,
                 AuthHeaderValue = encodedAuthValue
             };
 
