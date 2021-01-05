@@ -21,7 +21,7 @@ namespace Cybertill.API
             };
         }
 
-        public Task InitAsync()
+        public void Init()
         {
             var authResult = _client.authenticate_get(_config.Username, _config.AuthId);
 
@@ -37,8 +37,6 @@ namespace Cybertill.API
                 Url = _config.EndpointUrl,
                 AuthHeaderValue = encodedAuthValue
             };
-
-            return Task.FromResult(0);
         }
 
         public T Execute<T>(Func<CybertillApi_v1_6Service, T> func)
