@@ -127,6 +127,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CybertillLocationSelector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -142,8 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cybertill.API\Cybertill.API.csproj">
-      <Project>{05ea7b6f-9a86-4b43-ad01-00e1d026f3bf}</Project>
+      <Project>{05EA7B6F-9A86-4B43-AD01-00E1D026F3BF}</Project>
       <Name>Cybertill.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cybertill.Services\Cybertill.Services.csproj">
+      <Project>{97C921AD-63D0-4EBF-98EA-720047B60FDB}</Project>
+      <Name>Cybertill.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

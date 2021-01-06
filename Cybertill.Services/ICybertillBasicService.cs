@@ -9,10 +9,10 @@ namespace Cybertill.Services
         ProductDto GetProductById(int productId);
         ProductDto GetProductByReference(string productReference);
         ProductDto[] GetProducts(int pageSize, int pageIndex, bool availability = true);
-
         ProductDto[] GetProductsByCategory(int productCategory, int pageSize, int pageIndex, bool availability = true);
-        int GetStockLevel(int productId);
+        ProductStockDto[] GetStockLevel(int productId);
+        int GetStockLevel(int productId, int itemId);
         ProductStockDto[] GetStockLevels(int pageSize, int pageIndex, DateTime? updatedSince = null);
-        void ReserveStock(int productId, int amount, string reason = null);
+        void ReserveStock(int itemId, int amount, string reason = null);
     }
 }

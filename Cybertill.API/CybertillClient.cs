@@ -23,6 +23,11 @@ namespace Cybertill.API
 
         public void Init()
         {
+            if (_authenticatedClient != null)
+            {
+                throw new InvalidOperationException("Client is already initialized");
+            }
+
             var authResult = _client.authenticate_get(_config.Username, _config.AuthId);
 
             // This looks wacky but it's how Cybertill auth works

@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Cybertill.API;
 using Cybertill.API.Soap;
+using Cybertill.Services;
+using Cybertill.Services.Dtos;
 using Microsoft.Extensions.Configuration;
 
 namespace Cybertill.Console
@@ -11,6 +14,7 @@ namespace Cybertill.Console
     class Program
     {
         private static ICybertillClient _client;
+        private static ICybertillBasicService _service;
 
         static void Main(string[] args)
         {
@@ -28,30 +32,77 @@ namespace Cybertill.Console
 
             _client = new CybertillClient(config);
 
-            _client.Init();
+            _service = new CybertillBasicService(
+                _client,
+                new CybertillExactNameLocationSelector("1-11 Molendiner Street")
+            );
+
+            _service.Init();
 
             //StockCheck();
             //CategoriesExample();
             UpdateStock();
         }
 
+        /// <summary>
+        /// Example of retrieving all the stock entries updated in the last week
+        /// </summary>
         static void StockCheck()
         {
-            var oneWeekAgo = DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd");
+            var oneWeekAgo = DateTime.Now.AddDays(-7);
 
-            // Assuming we are doing bulk stock updates we can retrieve only new stock updates
-            var stockList = _client.Execute(c => c.stock_list(null, oneWeekAgo, 0, 100));
+            var allStock = new List<ProductStockDto>();
 
-            // In this test lets find a product with stock
-            var stockEntry = stockList.First(x => x.stock > 10);
-
-            var productId = stockEntry.stkItemId;
-
-            // Just checking our assumption about stkItemId being the product ID
-            var productStockEntry = _client.Execute(c => c.stock_product(productId));
-            var product = _client.Execute(c => c.product_get(productId));
+            var pageIndex = 0;
+            ProductStockDto[] stock;
+            do
+            {
+                stock = _service.GetStockLevels(100, pageIndex++, oneWeekAgo);
+                allStock.AddRange(stock);
+            }
+            while(stock.Length != 0);
         }
 
+        /// <summary>
+        /// Simple example of reserving stock
+        /// </summary>
+        static void UpdateStock()
+        {
+            // Some safe product references that we can test stock updates on            
+            var productRefs = new [] {"10011827", "10011824", "10011831"};
+
+            var productRef = productRefs.First();
+
+            var product = _service.GetProductByReference(productRef);
+
+            var productItems = _client.Execute(c => c.product_items(product.Id));
+
+            var item = productItems.First();
+
+            var stock = _service.GetStockLevel(product.Id);
+
+            var result = _client.Execute(c => c.stock_reserve(new[]
+            {
+                new ctStockReserveItemDetails
+                {
+                    itemId = item.productOption.id,
+                    locationId = stock.First().LocationId,
+                    qty = 1,
+                    reasonText = "Testing API - Sale",
+                    updateType = "set"
+                }
+            }));
+
+            stock = _service.GetStockLevel(product.Id);
+
+            //_service.ReserveStock(item.productOption.id, 1, "Testing API - Sale");
+
+            //stock = _service.GetStockLevel(product.Id);
+        }
+
+        /// <summary>
+        /// Poking around the categories API
+        /// </summary>
         static void CategoriesExample()
         {
             var unsafeProductRef = "10003465";
@@ -70,36 +121,6 @@ namespace Cybertill.Console
 
             var categories = _client.Execute(c => c.category_list());
             var webCategories = _client.Execute(c => c.category_web_list(websites.First().id));
-        }
-
-        static void UpdateStock()
-        {
-            // Some safe product references that we can test stock updates on            
-            var productRefs = new [] {"10011827", "10011824", "10011831"};
-
-            var locations = _client.Execute(c => c.location_list(true, null, null));
-
-            var website = locations.Single(l => l.area == "Website");
-
-            foreach (var productRef in productRefs)
-            {
-                var product = _client.Execute(c => c.product_search(null, null, productRef)).First();
-                var stock = _client.Execute(c => c.stock_product_by_location(product.id, website.id));
-
-                var uhh = stock.FirstOrDefault(s => s.locationId == website.id);
-
-                _client.Execute(c => c.stock_reserve(new []
-                {
-                    new ctStockReserveItemDetails
-                    {
-                        itemId = product.id,
-                        locationId = website.id,
-                        qty = 1,
-                        reasonText = "API Test - Sold",
-                        updateType = "dec"
-                    }
-                }));
-            }
         }
     }
 }

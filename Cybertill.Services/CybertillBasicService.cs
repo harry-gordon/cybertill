@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Web.Services.Protocols;
 using Cybertill.API;
 using Cybertill.API.Soap;
 using Cybertill.Services.Dtos;
@@ -62,35 +63,57 @@ namespace Cybertill.Services
             return products.Select(Map).ToArray();
         }
 
-        public int GetStockLevel(int productId)
+        public ProductStockDto[] GetStockLevel(int productId)
         {
-            // TODO: Catch the exception
+            // For some reason the location filter on the API does not work?
             var result = _client.Execute(c => c.stock_product_by_location(productId, _location.id));
-            var stock = result.FirstOrDefault(x => x.locationId == _location.id);
-            return stock == null ? 0 : (int) stock.stock;
+            return result.Where(x => x.locationId == _location.id).Select(Map).ToArray();
+        }
+
+        public int GetStockLevel(int productId, int itemId)
+        {
+            var itemStock = GetStockLevel(productId).FirstOrDefault(x => x.ItemId == itemId);
+            return itemStock?.Stock ?? 0;
         }
 
         public ProductStockDto[] GetStockLevels(int pageSize, int pageIndex, DateTime? updatedSince = null)
         {
-            var stockList = _client.Execute(c =>
-                c.stock_list(null, updatedSince?.ToString("yyyy-MM-dd"), pageSize * pageIndex, pageSize)
-            );
-            return stockList.Select(Map).ToArray();
+            try
+            {
+                var stockList = _client.Execute(c =>
+                    c.stock_list(null, updatedSince?.ToString("yyyy-MM-dd"), pageSize * pageIndex, pageSize)
+                );
+                return stockList.Select(Map).ToArray();
+            }
+            catch (SoapHeaderException ex)
+            {
+                if (ex.Message.Contains("No stock levels found"))
+                {
+                    return new ProductStockDto[0];
+                }
+
+                throw;
+            }
         }
 
-        public void ReserveStock(int productId, int amount, string reason)
+        public void ReserveStock(int itemId, int amount, string reason = null)
         {
-            _client.Execute(c => c.stock_reserve(new[]
+            var result = _client.Execute(c => c.stock_reserve(new[]
             {
                 new ctStockReserveItemDetails
                 {
-                    itemId = productId,
+                    itemId = itemId,
                     locationId = _location.id,
                     qty = 1,
                     reasonText = reason ?? "Reserved by website",
                     updateType = "dec"
                 }
             }));
+            if (!result.success)
+            {
+                var errors = string.Join(", ", result.errors.Select(e => e.error));
+                throw new InvalidOperationException($"Reserve stock failed with {result.errors.Length} errors ({errors})");
+            }
         }
 
         private ProductStockDto Map(ctStockLevel stock)
@@ -98,7 +121,7 @@ namespace Cybertill.Services
             return new ProductStockDto
             {
                 LocationId = stock.locationId,
-                ProductId = stock.stkItemId,
+                ItemId = stock.stkItemId,
                 Stock = (int) stock.stock
             };
         }
