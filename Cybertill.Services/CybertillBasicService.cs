@@ -32,9 +32,16 @@ namespace Cybertill.Services
 
         public ProductDto GetProductById(int productId)
         {
-            // TODO: Catch the not found exception
-            var product = _client.Execute(c => c.product_get(productId));
-            return Map(product);
+            try
+            {
+                var product = _client.Execute(c => c.product_get(productId));
+                return Map(product);
+            }
+            catch (SoapHeaderException)
+            {
+                // TODO: Ideally we should check the message here 
+                throw new NotFoundException($"Could not find a product with ID \"{productId}\"");
+            }
         }
 
         public ProductDto GetProductByReference(string productReference)
