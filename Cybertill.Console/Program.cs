@@ -81,13 +81,15 @@ namespace Cybertill.Console
 
             var stock = _service.GetStockLevel(product.Id);
 
-            var result = _client.Execute(c => c.stock_reserve(new[]
+            // TODO: For some reason neither stock_update or stock_reserve set (or inc) seem to change the stock level returned
+            var result = _client.Execute(c => c.stock_update(new[]
             {
-                new ctStockReserveItemDetails
+                new ctStockUpdateItemDetails()
                 {
                     itemId = item.productOption.id,
                     locationId = stock.First().LocationId,
                     qty = 1,
+                    qtySpecified = true,
                     reasonText = "Testing API - Sale",
                     updateType = "set"
                 }
@@ -96,7 +98,6 @@ namespace Cybertill.Console
             stock = _service.GetStockLevel(product.Id);
 
             //_service.ReserveStock(item.productOption.id, 1, "Testing API - Sale");
-
             //stock = _service.GetStockLevel(product.Id);
         }
 
@@ -111,11 +112,7 @@ namespace Cybertill.Console
             var p1 = result.First();
             var s1 = _client.Execute(c => c.stock_product(p1.id));
 
-            var a = JsonSerializer.Serialize(p1);
-
             var detailedProduct = _client.Execute(c => c.product_get_with_udf(p1.id, true));
-
-            var b = JsonSerializer.Serialize(detailedProduct);
 
             var websites = _client.Execute(c => c.website_list());
 
