@@ -1,14 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
+using System.Text.Json;
 using System.Threading.Tasks;
+using Cybertill.API;
+using Cybertill.API.Soap;
+using Cybertill.Services;
+using Cybertill.Services.Dtos;
 using Microsoft.Extensions.Configuration;
 
 namespace Cybertill.Console
 {
-    internal class Program
+    class Program
     {
         private static ICybertillClient _client;
+        private static ICybertillBasicService _service;
 
         static void Main(string[] args)
         {
@@ -19,8 +25,6 @@ namespace Cybertill.Console
         {
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddUserSecrets(Assembly.GetAssembly(typeof(Program)))
-                .AddEnvironmentVariables()
                 .Build();
 
             var config = new CybertillConfig();
@@ -28,31 +32,79 @@ namespace Cybertill.Console
 
             _client = new CybertillClient(config);
 
-            await _client.InitAsync();
+            _service = new CybertillBasicService(
+                _client,
+                new CybertillExactNameLocationSelector("1-11 Molendiner Street")
+            );
 
-            var categories = await _client.ExecuteAsync(c => c.category_listAsync());
+            _service.Init();
 
-            //await StockCheckAsync();
+            StockCheckExample();
+            UpdateStockExample();
+            CategoriesExample();
         }
 
-        static async Task StockCheckAsync()
+        /// <summary>
+        /// Example of retrieving all the stock entries updated in the last week
+        /// </summary>
+        static void StockCheckExample()
         {
-            //var categories = await _client.ExecuteAsync(c => c.category_listAsync());
-            var countries = await _client.ExecuteAsync(c => c.country_listAsync());
+            var oneWeekAgo = DateTime.Now.AddDays(-7);
 
-            var countryId = countries.result.First().id;
+            var allStock = new List<ProductStockDto>();
 
-            var locations = await _client.ExecuteAsync(c => c.location_listAsync(true, string.Empty, string.Empty, countryId));
+            var pageIndex = 0;
+            ProductStockDto[] stock;
+            do
+            {
+                stock = _service.GetStockLevels(100, pageIndex++, oneWeekAgo);
+                allStock.AddRange(stock);
+            }
+            while(stock.Length != 0);
+        }
 
-            var dummyProductId = 5;
-            var locationId = locations.result.First().id;
+        /// <summary>
+        /// Simple example of reserving stock for an product option/item
+        /// </summary>
+        static void UpdateStockExample()
+        {
+            // Find a product option
+            var stockLevels = _service.GetStockLevels(1, 0, DateTime.Now.AddYears(-1));
 
-            // Interestingly, location ID is optional (per the docs) but not in this generated code
-            // Might be worth modifying the code to allow a null value?
-            var productStock = await _client.ExecuteAsync(c => c.stock_productAsync(dummyProductId, locationId));
+            foreach (var productStock in stockLevels)
+            {
+                var optionId = productStock.OptionId;
+                var product = _service.GetProductByOptionId(optionId);
 
-            // It's unclear how this query works
-            //var stock = await client.ExecuteAsync(c => c.stock_listAsync("2018-01-01", "2018-01-10", 0, 100));
+                System.Console.WriteLine($"Product: \"${product.Name}\" with option \"{optionId}\"");
+                System.Console.WriteLine($"Stock level: {productStock}");
+
+                _service.ReserveStock(optionId, 1, "Testing API - reserve a product");
+
+                var updatedProductStock = _service.GetStockLevel(product.Id, optionId);
+
+                // Reserved level should have increased by 1 and available is reduced
+                System.Console.WriteLine($"Updated stock level: {updatedProductStock}");
+            }
+        }
+
+        /// <summary>
+        /// Poking around the categories API
+        /// </summary>
+        static void CategoriesExample()
+        {
+            var unsafeProductRef = "10003465";
+
+            var result = _client.Execute(c => c.product_search(null, null, unsafeProductRef));
+            var p1 = result.First();
+            var s1 = _client.Execute(c => c.stock_product(p1.id));
+
+            var detailedProduct = _client.Execute(c => c.product_get_with_udf(p1.id, true));
+
+            var websites = _client.Execute(c => c.website_list());
+
+            var categories = _client.Execute(c => c.category_list());
+            var webCategories = _client.Execute(c => c.category_web_list(websites.First().id));
         }
     }
 }

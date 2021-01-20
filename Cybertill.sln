@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cybertill", "Cybertill\Cybertill.csproj", "{2DEE3367-4D26-442D-A995-93FE6A6B62B2}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cybertill.Console", "Cybertill.Console\Cybertill.Console.csproj", "{B72A1501-01DF-4F90-B508-33A03FFE867B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{75B4F427-6DC1-47CC-A719-14C925ACDB7F}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybertill.API", "Cybertill.API\Cybertill.API.csproj", "{05EA7B6F-9A86-4B43-AD01-00E1D026F3BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybertill.Console", "Cybertill.Console\Cybertill.Console.csproj", "{F5B4E79F-250E-434B-86E6-6CA90E52147F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybertill.Services", "Cybertill.Services\Cybertill.Services.csproj", "{97C921AD-63D0-4EBF-98EA-720047B60FDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +21,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2DEE3367-4D26-442D-A995-93FE6A6B62B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DEE3367-4D26-442D-A995-93FE6A6B62B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DEE3367-4D26-442D-A995-93FE6A6B62B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DEE3367-4D26-442D-A995-93FE6A6B62B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B72A1501-01DF-4F90-B508-33A03FFE867B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B72A1501-01DF-4F90-B508-33A03FFE867B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B72A1501-01DF-4F90-B508-33A03FFE867B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B72A1501-01DF-4F90-B508-33A03FFE867B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05EA7B6F-9A86-4B43-AD01-00E1D026F3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05EA7B6F-9A86-4B43-AD01-00E1D026F3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05EA7B6F-9A86-4B43-AD01-00E1D026F3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05EA7B6F-9A86-4B43-AD01-00E1D026F3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5B4E79F-250E-434B-86E6-6CA90E52147F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B4E79F-250E-434B-86E6-6CA90E52147F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B4E79F-250E-434B-86E6-6CA90E52147F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B4E79F-250E-434B-86E6-6CA90E52147F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C921AD-63D0-4EBF-98EA-720047B60FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C921AD-63D0-4EBF-98EA-720047B60FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C921AD-63D0-4EBF-98EA-720047B60FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C921AD-63D0-4EBF-98EA-720047B60FDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

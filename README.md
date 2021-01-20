@@ -1,11 +1,9 @@
-# Cybertill SOAP API Example
+# Cybertill SOAP Client 
 
-This is a quick work-in-progress example for using a .NET client to interact with the Cybertill SOAP service.
+This is a quick work-in-progress .NET 4.7 client for the Cybertill SOAP service.
 
 ## Set-up
 
-Override the app settings with user secrets. You can either right-click the project and use *Manage User Secrets* or use the command-line, for example:
+The solution includes a **Cybertill.Console** example project which does a simple stock check.
 
-```
-dotnet user-secrets set Cybertill:EndpointUrl "https://ct1234xx.c-pos.co.uk/current/CybertillApi_v1_6.php"
-```
+To add your user secrets duplicate `appsettings.json.example` and name it `appsettings.json`.
