@@ -54,12 +54,27 @@ namespace Cybertill.Services
             return Map(products.First());
         }
 
+        public ProductDto GetProductByOptionId(int optionId)
+        {
+            var item = _client.Execute(c => 
+                c.item_get(optionId, null, 0, true, false)
+            );
+
+            return GetProductById(item.productOption.product.id);
+        }
+
         public ProductDto[] GetProductsByCategory(int productCategory, int pageSize, int pageIndex, bool availability = true)
         {
             var products = _client.Execute(c =>
                 c.product_by_category_list(productCategory, availability, null, null, pageSize * pageIndex, pageSize)
             );
             return products.Select(Map).ToArray();
+        }
+
+        public ProductOptionDto[] GetProductOptions(int productId)
+        {
+            var options = _client.Execute(c => c.product_items(productId));
+            return options.Select(Map).ToArray();
         }
 
         public ProductDto[] GetProducts(int pageSize, int pageIndex, bool availability = true)
@@ -77,10 +92,10 @@ namespace Cybertill.Services
             return result.Where(x => x.locationId == _location.id).Select(Map).ToArray();
         }
 
-        public int GetStockLevel(int productId, int itemId)
+        public ProductStockDto GetStockLevel(int productId, int optionId)
         {
-            var itemStock = GetStockLevel(productId).FirstOrDefault(x => x.ItemId == itemId);
-            return itemStock?.Stock ?? 0;
+            return GetStockLevel(productId)
+                .FirstOrDefault(x => x.OptionId == optionId);
         }
 
         public ProductStockDto[] GetStockLevels(int pageSize, int pageIndex, DateTime? updatedSince = null)
@@ -103,17 +118,17 @@ namespace Cybertill.Services
             }
         }
 
-        public void ReserveStock(int itemId, int amount, string reason = null)
+        public void ReserveStock(int optionId, int amount, string reason = null)
         {
             var result = _client.Execute(c => c.stock_reserve(new[]
             {
                 new ctStockReserveItemDetails
                 {
-                    itemId = itemId,
+                    itemId = optionId,
                     locationId = _location.id,
-                    qty = 1,
+                    qty = amount,
                     reasonText = reason ?? "Reserved by website",
-                    updateType = "dec"
+                    updateType = "inc"
                 }
             }));
             if (!result.success)
@@ -123,22 +138,33 @@ namespace Cybertill.Services
             }
         }
 
-        private ProductStockDto Map(ctStockLevel stock)
+        private static ProductStockDto Map(ctStockLevel stock)
         {
             return new ProductStockDto
             {
                 LocationId = stock.locationId,
-                ItemId = stock.stkItemId,
-                Stock = (int) stock.stock
+                OptionId = stock.stkItemId,
+                Stock = (int) stock.stock,
+                Reserved = (int) stock.reserved
             };
         }
 
-        private ProductDto Map(ctProduct product)
+        private static ProductDto Map(ctProduct product)
         {
             return new ProductDto
             {
                 Id = product.id,
                 Name = product.name
+            };
+        }
+
+        private static ProductOptionDto Map(ctProductOptionDetails option)
+        {
+            return new ProductOptionDto
+            {
+                ProductId = option.productOption.product.id,
+                Id = option.productOption.id,
+                Name = option.productOption.name
             };
         }
     }

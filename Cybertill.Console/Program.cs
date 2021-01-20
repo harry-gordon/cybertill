@@ -39,15 +39,15 @@ namespace Cybertill.Console
 
             _service.Init();
 
-            //StockCheck();
-            //CategoriesExample();
-            UpdateStock();
+            StockCheckExample();
+            UpdateStockExample();
+            CategoriesExample();
         }
 
         /// <summary>
         /// Example of retrieving all the stock entries updated in the last week
         /// </summary>
-        static void StockCheck()
+        static void StockCheckExample()
         {
             var oneWeekAgo = DateTime.Now.AddDays(-7);
 
@@ -64,41 +64,28 @@ namespace Cybertill.Console
         }
 
         /// <summary>
-        /// Simple example of reserving stock
+        /// Simple example of reserving stock for an product option/item
         /// </summary>
-        static void UpdateStock()
+        static void UpdateStockExample()
         {
-            // Some safe product references that we can test stock updates on            
-            var productRefs = new [] {"10011827", "10011824", "10011831"};
+            // Find a product option
+            var stockLevels = _service.GetStockLevels(1, 0, DateTime.Now.AddYears(-1));
 
-            var productRef = productRefs.First();
-
-            var product = _service.GetProductByReference(productRef);
-
-            var productItems = _client.Execute(c => c.product_items(product.Id));
-
-            var item = productItems.First();
-
-            var stock = _service.GetStockLevel(product.Id);
-
-            // TODO: For some reason neither stock_update or stock_reserve set (or inc) seem to change the stock level returned
-            var result = _client.Execute(c => c.stock_update(new[]
+            foreach (var productStock in stockLevels)
             {
-                new ctStockUpdateItemDetails()
-                {
-                    itemId = item.productOption.id,
-                    locationId = stock.First().LocationId,
-                    qty = 1,
-                    qtySpecified = true,
-                    reasonText = "Testing API - Sale",
-                    updateType = "set"
-                }
-            }));
+                var optionId = productStock.OptionId;
+                var product = _service.GetProductByOptionId(optionId);
 
-            stock = _service.GetStockLevel(product.Id);
+                System.Console.WriteLine($"Product: \"${product.Name}\" with option \"{optionId}\"");
+                System.Console.WriteLine($"Stock level: {productStock}");
 
-            //_service.ReserveStock(item.productOption.id, 1, "Testing API - Sale");
-            //stock = _service.GetStockLevel(product.Id);
+                _service.ReserveStock(optionId, 1, "Testing API - reserve a product");
+
+                var updatedProductStock = _service.GetStockLevel(product.Id, optionId);
+
+                // Reserved level should have increased by 1 and available is reduced
+                System.Console.WriteLine($"Updated stock level: {updatedProductStock}");
+            }
         }
 
         /// <summary>

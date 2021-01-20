@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CybertillBasicService.cs" />
+    <Compile Include="Dtos\ProductOptionDto.cs" />
     <Compile Include="Dtos\ProductDto.cs" />
     <Compile Include="Dtos\ProductStockDto.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
