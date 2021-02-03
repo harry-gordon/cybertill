@@ -46,21 +46,38 @@ namespace Cybertill.Services
 
         public ProductDto GetProductByReference(string productReference)
         {
-            var products = _client.Execute(c => c.product_search(null, null, productReference));
-            if (!products.Any())
+            try
             {
-                throw new NotFoundException($"Could not find a product with reference \"{productReference}\"");
+                var products = _client.Execute(c => c.product_search(null, null, productReference));
+                return Map(products.First());
             }
-            return Map(products.First());
+            catch (SoapHeaderException ex)
+            {
+                if (ex.Message.Contains("No product"))
+                {
+                    throw new NotFoundException($"Could not find a product with reference \"{productReference}\"");
+                }
+                throw;
+            }
         }
 
         public ProductDto GetProductByOptionId(int optionId)
         {
-            var item = _client.Execute(c => 
-                c.item_get(optionId, null, 0, true, false)
-            );
-
-            return GetProductById(item.productOption.product.id);
+            try
+            {
+                var option = _client.Execute(c =>
+                    c.item_get(optionId, null, 0, true, false)
+                );
+                return GetProductById(option.productOption.product.id);
+            }
+            catch (SoapHeaderException ex)
+            {
+                if (ex.Message.Contains("No product"))
+                {
+                    throw new NotFoundException($"Could not find a product for option ID \"{optionId}\"");
+                }
+                throw;
+            }
         }
 
         public ProductDto[] GetProductsByCategory(int productCategory, int pageSize, int pageIndex, bool availability = true)
