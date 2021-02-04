@@ -7,6 +7,7 @@ using Cybertill.API;
 using Cybertill.API.Soap;
 using Cybertill.Services;
 using Cybertill.Services.Dtos;
+using Cybertill.Services.Exceptions;
 using Microsoft.Extensions.Configuration;
 
 namespace Cybertill.Console
@@ -39,15 +40,120 @@ namespace Cybertill.Console
 
             _service.Init();
 
-            StockCheckExample();
-            UpdateStockExample();
-            CategoriesExample();
+            //EposCodeExample();
+            SkuExample();
+            //StockCheckExample();
+            //UpdateStockExample();
+            //CategoriesExample();
+        }
+
+        private class CsvRow
+        {
+            public int Id;
+            public string Name;
+            public string EposCode;
+            public string Sku;
+
+            public CsvRow(int id, string name, string eposCode, string sku)
+            {
+                Id = id;
+                Name = name;
+                EposCode = eposCode;
+                Sku = sku;
+            }
+
+            public override string ToString()
+            {
+                return $"{Id} / {EposCode} / {Sku} / \"{Name}\"";
+            }
+        }
+
+        static CsvRow[] ExampleRows =
+        {
+            new CsvRow(28726, "Tuffstuff Woodchip Wallpaper Single Roll", "10003465", "5060075555121"),
+            new CsvRow(28727, "Tuffstuff Woodchip Wallpaper Double Roll", "10003466", "5060075555985"),
+            new CsvRow(24884, "Anthology 01 Coral Steel Grey Wallpaper", "110761", null),
+            new CsvRow(24885, "Anthology 01 Coral Midnight Black Wallpaper", "110762", null),
+            new CsvRow(24148, "Curio Seafern Green Wallpaper", "107/2007", null),
+            new CsvRow(24548, "Evita Water Silk Sprig Silver Wallpaper", "104754", "5011580000000"),
+            new CsvRow(26487, "Marblesque Marble Charcoal/Bronze Grey/Silver Wallpaper", "FD42267", "5011420000000"),
+            new CsvRow(28723, "1000 Grade Lining Paper Double Roll", "10003472", "5025137213081"),
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static void EposCodeExample()
+        {
+            foreach (var row in ExampleRows)
+            {
+                try
+                {
+                    var product = _service.GetProductByReference(row.EposCode);
+                    System.Console.WriteLine($"{row} => EPOS as Reference => {product.Name}");
+                }
+                catch (NotFoundException)
+                {
+                    try
+                    {
+                        var product = _service.GetProductByReference(row.Id.ToString());
+                        System.Console.WriteLine($"{row} => ID as Reference => {product.Name}");
+                    }
+                    catch (NotFoundException)
+                    {
+                        try
+                        {
+                            var product = _service.GetProductByOptionId(row.Id);
+                            System.Console.WriteLine($"{row} => ID as Item ID => {product.Name}");
+                        }
+                        catch (NotFoundException)
+                        {
+                            try
+                            {
+                                var product = _service.GetProductByName(row.Name);
+                                System.Console.WriteLine($"{row} => Name => {product.Name}");
+                            }
+                            catch (NotFoundException)
+                            {
+                                System.Console.WriteLine($"{row} => not found");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static void SkuExample()
+        {
+            foreach (var row in ExampleRows)
+            {
+                try
+                {
+                    var product = _service.GetProductByReference(row.EposCode);
+
+                    var rawProduct = _client.Execute(c => c.product_get(product.Id));
+
+                    System.Console.WriteLine($"{row} =>\n  {product.Id} / \"{product.Name}\"");
+
+                    var options = _client.Execute(c => c.product_items(product.Id));
+                    foreach (var option in options)
+                    {
+                        System.Console.WriteLine($"  - {option.productOption.id} / {option.productOption.@ref} / {option.productOptionPrice.priceRrp:C} / {option.productOptionPrice.priceWeb:C} / \"{option.productOption.name}\"");
+                    }
+                }
+                catch (NotFoundException)
+                {
+                }
+            }
         }
 
         /// <summary>
         /// Example of retrieving all the stock entries updated in the last week
         /// </summary>
-        static void StockCheckExample()
+        private static void StockCheckExample()
         {
             var oneWeekAgo = DateTime.Now.AddDays(-7);
 
@@ -66,7 +172,7 @@ namespace Cybertill.Console
         /// <summary>
         /// Simple example of reserving stock for an product option/item
         /// </summary>
-        static void UpdateStockExample()
+        private static void UpdateStockExample()
         {
             // Find a product option
             var stockLevels = _service.GetStockLevels(1, 0, DateTime.Now.AddYears(-1));
@@ -91,7 +197,7 @@ namespace Cybertill.Console
         /// <summary>
         /// Poking around the categories API
         /// </summary>
-        static void CategoriesExample()
+        private static void CategoriesExample()
         {
             var unsafeProductRef = "10003465";
 

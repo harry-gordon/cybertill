@@ -61,6 +61,23 @@ namespace Cybertill.Services
             }
         }
 
+        public ProductDto GetProductByName(string name)
+        {
+            try
+            {
+                var products = _client.Execute(c => c.product_search(name, null, null));
+                return Map(products.First());
+            }
+            catch (SoapHeaderException ex)
+            {
+                if (ex.Message.Contains("No product"))
+                {
+                    throw new NotFoundException($"Could not find a product with name \"{name}\"");
+                }
+                throw;
+            }
+        }
+
         public ProductDto GetProductByOptionId(int optionId)
         {
             try

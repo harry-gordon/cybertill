@@ -8,6 +8,7 @@ namespace Cybertill.Services
         void Init();
         ProductDto GetProductById(int productId);
         ProductDto GetProductByReference(string productReference);
+        ProductDto GetProductByName(string name);
         ProductDto GetProductByOptionId(int optionId);
         ProductDto[] GetProducts(int pageSize, int pageIndex, bool availability = true);
         ProductDto[] GetProductsByCategory(int productCategory, int pageSize, int pageIndex, bool availability = true);
