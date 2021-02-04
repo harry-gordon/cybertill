@@ -97,6 +97,11 @@ namespace Cybertill.Services
             }
         }
 
+        public ProductOptionDto GetProductOptionByReference(string optionReference)
+        {
+            throw new NotImplementedException();
+        }
+
         public ProductDto[] GetProductsByCategory(int productCategory, int pageSize, int pageIndex, bool availability = true)
         {
             var products = _client.Execute(c =>
@@ -185,21 +190,20 @@ namespace Cybertill.Services
 
         private static ProductDto Map(ctProduct product)
         {
-            return new ProductDto
-            {
-                Id = product.id,
-                Name = product.name
-            };
+            return new ProductDto(product.id, product.name);
         }
 
         private static ProductOptionDto Map(ctProductOptionDetails option)
         {
-            return new ProductOptionDto
-            {
-                ProductId = option.productOption.product.id,
-                Id = option.productOption.id,
-                Name = option.productOption.name
-            };
+            return new ProductOptionDto(
+                option.productOption.id,
+                option.productOption.product.id,
+                option.productOption.name,
+                option.productOption.@ref,
+                option.productOptionPrice.priceRrp,
+                option.productOptionPrice.priceWeb,
+                option.productOption.manNumber
+            );
         }
     }
 }
