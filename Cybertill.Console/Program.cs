@@ -62,7 +62,7 @@ namespace Cybertill.Console
             }
         }
 
-        static CsvRow[] ExampleRows =
+        private static readonly CsvRow[] ExampleRows =
         {
             new CsvRow(28726, "Tuffstuff Woodchip Wallpaper Single Roll", "10003465"),
             new CsvRow(28727, "Tuffstuff Woodchip Wallpaper Double Roll", "10003466"),
@@ -73,6 +73,9 @@ namespace Cybertill.Console
             new CsvRow(26487, "Marblesque Marble Charcoal/Bronze Grey/Silver Wallpaper", "FD42267"),
             new CsvRow(28723, "1000 Grade Lining Paper Double Roll", "10003472"),
             new CsvRow(26494, "Dimensions Floral Pink Wallpaper", "FD42555"),
+            // Previously these two entries wouldn't load because of an XML parsing problem
+            new CsvRow(28306, "Shard Trellis Grey Rose Wallpaper", "FD42604"),
+            new CsvRow(29584, "Milano 9 Hessian Off White Wallpaper", "M95621")
         };
 
         /// <summary>
@@ -94,7 +97,7 @@ namespace Cybertill.Console
                     foreach (var option in options)
                     {
                         var optionStock = stock.FirstOrDefault(o => o.OptionId == option.Id);
-                        
+
                         System.Console.WriteLine($"  - {option.Id} / {option.Reference} / {option.PriceRrp:C} / {option.PriceWeb:C} / available: {optionStock?.Available} / \"{option.Name}\"");
                     }
                 }
