@@ -75,7 +75,11 @@ namespace Cybertill.Console
             new CsvRow(26494, "Dimensions Floral Pink Wallpaper", "FD42555"),
             // Previously these two entries wouldn't load because of an XML parsing problem
             new CsvRow(28306, "Shard Trellis Grey Rose Wallpaper", "FD42604"),
-            new CsvRow(29584, "Milano 9 Hessian Off White Wallpaper", "M95621")
+            new CsvRow(29584, "Milano 9 Hessian Off White Wallpaper", "M95621"),
+            // Some more offending items from Tom (18/01/21)
+            new CsvRow(-1, null, "5095295"),
+            new CsvRow(-1, null, "LKB"),
+            new CsvRow(-1, null, "FFJDBS5")
         };
 
         /// <summary>
