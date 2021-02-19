@@ -5281,7 +5281,7 @@ namespace Cybertill.API.Soap {
         
         private int typeLkpField;
         
-        private int stkBrandIdField;
+        private string stkBrandIdField;
         
         private int dataVatIdField;
         
@@ -5375,7 +5375,7 @@ namespace Cybertill.API.Soap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int stkBrandId {
+        public string stkBrandId {
             get {
                 return this.stkBrandIdField;
             }

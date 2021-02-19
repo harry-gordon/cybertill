@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Cybertill.API;
-using Cybertill.API.Soap;
 using Cybertill.Services;
 using Cybertill.Services.Dtos;
+using Cybertill.Services.Exceptions;
 using Microsoft.Extensions.Configuration;
 
 namespace Cybertill.Console
@@ -39,15 +38,84 @@ namespace Cybertill.Console
 
             _service.Init();
 
-            StockCheckExample();
-            UpdateStockExample();
-            CategoriesExample();
+            EposInvestigationExample();
+            //StockCheckExample();
+            //UpdateStockExample();
+        }
+
+        private class CsvRow
+        {
+            public int Id;
+            public string Name;
+            public string EposCode;
+
+            public CsvRow(int id, string name, string eposCode)
+            {
+                Id = id;
+                Name = name;
+                EposCode = eposCode;
+            }
+
+            public override string ToString()
+            {
+                return $"{Id} / {EposCode} / \"{Name}\"";
+            }
+        }
+
+        private static readonly CsvRow[] ExampleRows =
+        {
+            new CsvRow(28726, "Tuffstuff Woodchip Wallpaper Single Roll", "10003465"),
+            new CsvRow(28727, "Tuffstuff Woodchip Wallpaper Double Roll", "10003466"),
+            new CsvRow(24884, "Anthology 01 Coral Steel Grey Wallpaper", "110761"),
+            new CsvRow(24885, "Anthology 01 Coral Midnight Black Wallpaper", "110762"),
+            new CsvRow(24148, "Curio Seafern Green Wallpaper", "107/2007"),
+            new CsvRow(24548, "Evita Water Silk Sprig Silver Wallpaper", "104754"),
+            new CsvRow(26487, "Marblesque Marble Charcoal/Bronze Grey/Silver Wallpaper", "FD42267"),
+            new CsvRow(28723, "1000 Grade Lining Paper Double Roll", "10003472"),
+            new CsvRow(26494, "Dimensions Floral Pink Wallpaper", "FD42555"),
+            // Previously these two entries wouldn't load because of an XML parsing problem
+            new CsvRow(28306, "Shard Trellis Grey Rose Wallpaper", "FD42604"),
+            new CsvRow(29584, "Milano 9 Hessian Off White Wallpaper", "M95621"),
+            // Some more offending items from Tom (18/01/21)
+            new CsvRow(-1, null, "5095295"),
+            new CsvRow(-1, null, "LKB"),
+            new CsvRow(-1, null, "FFJDBS5")
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static void EposInvestigationExample()
+        {
+            foreach (var row in ExampleRows)
+            {
+                try
+                {
+                    var product = _service.GetProductByReference(row.EposCode);
+
+                    System.Console.WriteLine($"{row} =>\n  {product.Id} / \"{product.Name}\"");
+
+                    var stock = _service.GetStockLevel(product.Id);
+
+                    var options = _service.GetProductOptions(product.Id);
+                    foreach (var option in options)
+                    {
+                        var optionStock = stock.FirstOrDefault(o => o.OptionId == option.Id);
+
+                        System.Console.WriteLine($"  - {option.Id} / {option.Reference} / {option.PriceRrp:C} / {option.PriceWeb:C} / available: {optionStock?.Available} / \"{option.Name}\"");
+                    }
+                }
+                catch (NotFoundException)
+                {
+                    System.Console.WriteLine($"{row} => (none)");
+                }
+            }
         }
 
         /// <summary>
         /// Example of retrieving all the stock entries updated in the last week
         /// </summary>
-        static void StockCheckExample()
+        private static void StockCheckExample()
         {
             var oneWeekAgo = DateTime.Now.AddDays(-7);
 
@@ -66,7 +134,7 @@ namespace Cybertill.Console
         /// <summary>
         /// Simple example of reserving stock for an product option/item
         /// </summary>
-        static void UpdateStockExample()
+        private static void UpdateStockExample()
         {
             // Find a product option
             var stockLevels = _service.GetStockLevels(1, 0, DateTime.Now.AddYears(-1));
@@ -86,25 +154,6 @@ namespace Cybertill.Console
                 // Reserved level should have increased by 1 and available is reduced
                 System.Console.WriteLine($"Updated stock level: {updatedProductStock}");
             }
-        }
-
-        /// <summary>
-        /// Poking around the categories API
-        /// </summary>
-        static void CategoriesExample()
-        {
-            var unsafeProductRef = "10003465";
-
-            var result = _client.Execute(c => c.product_search(null, null, unsafeProductRef));
-            var p1 = result.First();
-            var s1 = _client.Execute(c => c.stock_product(p1.id));
-
-            var detailedProduct = _client.Execute(c => c.product_get_with_udf(p1.id, true));
-
-            var websites = _client.Execute(c => c.website_list());
-
-            var categories = _client.Execute(c => c.category_list());
-            var webCategories = _client.Execute(c => c.category_web_list(websites.First().id));
         }
     }
 }

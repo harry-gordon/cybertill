@@ -61,6 +61,23 @@ namespace Cybertill.Services
             }
         }
 
+        public ProductDto GetProductByName(string name)
+        {
+            try
+            {
+                var products = _client.Execute(c => c.product_search(name, null, null));
+                return Map(products.First());
+            }
+            catch (SoapHeaderException ex)
+            {
+                if (ex.Message.Contains("No product"))
+                {
+                    throw new NotFoundException($"Could not find a product with name \"{name}\"");
+                }
+                throw;
+            }
+        }
+
         public ProductDto GetProductByOptionId(int optionId)
         {
             try
@@ -78,6 +95,11 @@ namespace Cybertill.Services
                 }
                 throw;
             }
+        }
+
+        public ProductOptionDto GetProductOptionByReference(string optionReference)
+        {
+            throw new NotImplementedException();
         }
 
         public ProductDto[] GetProductsByCategory(int productCategory, int pageSize, int pageIndex, bool availability = true)
@@ -168,21 +190,20 @@ namespace Cybertill.Services
 
         private static ProductDto Map(ctProduct product)
         {
-            return new ProductDto
-            {
-                Id = product.id,
-                Name = product.name
-            };
+            return new ProductDto(product.id, product.name);
         }
 
         private static ProductOptionDto Map(ctProductOptionDetails option)
         {
-            return new ProductOptionDto
-            {
-                ProductId = option.productOption.product.id,
-                Id = option.productOption.id,
-                Name = option.productOption.name
-            };
+            return new ProductOptionDto(
+                option.productOption.id,
+                option.productOption.product.id,
+                option.productOption.name,
+                option.productOption.@ref,
+                option.productOptionPrice.priceRrp,
+                option.productOptionPrice.priceWeb,
+                option.productOption.manNumber
+            );
         }
     }
 }
